@@ -1,0 +1,9 @@
+LayerName,Color,LineType,LineWeight,Description
+A-WALL,7,Continuous,0.30,Wall lines
+A-DOOR,2,Continuous,0.25,Door lines
+A-WINDOW,4,Continuous,0.25,Window lines
+A-DIMS,1,Continuous,0.18,Dimensions
+A-TEXT,3,Continuous,0.18,Annotations
+A-ROAD,6,Dashed,0.25,Approach road alignment
+A-BOUND,8,Continuous,0.30,Boundary lines
+A-GIS,9,Continuous,0.20,Imported GIS layers

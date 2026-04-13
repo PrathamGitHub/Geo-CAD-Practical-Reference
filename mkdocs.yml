@@ -1,0 +1,77 @@
+site_name: Geo-CAD Practical Reference
+site_description: Practical reference for AutoCAD Civil 3D, Excel 365, QGIS, Google Earth Pro, and OneDrive workflows
+site_author: Prathamesh Barane and Prashant Kote
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: fontawesome/solid/book-open
+  # logo: assets\Logo_Transparent.svg
+  favicon: assets\Logo_Transparent.svg
+  features:
+    - navigation.footer
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  social:
+    - icon: material/web
+      link: https://static.beservices.in/prathamesh/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/prathameshbarane
+
+copyright: Copyright &copy; 2026 Prathamesh Barane
+
+nav:
+  - Home: index.md
+  - Core Concepts and Standards: concepts-and-standards.md
+  - AutoCAD Civil 3D Reference: autocad-civil3d-reference.md
+  - Excel 365 Reference: excel-365-reference.md
+  - QGIS and Google Earth Pro Reference: qgis-gep-reference.md
+  - Interoperability Workflow: interoperability-workflow.md
+  - Practical Execution Guide: practical-execution-guide.md
+  - Dataset Templates: dataset-templates.md
+  - Cheatsheet: cheatsheet.md
+  - Troubleshooting: troubleshooting.md
+  - Further Reading: further-reading.md
