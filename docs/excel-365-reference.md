@@ -11,6 +11,7 @@ Context:
 It is the fastest way to clean and verify survey or quantity data before CAD or GIS use.
 
 Typical use cases:
+
 - Room and opening schedules.
 - Survey point checks.
 - Quantity calculations.
@@ -19,12 +20,14 @@ Typical use cases:
 ## Why It Is Useful
 
 Pros:
+
 - Fast calculations.
 - Strong filtering and sorting.
 - Easy duplicate and unique checks.
 - Good print setup for reports.
 
 Cons:
+
 - Manual editing can introduce mistakes.
 - Formula references can break if structure is poor.
 - Weak metadata compared to GIS databases.
@@ -42,14 +45,25 @@ Use structured tables and clear column naming from the start.
 
 ## High-Impact Operations
 
-- Basic math operations.
-- round, mround, ceil, floor.
-- index-match lookup.
+<!-- prettier-ignore -->
+- Basic math operations:
+    - addition
+    - substraction
+    - multiplication
+    - division
+    - power
+    - square root
+- Rounding operations:
+    - round
+    - mround 
+    - ceil
+    - floor
+- Index-Match lookup.
 - Duplicate detection.
-- unique value extraction.
-- find and replace.
+- Unique value extraction.
+- Find and replace.
 - Convert range to table.
-- Filter, sort, and quick stats.
+    - Filter, sort, and quick stats.
 - Page setup for print.
 
 ## Step-by-Step Practical Workflow

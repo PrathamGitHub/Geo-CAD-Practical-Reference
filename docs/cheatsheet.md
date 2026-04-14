@@ -11,6 +11,7 @@ This page is for quick recall while doing practical work.
 ## AutoCAD Civil 3D Cheatsheet
 
 Navigation and selection:
+
 - Object selection methods.
 - Zoom extents.
 - Zoom window.
@@ -18,6 +19,7 @@ Navigation and selection:
 - Regen.
 
 Draw and edit:
+
 - Polyline.
 - Closed polyline.
 - Circle.
@@ -36,6 +38,7 @@ Draw and edit:
 - Pedit.
 
 Control and output:
+
 - Layer panel.
 - Properties panel.
 - Match properties.
@@ -48,6 +51,7 @@ Control and output:
 ## Excel 365 Cheatsheet
 
 Core operations:
+
 - Basic math operations.
 - round, mround, ceil, floor.
 - index-match.
@@ -59,6 +63,7 @@ Core operations:
 ## QGIS Cheatsheet
 
 Core steps:
+
 - Set project CRS.
 - Add layers.
 - Check layer properties.
@@ -67,6 +72,7 @@ Core steps:
 - Export map layout.
 
 Plugins:
+
 - QuickWKT.
 - QuickMapServices.
 - Advanced Map Downloader.

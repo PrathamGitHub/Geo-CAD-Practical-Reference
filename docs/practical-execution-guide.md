@@ -5,6 +5,7 @@ This guide gives one connected workflow from raw data to final outputs.
 ## Project Scenario
 
 Use a simple project:
+
 - Two-room building, ground floor only.
 - One short approach road.
 - Total station points in CSV.

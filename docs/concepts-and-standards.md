@@ -21,15 +21,18 @@ Context:
 Raster is used when data is continuous, such as elevation, temperature, and imagery.
 
 Usage:
+
 - Satellite basemap.
 - DEM.
 - Slope and terrain products.
 
 Pros:
+
 - Strong for terrain and surface analysis.
 - Easy to visualize as continuous surface.
 
 Cons:
+
 - Large file size.
 - Precision depends on pixel size.
 
@@ -42,6 +45,7 @@ Definition:
 Vector data stores shapes as coordinates.
 
 Types:
+
 - Point.
 - Line.
 - Polygon.
@@ -50,17 +54,20 @@ Context:
 Vector is used for assets and boundaries.
 
 Usage:
+
 - Survey points.
 - Road centerlines.
 - Building outlines.
 - Plot boundaries.
 
 Pros:
+
 - Precise geometry.
 - Easy attribute management.
 - Smaller files for many use cases.
 
 Cons:
+
 - Less suitable for continuous surfaces like elevation.
 
 Recommendation:
@@ -72,14 +79,16 @@ Definition:
 CRS is a rule set that tells software how coordinates relate to real-world locations.
 
 Key CRS used in this reference:
-- EPSG:4326, latitude and longitude in degrees.
-- EPSG:3857, common web map display CRS.
-- EPSG:32643, projected UTM CRS suited for metric engineering work in the target region.
+
+- WGS 84 (EPSG Code 4326): latitude and longitude on the Earth's surface in degrees.
+- WGS 84 / Pseudo-Mercator (EPSG Code 3857):  standard projected coordinate system for web mapping, used by Google Maps, OpenStreetMap, and Bing Maps.
+-  WGS 84 / UTM zone 43N (EPSG Code 32643): projected UTM CRS suited for metric engineering work in the target region.
 
 Practical rule:
+
 - Use EPSG:4326 for KML and broad data exchange.
-- Use EPSG:32643 for distance, area, and slope analysis.
 - Use EPSG:3857 only for web background viewing.
+- Use UTM eg. EPSG:32643 for distance, area, and slope analysis. Most common for engineering applications.
 
 ## Attribute Data
 
@@ -87,12 +96,14 @@ Definition:
 Attributes are table fields attached to map features.
 
 Common fields:
+
 - ID.
 - Code.
 - Elevation.
 - Description.
 
 Recommendation:
+
 - Keep field names short and clear.
 - Avoid spaces in field names for compatibility.
 - Keep units explicit, for example Elev_m.

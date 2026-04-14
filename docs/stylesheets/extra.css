@@ -19,3 +19,37 @@
     font-weight: 600;
     opacity: 0.95;
 }
+
+/* Custom list styles */
+ul {
+    list-style-type: disc;
+    /* Default bullet for top-level lists */
+}
+
+ul ul {
+    list-style-type: circle;
+    /* Second-level lists */
+}
+
+ul ul ul {
+    list-style-type: square;
+    /* Third-level lists */
+}
+
+ul ul ul ul {
+    list-style-type: dash;
+    /* Fourth-level lists */
+}
+
+/* Optional: Add more indentation for nested lists */
+ul ul {
+    margin-left: 20px;
+}
+
+ul ul ul {
+    margin-left: 40px;
+}
+
+ul ul ul ul {
+    margin-left: 60px;
+}

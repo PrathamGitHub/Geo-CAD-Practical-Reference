@@ -27,7 +27,7 @@ This documentation is written for beginner-to-intermediate users who need clear 
 ## End-to-End Data Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
 		A[Total Station CSV] --> B[Excel Cleaning and Checks]
 		B --> C[AutoCAD Drafting and Dimensions]
 		A --> D[QGIS Point Layer]

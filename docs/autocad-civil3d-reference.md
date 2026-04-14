@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 # AutoCAD Civil 3D Reference
 
 This page explains high-impact Civil 3D drafting and interoperability operations in simple language.
@@ -11,6 +12,7 @@ Context:
 It is used where geometry clarity, drafting speed, and plotting quality matter.
 
 Typical use cases:
+
 - Building plan drafting.
 - Section and elevation preparation.
 - Road alignment context drawing.
@@ -19,12 +21,14 @@ Typical use cases:
 ## Why It Is Useful
 
 Pros:
+
 - Precise drafting control.
 - Strong layer and property management.
 - Industry-accepted drawing outputs.
 - Good interoperability with GIS through map tools.
 
 Cons:
+
 - Learning curve for new users.
 - Wrong units or CRS setup can create major location errors.
 - Over-detailed styling can slow practical work.
@@ -42,42 +46,51 @@ Focus first on geometry quality, dimensions, and clean layers. Styling can be re
 ## High-Impact Commands
 
 Selection and navigation:
-- Different object selection methods.
-- Zoom extents.
-- Zoom window.
-- Pan.
-- Regen.
+
+<!-- prettier-ignore -->
+- Different object selection methods:
+    - window selection
+    - crossing selection
+    - add or remove selection
+- Zoom:
+    - extents
+    - window
+- Pan
+- Regen
 
 Drawing and editing:
-- Polyline.
-- Closed polyline.
-- Circle.
-- Erase.
-- Move.
-- Copy.
-- Rotate.
-- Scale with reference.
-- Trim.
-- Offset.
-- Mirror.
-- Boundary.
-- Extend.
-- Explode.
-- Join.
-- Pedit.
+
+- Polyline
+- Closed polyline
+- Circle
+- Erase
+- Move
+- Copy
+- Rotate
+- Scale
+- Offset
+- Trim
+- Extend
+- Mirror
+- Boundary
+- Explode
+- Join
+- Pedit
 
 Standards and readability:
-- Layer panel.
-- Properties panel.
-- Match properties.
-- Snap.
-- Osnap.
-- Dimensions.
+
+- Layer panel
+- Properties panel
+- Match properties
+- Snap
+- Osnap
+- Dimensions
 
 GIS interoperability commands:
-- mapimport.
-- mapiinsert.
-- mapexport.
+
+- mapimport
+- mapiinsert
+- mapexport
 
 ## Step-by-Step Practical Workflow
 

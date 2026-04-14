@@ -13,11 +13,13 @@ Engineering workflows often fail because files are exchanged without checking CR
 ## Why Interoperability Matters
 
 Pros:
+
 - Reduces duplicate work.
 - Improves consistency across teams.
 - Enables faster communication with mixed software users.
 
 Cons:
+
 - Wrong CRS can silently shift data.
 - Some formats drop style or attribute types.
 - Repeated conversion can degrade data quality.
@@ -28,7 +30,7 @@ Treat one file as source of truth and publish derived exports for other tools.
 ## End-to-End Data Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Total Station CSV] --> B[Excel Cleaning and Validation]
     A --> C[QGIS Delimited Text Layer]
     C --> D[GeoPackage or Shapefile]
