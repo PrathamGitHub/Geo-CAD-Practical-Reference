@@ -1,0 +1,29 @@
+# MkDocs build directory
+site/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+
+# Node.js dependencies (if applicable)
+node_modules/
+
+# Custom assets cache
+assets/images/placeholder-*.png

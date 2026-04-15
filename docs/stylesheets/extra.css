@@ -20,36 +20,72 @@
     opacity: 0.95;
 }
 
-/* Custom list styles */
-ul {
-    list-style-type: disc;
-    /* Default bullet for top-level lists */
+.author-stack {
+    margin: 12px 0;
+    padding: 4px 0 10px;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
-ul ul {
-    list-style-type: circle;
-    /* Second-level lists */
+.author-stack__title {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 8px;
 }
 
-ul ul ul {
-    list-style-type: square;
-    /* Third-level lists */
+.author-card {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
 }
 
-ul ul ul ul {
-    list-style-type: dash;
-    /* Fourth-level lists */
+.author-card:last-child {
+    margin-bottom: 0;
 }
 
-/* Optional: Add more indentation for nested lists */
-ul ul {
-    margin-left: 20px;
+.author-card__photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid var(--md-default-fg-color--lightest);
 }
 
-ul ul ul {
-    margin-left: 40px;
+.author-card__name {
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    margin-bottom: 5px;
 }
 
-ul ul ul ul {
-    margin-left: 60px;
+.author-card__links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.author-link--icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: var(--md-default-fg-color--light);
+    text-decoration: none;
+    transition: color 120ms ease, transform 120ms ease;
+}
+
+.author-link--icon:hover {
+    color: var(--md-primary-fg-color);
+    transform: translateY(-1px);
+}
+
+.author-link--icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }

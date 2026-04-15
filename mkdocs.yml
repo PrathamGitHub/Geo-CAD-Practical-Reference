@@ -1,14 +1,18 @@
 site_name: Geo-CAD Practical Reference
 site_description: Practical reference for AutoCAD Civil 3D, Excel 365, QGIS, Google Earth Pro, and OneDrive workflows
 site_author: Prathamesh Barane and Prashant Kote
+repo_name: PrathamGitHub/Geo-CAD-Practical-Reference
+repo_url: https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: docs/overrides
   language: en
   icon:
     logo: fontawesome/solid/book-open
-  # logo: assets\Logo_Transparent.svg
-  favicon: assets\Logo_Transparent.svg
+  # logo: assets/Logo_Transparent.svg
+  favicon: assets/Logo_Transparent.svg
   features:
     - navigation.footer
   palette:
@@ -60,15 +64,17 @@ extra:
       link: https://static.beservices.in/prathamesh/
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/prathameshbarane
+    - icon: material/github
+      link: https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference
 
 copyright: Copyright &copy; 2026 Prathamesh Barane
 
 nav:
   - Home: index.md
   - Core Concepts and Standards: concepts-and-standards.md
+  - QGIS and Google Earth Pro Reference: qgis-gep-reference.md
   - AutoCAD Civil 3D Reference: autocad-civil3d-reference.md
   - Excel 365 Reference: excel-365-reference.md
-  - QGIS and Google Earth Pro Reference: qgis-gep-reference.md
   - Interoperability Workflow: interoperability-workflow.md
   - Practical Execution Guide: practical-execution-guide.md
   - Dataset Templates: dataset-templates.md

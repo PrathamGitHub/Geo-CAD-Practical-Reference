@@ -46,6 +46,13 @@ flowchart TD
 4. Use the cheatsheet while doing tasks.
 5. Use troubleshooting when outputs mismatch.
 
+## Repository and Collaboration
+
+- GitHub repository: [PrathamGitHub/Geo-CAD-Practical-Reference](https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference)
+- Use this repository for updates, issue tracking, and collaborative improvements.
+- Open issues for corrections or enhancement suggestions.
+- Use pull requests for content improvements and dataset updates.
+
 ## Screenshot Placeholder
 
 > Insert screenshot: final project output folder with CAD drawing, PDF, Excel workbook, GeoTIFF, contour layer, and KML file.
