@@ -53,6 +53,7 @@ markdown_extensions:
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
   - javascripts/mermaid-init.js
+  - javascripts/remark42-theme-sync.js
 
 extra_css:
   - stylesheets/extra.css
@@ -81,3 +82,4 @@ nav:
   - Cheatsheet: cheatsheet.md
   - Troubleshooting: troubleshooting.md
   - Further Reading: further-reading.md
+  - Questions and Discussion: questions-discussion.md
