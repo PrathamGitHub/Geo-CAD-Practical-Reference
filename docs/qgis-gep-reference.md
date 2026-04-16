@@ -120,6 +120,17 @@ Use plugins selectively. Built-in tools should be your default for reproducible 
 
 ## Practical Workflows
 
+```mermaid
+flowchart TD
+	A[Basemap with QuickMapServices] --> B[AOI Download with Advanced Map Downloader]
+	B --> C[GeoTIFF Basemap]
+	C --> D[DEM Download from OpenTopography]
+	D --> E[Reproject DEM to EPSG 32643]
+	E --> F[Set 0 Pixel to NoData]
+	F --> G[Generate Contours]
+	G --> H[Styled Contour Output]
+```
+
 ### Workflow A: Basemap Workflow
 
 Goal: prepare AOI-specific basemap raster for consistent project context.
@@ -172,6 +183,18 @@ Goal: derive contour lines for terrain interpretation and communication.
 
 Output: contour layer suitable for design review and reporting.
 
+```mermaid
+flowchart TD
+	A[Projected DEM] --> B[Run Slope in Processing Toolbox]
+	B --> C{Output Unit?}
+	C -->|Degrees| D[Slope Degrees Raster]
+	C -->|Percent| E[Slope Percent Raster]
+	D --> F[Classify and Style]
+	E --> F
+	F --> G[Validate with Terrain Logic]
+	G --> H[Route Check with Road Slope Calculator]
+```
+
 ### Workflow E: Build a Slope Map from DEM
 
 Goal: identify steep zones for route feasibility and design risk checks.
@@ -185,6 +208,17 @@ Goal: identify steep zones for route feasibility and design risk checks.
 7. For alignment-specific slope summary, run Road Slope Calculator.
 
 Output: a slope raster that supports feasibility, alignment screening, and risk communication.
+
+```mermaid
+flowchart TD
+	A[DEM + Alignment Layer] --> B[QuickWKT Coordinate Check]
+	B --> C[Profile Tool: Select DEM]
+	C --> D[Set Alignment Path]
+	D --> E[Review Elevation Graph]
+	E --> F[Export Profile Chart and Samples]
+	F --> G[Derive Slope Profile]
+	G --> H[Cross-check with Road Slope Calculator]
+```
 
 ### Workflow F: Generate Elevation and Slope Profile Along Alignment
 
@@ -213,6 +247,20 @@ Output: elevation profile plus slope profile summary for engineering review.
 - Save Features As: Right-click layer > Export > Save Features As.
 
 ## Map Making and Export Workflow
+
+```mermaid
+flowchart TD
+	A[Analysis Outputs Ready] --> B[Apply Symbology and Labels]
+	B --> C[Print Layout Composition]
+	C --> D[Export PDF and PNG]
+	D --> E[Need Data Exchange?]
+	E -->|Yes| F[Vector: Save Features As]
+	E -->|Yes| G[Raster: Warp or Translate]
+	E -->|No| H[Archive Final Maps]
+	F --> I[Validate CRS and Geometry]
+	G --> I
+	I --> J[Versioned Deliverables]
+```
 
 1. Finalize layer symbology and labels for readability.
 2. Open Project > New Print Layout and add map frame.
