@@ -6,14 +6,14 @@ This page lists practical and trusted sources for deeper learning.
 
 - Autodesk Civil 3D 2021 Help.
 - Microsoft Excel help and learning.
-- QGIS 3.40 User Guide.
+- QGIS 3.44 User Guide.
+- Google Earth documentation.
 - OneDrive documentation.
 
 ## Standards and Format References
 
-- OGC KML standard overview.
-- GDAL Warp documentation.
-- GDAL Contour documentation.
+- OGC standard overview.
+- GDAL command line tools for geospatial data processing.
 
 ## Why These Sources Matter
 
@@ -27,12 +27,12 @@ This page lists practical and trusted sources for deeper learning.
 2. Use tool-specific reference pages in this site.
 3. Use official pages for advanced options only when required.
 
-## Official Links
+## Official Links as of April 2026
 
-- https://help.autodesk.com/view/CIV3D/2021/ENU/
-- https://support.microsoft.com/excel
-- https://docs.qgis.org/3.40/en/docs/user_manual/
-- https://learn.microsoft.com/onedrive/
-- https://www.ogc.org/standards/kml/
-- https://gdal.org/en/stable/programs/gdalwarp.html
-- https://gdal.org/en/stable/programs/gdal_contour.html
+- [AutoCAD Civil 3D](https://help.autodesk.com/view/CIV3D/2021/ENU/)
+- [Microsoft Excel](https://support.microsoft.com/excel)
+- [QGIS](https://docs.qgis.org/3.44/en/docs/user_manual/index.html)
+- [Google Earth](https://earth.google.com/intl/ar/userguide/v4/index.htm)
+- [OneDrive](https://learn.microsoft.com/onedrive/)
+- [OGC](https://www.ogc.org/standards/)
+- [GDAL](https://gdal.org/en/stable/index.html)

@@ -1,143 +1,204 @@
 # Core Concepts and Standards
 
-This page explains key concepts in plain language and gives practical standards that work in most engineering projects.
+This page explains the core ideas in plain language and sets practical standards for day-to-day civil engineering work.
 
-## Why Concepts Matter
+## A Simple Story First
 
-- Tools change.
-- Menus change.
-- Good concepts stay useful.
+Imagine a small team planning an approach road to a new site.
 
-If concepts are clear, practical execution becomes faster and more accurate.
+- The surveyor sends a spreadsheet with point coordinates and levels.
+- The CAD drafter sends a drawing with centerline and plot boundaries.
+- The project engineer must answer simple but critical questions:
+  - Where exactly is the road alignment on ground?
+  - How far is it from nearby structures?
+  - Which option is safer and cheaper?
 
-## Core Geospatial Concepts
+That is where data becomes geospatial data, and geospatial data becomes decisions.
 
-### Raster
+![Data to decisions workflow](assets/images/concepts-data-to-decisions.svg)
 
-Definition:
-A raster is an image made of many grid cells called pixels. Each pixel stores one value.
+## Data: Why It Matters in Civil Engineering
 
-Context:
-Raster is used when data is continuous, such as elevation, temperature, and imagery.
+In civil engineering, data is not just documentation. It directly drives design quality, cost accuracy, and execution speed.
 
-Usage:
+Common tasks that depend on good data:
 
-- Satellite basemap.
-- DEM.
-- Slope and terrain products.
+- Site feasibility and constraints mapping.
+- Alignment and grading decisions.
+- Quantity and cost estimation.
+- Clash and access checks before site execution.
+- Progress tracking and as-built validation.
 
-Pros:
+When data quality is weak, teams spend time rechecking drawings, repeating measurements, and correcting site mistakes.
 
-- Strong for terrain and surface analysis.
-- Easy to visualize as continuous surface.
+## Geospatial Data: What It Is and Why It Is Different
 
-Cons:
+Geospatial data is any data tied to location on Earth.
 
-- Large file size.
+It usually answers one more question than normal data: where?
+
+### How Is Geospatial Data Different?
+
+| Normal data                         | Geospatial data                                           |
+| ----------------------------------- | --------------------------------------------------------- |
+| Has values only                     | Has values plus location                                  |
+| Example: chainage table in Excel    | Example: chainage table with coordinates and map position |
+| Hard to visualize spatial conflicts | Easy to overlay and inspect conflicts on map              |
+| Mostly used for reporting           | Used for both reporting and spatial decision-making       |
+
+### GIS: The Bridge Between Data and Location
+
+GIS (Geographic Information System) is the software that helps us work with geospatial data. It allows us to:
+
+- Import and visualize data on a map.
+- Analyze spatial relationships and patterns.
+- Export data in formats that can be shared and used in other tools.
+
+### What Does It Include in This Workflow?
+
+- Excel contributes attributes and coordinates (for example X, Y, Z, code, description).
+- CAD contributes engineering geometry (lines, boundaries, layers, layout context).
+- QGIS (An open-source GIS) combines both in one spatial workspace for validation, analysis, and outputs.
+
+![Excel and CAD into QGIS](assets/images/concepts-excel-cad-qgis-flow.svg)
+
+## Role of GIS in Civil Engineering
+
+GIS is the bridge between raw project files and real-world engineering decisions.
+
+GIS helps teams:
+
+- See all project layers in one common location context.
+- Verify if survey, CAD, and basemap data align correctly.
+- Measure distance, area, slope, and proximity quickly.
+- Compare alternatives before freezing design.
+- Communicate decisions using clear maps and data-backed outputs.
+
+In short, GIS reduces guesswork and rework.
+
+## Data Models and Their Basic Types
+
+Geospatial data is mainly represented in two models: vector and raster.
+
+### Vector Model
+
+Vector stores geometry as coordinates. It is best for precise engineering features.
+
+- Point: one location (example: survey station, borehole).
+- Line: linear feature (example: road centerline, drain, pipeline).
+- Polygon: closed area (example: plot boundary, building footprint, pond).
+
+### Raster Model
+
+Raster stores data in a grid of cells. It is best for continuous surfaces.
+
+- Typical uses: satellite imagery, DEM, slope, heat maps.
 - Precision depends on pixel size.
 
-Recommendation:
-Use raster for terrain and background context, not for precise engineering boundaries.
-
-### Vector
-
-Definition:
-Vector data stores shapes as coordinates.
-
-Types:
-
-- Point.
-- Line.
-- Polygon.
-
-Context:
-Vector is used for assets and boundaries.
-
-Usage:
-
-- Survey points.
-- Road centerlines.
-- Building outlines.
-- Plot boundaries.
-
-Pros:
-
-- Precise geometry.
-- Easy attribute management.
-- Smaller files for many use cases.
-
-Cons:
-
-- Less suitable for continuous surfaces like elevation.
-
-Recommendation:
-Use vector for design geometry and reporting layers.
-
-## Coordinate Reference System (CRS)
-
-Definition:
-CRS is a rule set that tells software how coordinates relate to real-world locations.
-
-Key CRS used in this reference:
-
-- WGS 84 (EPSG Code 4326): latitude and longitude on the Earth's surface in degrees.
-- WGS 84 / Pseudo-Mercator (EPSG Code 3857):  standard projected coordinate system for web mapping, used by Google Maps, OpenStreetMap, and Bing Maps.
--  WGS 84 / UTM zone 43N (EPSG Code 32643): projected UTM CRS suited for metric engineering work in the target region.
+![Basic geospatial data models](assets/images/concepts-data-models.svg)
 
 Practical rule:
 
+- Use vector for design geometry, assets, and reporting layers.
+- Use raster for terrain, imagery, and surface-based analysis.
+
+## Coordinate Reference System (CRS)
+
+CRS is a rule set that tells software how coordinates relate to real-world locations.
+
+Without a correct CRS, even good survey and CAD data can appear in the wrong place.
+
+### Key CRS Used in This Reference
+
+- WGS 84 (EPSG:4326): latitude and longitude on the Earth in degrees.
+- WGS 84 / Pseudo-Mercator (EPSG:3857): standard projected system for web maps like Google Maps and OpenStreetMap.
+- WGS 84 / UTM Zone 43N (EPSG:32643): projected CRS suited for metric engineering work in the target region.
+
+### Practical Rule
+
 - Use EPSG:4326 for KML and broad data exchange.
 - Use EPSG:3857 only for web background viewing.
-- Use UTM eg. EPSG:32643 for distance, area, and slope analysis. Most common for engineering applications.
+- Use UTM (for example EPSG:32643) for distance, area, and slope analysis in engineering tasks.
 
-## Attribute Data
+## File Formats and Their Roles
 
-Definition:
-Attributes are table fields attached to map features.
+### Common Formats in Daily Civil GIS Workflows
 
-Common fields:
-
-- ID.
-- Code.
-- Elevation.
-- Description.
-
-Recommendation:
-
-- Keep field names short and clear.
-- Avoid spaces in field names for compatibility.
-- Keep units explicit, for example Elev_m.
-
-## File Formats and Their Role
-
-- CSV: simple tabular exchange, excellent for survey points and schedules.
-- GeoTIFF: georeferenced raster format for basemap and DEM.
-- Shapefile: widely supported vector format.
-- GeoPackage: modern single-file vector and raster container.
-- KML or KMZ: earth browser visualization and sharing.
-- DWG or DXF: CAD drafting and design exchange.
+| Format     | Data type             | Typical role in workflow                            |
+| ---------- | --------------------- | --------------------------------------------------- |
+| CSV        | Tabular               | Survey points, schedules, coordinate tables         |
+| GeoTIFF    | Raster                | Basemap, DEM, orthophoto, terrain surfaces          |
+| Shapefile  | Vector                | Legacy-compatible exchange of points/lines/polygons |
+| GeoPackage | Vector and Raster     | Preferred single-file working format in GIS         |
+| KML / KMZ  | Vector with styling   | Earth-browser sharing and quick review              |
+| DWG / DXF  | CAD geometry and text | Drafting/design source and CAD-GIS exchange         |
 
 Recommendation:
-Use GeoPackage when possible for editing workflows, and export Shapefile or KML only when needed by external users.
 
-## Industry Standards and Practical Conventions
+- Use GeoPackage as the main editable GIS format when possible.
+- Export Shapefile, KML, or DXF only when external compatibility requires it.
 
-- Follow OGC-aligned geospatial exchange where possible.
-- Keep CRS metadata correct at each import and export step.
-- Store elevation units clearly.
-- Use clear layer naming.
-- Keep one source of truth for each dataset.
+### KML vs KMZ
 
-## Common Use Cases
+| Format | What it is                         | Best use                                  | Notes                             |
+| ------ | ---------------------------------- | ----------------------------------------- | --------------------------------- |
+| KML    | Text-based Keyhole Markup Language | Sharing map features and simple styling   | Readable, editable, can be larger |
+| KMZ    | Compressed KML package             | Sharing KML with icons/images in one file | Smaller size, easier to transfer  |
 
-- Building and small campus planning.
-- Approach road concept and slope checks.
-- Survey point visualization and conversion.
-- Contour generation from DEM.
-- CAD to GIS and GIS to CAD transfer.
+Rule of thumb:
 
-## Screenshot Placeholder
+- Use KML during editing or when you need readable text.
+- Use KMZ for compact sharing and email transfer.
 
-> Insert screenshot: same location shown as raster and vector to explain the difference.
+### DWG vs DXF
 
-![Raster Vector Placeholder](assets/images/placeholder-concepts-raster-vector.png)
+| Format | What it is                    | Best use                                  | Notes                               |
+| ------ | ----------------------------- | ----------------------------------------- | ----------------------------------- |
+| DWG    | Native AutoCAD drawing format | Active drafting and production drawings   | Richest CAD feature support         |
+| DXF    | Drawing exchange format       | Interoperability with GIS and other tools | Better for data exchange, more open |
+
+Rule of thumb:
+
+- Use DWG as design source in CAD workflows.
+- Use DXF when exchanging geometry across platforms, including GIS.
+
+## Data Products and Derived Products
+
+In civil engineering mapping workflows, some outputs are base products, and some are derived from analysis.
+
+### Base Data Products
+
+| Product | What it gives you                                | Common source                    |
+| ------- | ------------------------------------------------ | -------------------------------- |
+| Basemap | Ground context and visual reference for planning | Web tiles or orthophoto          |
+| DEM     | Elevation surface where each cell stores height  | Survey/drone/LiDAR/raster source |
+
+### Derived Products (Generated from Base Data)
+
+| Product           | Derived from        | Why it is used in civil work                             |
+| ----------------- | ------------------- | -------------------------------------------------------- |
+| Contours          | DEM                 | Understand terrain form and grading intent               |
+| Slope map         | DEM                 | Identify steep zones and feasibility/risk                |
+| Elevation profile | DEM + selected line | Check rise/fall along road, drain, or pipeline alignment |
+| Slope profile     | Elevation profile   | Quantify gradient changes and design comfort/safety      |
+
+Simple interpretation flow:
+
+- Basemap helps you see where features are.
+- DEM helps you know how high or low the ground is.
+- Contours and slope map help you understand terrain behavior.
+- Elevation and slope profiles help you validate alignment decisions.
+
+## Minimum Standards for Reliable Exchange
+
+- Always assign and verify CRS before analysis.
+- Keep units explicit in field names (for example Elev_m, Length_m).
+- Use clear, stable layer naming conventions.
+- Keep one source-of-truth file for each dataset.
+- Validate geometry and attributes before export.
+
+### Recommended CRS usage in civil engineering workflows:
+
+- Always use a projected CRS (for example UTM 43N) for engineering analysis to ensure accurate distance and area measurements.
+- Use geographic CRS (for example WGS 84) only for data exchange and when working with global datasets that require latitude and longitude.
+- Be consistent with CRS across all project files to avoid misalignment and errors in analysis.

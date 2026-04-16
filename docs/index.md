@@ -48,6 +48,10 @@ flowchart TD
 6. Use troubleshooting when outputs mismatch.
 7. Contribute improvements, ask questions, and participate in the discussion.
 
+## Questions and Discussion
+
+- Ask questions, share insights, and discuss solutions in the [Questions and Discussion](questions-discussion.md) section.
+
 ## Repository and Collaboration
 
 - GitHub repository: [PrathamGitHub/Geo-CAD-Practical-Reference](https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference)

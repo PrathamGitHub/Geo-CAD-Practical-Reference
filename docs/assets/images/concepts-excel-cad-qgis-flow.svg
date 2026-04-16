@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420" role="img" aria-label="Excel and CAD to QGIS flow">
+  <defs>
+    <style>
+      .title { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #1b263b; }
+      .label { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .text { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .panel { stroke-width: 2; rx: 16; }
+      .arrow { stroke: #0ea5a4; stroke-width: 4; fill: none; marker-end: url(#m); }
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0ea5a4"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="420" fill="#ffffff"/>
+  <text x="30" y="46" class="title">What Geospatial Data Includes in This Workshop</text>
+
+  <rect x="40" y="90" width="250" height="250" class="panel" fill="#ecfeff" stroke="#06b6d4"/>
+  <text x="65" y="130" class="label">Excel Data</text>
+  <text x="65" y="160" class="text">Survey point tables</text>
+  <text x="65" y="184" class="text">Chainage and levels</text>
+  <text x="65" y="208" class="text">Asset registers</text>
+  <text x="65" y="232" class="text">Coordinates in fields</text>
+  <text x="65" y="256" class="text">Example: X, Y, Z, Code</text>
+
+  <rect x="365" y="90" width="250" height="250" class="panel" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="390" y="130" class="label">CAD Data</text>
+  <text x="390" y="160" class="text">DWG or DXF layers</text>
+  <text x="390" y="184" class="text">Road centerline</text>
+  <text x="390" y="208" class="text">Plot boundaries</text>
+  <text x="390" y="232" class="text">Building footprints</text>
+  <text x="390" y="256" class="text">Drafting geometry</text>
+
+  <rect x="690" y="90" width="250" height="250" class="panel" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="715" y="130" class="label">QGIS Output</text>
+  <text x="715" y="160" class="text">Single geospatial view</text>
+  <text x="715" y="184" class="text">Layer overlap checks</text>
+  <text x="715" y="208" class="text">Measure and analyze</text>
+  <text x="715" y="232" class="text">Style and label maps</text>
+  <text x="715" y="256" class="text">Export for decisions</text>
+
+  <path d="M295 215 L355 215" class="arrow"/>
+  <path d="M620 215 L680 215" class="arrow"/>
+
+  <text x="40" y="386" class="text">In short: spreadsheet facts plus CAD geometry become location-aware intelligence in QGIS.</text>
+</svg>
