@@ -22,7 +22,7 @@ This documentation is written for beginner-to-intermediate users who need clear 
 - Building example: two-room, ground-floor plan.
 - Site context: one simple approach road.
 - Survey input: total station CSV points.
-- GIS input: AOI, basemap, DEM, contours.
+- GIS input: AOI, basemap, DEM, contours, slope map, alignment profile.
 
 ## End-to-End Data Flow
 
@@ -42,9 +42,11 @@ flowchart TD
 
 1. Start with concepts and standards.
 2. Learn each tool reference page.
-3. Practice the integrated execution guide.
-4. Use the cheatsheet while doing tasks.
-5. Use troubleshooting when outputs mismatch.
+3. Download and explore the example dataset.
+4. Practice the integrated execution guide.
+5. Use the cheatsheet while doing tasks.
+6. Use troubleshooting when outputs mismatch.
+7. Contribute improvements, ask questions, and participate in the discussion.
 
 ## Repository and Collaboration
 
