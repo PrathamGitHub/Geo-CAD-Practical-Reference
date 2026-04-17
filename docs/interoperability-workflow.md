@@ -1,121 +1,154 @@
 # Interoperability Workflow
 
-This page explains how to move data safely between Excel, Civil 3D, QGIS, and Google Earth Pro.
+This page explains the safest and simplest way to move data between Excel, Civil 3D, QGIS, Google Earth Pro, and OneDrive.
 
-## What Interoperability Means
+This is a beginner-first workflow focused on communication outputs (PDF and KMZ) while preserving editable exchange files.
 
-Definition:
-Interoperability means one dataset can be used in another tool without losing meaning, geometry, scale, or important attributes.
+## What This Page Covers
 
-Context:
-Engineering workflows often fail because files are exchanged without checking CRS, units, and field mappings.
+- End-to-end data handoff from survey CSV to communication outputs.
+- Format decisions for vectors, rasters, and Earth-browser sharing.
+- EPSG:32643 and units checks at every exchange point.
+- Compact OneDrive publishing workflow for team collaboration.
 
-## Why Interoperability Matters
+## Workshop Defaults (Keep Fixed)
 
-Pros:
+- Working projected CRS: `EPSG:32643`
+- Distance and elevation units: meters
+- Communication priority outputs: Plot PDF and KMZ
+- Editable exchange outputs: GeoPackage/Shapefile and GeoTIFF
 
-- Reduces duplicate work.
-- Improves consistency across teams.
-- Enables faster communication with mixed software users.
+## Why Interoperability Fails
 
-Cons:
+- CRS missing or wrong during import/export.
+- Mixed units across tools.
+- Attribute field names changed during conversion.
+- Uncontrolled file naming and versioning.
 
-- Wrong CRS can silently shift data.
-- Some formats drop style or attribute types.
-- Repeated conversion can degrade data quality.
-
-Recommendation:
-Treat one file as source of truth and publish derived exports for other tools.
+Rule: treat one dataset as source-of-truth, then publish derived exports for other tools.
 
 ## End-to-End Data Flow
 
 ```mermaid
 flowchart TD
-    A[Total Station CSV] --> B[Excel Cleaning and Validation]
-    A --> C[QGIS Delimited Text Layer]
-    C --> D[GeoPackage or Shapefile]
-    D --> E[Civil 3D Mapimport]
-    C --> F[KML or KMZ]
-    E --> G[Civil 3D Mapexport]
-    G --> D
-    H[QGIS Basemap GeoTIFF EPSG 32643] --> I[Civil 3D Mapiinsert]
-    F --> J[Google Earth Pro]
+    A[Survey CSV] --> B[Excel clean and validate]
+    B --> C[QGIS import as points]
+    C --> D[Save engineering layer as GeoPackage]
+    D --> E[Civil 3D MAPIMPORT]
+    E --> F[Civil 3D drafting and annotation]
+    F --> G[Plot PDF]
+
+    H[AOI in QGIS] --> I[Basemap and DEM download]
+    I --> J[Reproject to EPSG 32643]
+    J --> K[Contour extraction]
+    K --> L[Map PDF]
+
+    K --> M[QGIS to KMZ export]
+    M --> N[Google Earth Pro review]
+
+    G --> O[OneDrive publish]
+    L --> O
+    N --> O
 ```
 
-## Decision Guide for Format Selection
+## Format Decision Guide
 
 ```mermaid
 flowchart TD
-    A[Need to Exchange Data] --> B{What type of data?}
-    B -->|Tabular points| C[CSV]
-    B -->|Engineering vectors| D[GeoPackage or Shapefile]
-    B -->|Earth browser view| E[KML or KMZ]
-    B -->|Background raster| F[GeoTIFF]
-    D --> G{Need CAD editing?}
-    G -->|Yes| H[Use mapimport in Civil 3D]
-    G -->|No| I[Use directly in QGIS]
+    A[Need to exchange data] --> B{Data type}
+    B -->|Tabular survey points| C[CSV then Excel and QGIS]
+    B -->|Editable engineering vectors| D[GeoPackage or Shapefile]
+    B -->|Background raster| E[GeoTIFF EPSG 32643]
+    B -->|Communication for stakeholders| F[KMZ]
+
+    D --> G{Need CAD edits?}
+    G -->|Yes| H[MAPIMPORT in Civil 3D]
+    G -->|No| I[Use in QGIS directly]
 ```
 
-## Practical Workflow
+## Practical Handoff Workflows
 
-### Total Station CSV to Excel
+### Workflow A: Survey CSV -> Excel -> QGIS Points
 
-1. Import CSV.
-2. Verify PointID, Easting, Northing, Elevation, and Code fields.
-3. Convert to table.
-4. Clean duplicates and missing values.
-5. Save a cleaned version.
+![Data Source Manager in QGIS (Training Manual)](assets/images/qgis-manual-add-data-dialog.png)
 
-### Total Station CSV to QGIS
+1. Import survey CSV in Excel and validate `PointID`, `Easting`, `Northing`, `Elevation`, `Code`.
+2. Remove duplicates and apply naming consistency.
+3. Save cleaned CSV as publish-ready input.
+4. Add CSV in QGIS as Delimited Text layer (X/Easting, Y/Northing).
+5. Assign correct source CRS and then save as GeoPackage.
 
-1. Add delimited text layer.
-2. Set X and Y fields.
-3. Assign source CRS correctly.
-4. Save as GeoPackage for editing stability.
+Output: reliable point layer for GIS/CAD exchange.
 
-### QGIS Basemap to Civil 3D
+### Workflow B: QGIS Vector <-> Civil 3D
 
-1. Download basemap in QGIS.
-2. Reproject raster to EPSG:32643 with Warp GDAL.
-3. Insert into Civil 3D with mapiinsert.
-4. Verify alignment using known points.
+1. Export vector from QGIS as GeoPackage or Shapefile.
+2. In Civil 3D, set `MAPCSASSIGN` first to `UTM84-43N` (EPSG:32643 equivalent workshop target).
+3. Import vector with `MAPIMPORT`.
+4. Draft or annotate in Civil 3D.
+5. Export GIS-ready layer using `MAPEXPORT`.
+6. Validate geometry and attributes again in QGIS.
 
-### QGIS Vector to Civil 3D and Back
+Output: CAD and GIS stay aligned without rework.
 
-1. Export vector from QGIS to Shapefile or GeoPackage.
-2. Import in Civil 3D using mapimport.
-3. Edit and annotate as required.
-4. Export GIS-ready vector using mapexport.
-5. Validate in QGIS.
+### Workflow C: QGIS Raster -> Civil 3D Background
 
-### KML or KMZ for Google Earth Pro
+```mermaid
+flowchart TD
+    A[Download basemap and DEM in QGIS] --> B[Warp reproject to EPSG 32643]
+    B --> C[DEM optional cleanup: 0 to NoData]
+    C --> D[Save GeoTIFF outputs]
+    D --> E[Civil 3D MAPIINSERT]
+    E --> F[Check alignment with known points]
+```
 
-1. Export final communication layer from QGIS as KML or KMZ.
+1. Download basemap and DEM in QGIS.
+2. Reproject both to `EPSG:32643`.
+3. Optionally clean DEM zero pixels to NoData before contour generation.
+4. Insert georeferenced raster in Civil 3D using `MAPIINSERT`.
+5. Verify against known control locations.
+
+Output: consistent background context in CAD and GIS.
+
+### Workflow D: QGIS -> KMZ -> Google Earth Pro
+
+1. Export final communication layer from QGIS as KMZ.
 2. Open in Google Earth Pro.
-3. Verify location, labels, and geometry.
+3. Verify names, labels, and geometry.
+4. Use `R` key to reset north-up/no-tilt before final screenshots.
 
-## Industry Standards and Good Practice
+Output: stakeholder-friendly visualization package.
 
-- Keep CRS metadata explicit in every file handoff.
-- Use OGC-friendly formats where possible.
-- Keep unit fields explicit for elevation and distance.
-- Maintain clear naming and version labels.
-- Avoid unnecessary repeated format conversion.
+### Workflow E: Publish and Collaborate in OneDrive
 
-## Screenshot Placeholders
+```mermaid
+flowchart TD
+    A[Finalize PDF KMZ and editable files] --> B[Move to OneDrive project folder]
+    B --> C[Share with specific people]
+    C --> D[Set view or edit permissions]
+    D --> E[Use Version History for rollback]
+```
 
-> Insert screenshot: CSV imported as a point layer with correct CRS in QGIS.
+1. Publish final files in OneDrive project structure.
+2. Share communication files as view links.
+3. Share editable files only to required editors.
+4. Use Version History after major edits.
 
-![CSV to QGIS Placeholder](assets/images/placeholder-interop-csv-qgis.png)
+Output: controlled collaboration and recovery-ready file trail.
 
-> Insert screenshot: mapimport settings and imported geometry in Civil 3D.
+## Minimum Handoff Checklist
 
-![Mapimport Placeholder](assets/images/placeholder-interop-mapimport.png)
+- CRS is explicit and correct (`EPSG:32643`) in all GIS/CAD exports.
+- Units are meters for distance/elevation.
+- Critical IDs and attributes remain intact after conversion.
+- Final PDF and KMZ open correctly in target tools.
+- OneDrive permissions match intended audience.
 
-> Insert screenshot: reprojected basemap inserted in Civil 3D using mapiinsert.
+## Related Pages
 
-![Mapiinsert Placeholder](assets/images/placeholder-interop-mapiinsert.png)
-
-> Insert screenshot: KML or KMZ displayed in Google Earth Pro.
-
-![Google Earth Placeholder](assets/images/placeholder-interop-gepro.png)
+- [Excel 365 Reference](excel-365-reference.md)
+- [AutoCAD Civil 3D Reference](autocad-civil3d-reference.md)
+- [QGIS Reference](qgis-gep-reference.md)
+- [Google Earth Pro Reference](google-earth-pro-reference.md)
+- [OneDrive Reference](onedrive-reference.md)
+- [Practical Execution Guide](practical-execution-guide.md)

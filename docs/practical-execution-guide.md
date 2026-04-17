@@ -1,6 +1,10 @@
 # Practical Execution Guide
 
-This guide gives one connected workflow from raw data to final outputs.
+This guide gives one connected beginner workflow from raw data to final communication outputs.
+
+Primary priority: Plot PDF and KMZ communication outputs.
+
+Secondary priority: editable exchange files for team rework.
 
 ## Project Scenario
 
@@ -11,107 +15,147 @@ Use a simple project:
 - Total station points in CSV.
 - AOI for basemap and DEM.
 
+## Handbook Defaults (Do Not Change)
+
+- Working projected CRS: `EPSG:32643`
+- Units for distance/elevation: meters
+- Final communication deliverables: PDF and KMZ
+
 ## Expected Outputs
 
-- CAD drawing with dimensions and annotations.
-- Plot PDF.
-- Excel workbook with cleaned tables and formulas.
-- Reprojected basemap GeoTIFF.
-- Reprojected DEM GeoTIFF.
-- Contour vector layer.
-- KML or KMZ for Google Earth Pro.
+### Primary Outputs
+
+- Civil 3D plot PDF.
+- QGIS map PDF.
+- KMZ for Google Earth Pro.
+
+### Supporting Editable Outputs
+
+- Excel cleaned survey workbook/CSV.
+- Reprojected basemap GeoTIFF (`EPSG:32643`).
+- Reprojected DEM GeoTIFF (`EPSG:32643`).
+- Contour vector layer (GeoPackage/Shapefile).
+- CAD/GIS exchange layers.
 
 ## Workflow Overview
 
 ```mermaid
 flowchart TD
-    A[Prepare Dataset] --> B[Clean CSV in Excel]
-    B --> C[Draft Building in Civil 3D]
-    C --> D[Create Layout and Plot PDF]
-    A --> E[Process AOI in QGIS]
-    E --> F[Download Basemap and DEM]
-    F --> G[Reproject to EPSG 32643]
-    G --> H[Extract Contours]
-    H --> I[Map Export]
-    C --> J[CAD GIS Export]
-    I --> K[KML or KMZ]
-    J --> K
-    K --> L[View in Google Earth Pro]
+    A[Prepare dataset and folders] --> B[Clean survey CSV in Excel]
+    B --> C[Import points in QGIS]
+    C --> D[Download basemap and DEM]
+    D --> E[Reproject rasters to EPSG 32643]
+    E --> F[Generate contours and map layout]
+    F --> G[Export QGIS map PDF]
+
+    C --> H[Export vector for CAD]
+    H --> I[Civil 3D MAPIMPORT and drafting]
+    I --> J[Create layout and export plot PDF]
+
+    F --> K[Export communication KMZ]
+    K --> L[Google Earth Pro review]
+
+    G --> M[Publish in OneDrive]
+    J --> M
+    L --> M
 ```
 
-## Step 1: Prepare Dataset Folder
+## Step 1: Prepare Project Folder
 
-1. Create folders for CAD, Excel, GIS, and exports.
-2. Copy starter CSV and GeoJSON files.
-3. Keep original files unchanged as backup.
+1. Create a project folder with subfolders: `01_raw`, `02_excel`, `03_qgis`, `04_civil3d`, `05_exports`.
+2. Copy starter CSV and GeoJSON files into `01_raw`.
+3. Keep raw files unchanged.
+4. Store project root in your OneDrive synced location for version-safe work.
 
-## Step 2: Process Survey CSV in Excel
+## Step 2: Clean Survey CSV in Excel
 
-1. Open CSV.
-2. Verify PointID, Easting, Northing, Elevation, and Code columns.
-3. Convert to table.
-4. Remove obvious duplicates.
-5. Create unique code list.
-6. Save cleaned file.
+1. Open CSV and verify `PointID`, `Easting`, `Northing`, `Elevation`, `Code`.
+2. Convert range to table.
+3. Run text cleanup and duplicate checks.
+4. Save cleaned survey file in `02_excel`.
+5. Keep a `v1`, `v2` naming pattern for major changes.
 
-## Step 3: Build CAD Drawing in Civil 3D
+## Step 3: Build Base GIS Layers in QGIS
 
-1. Start drawing with clear layer setup.
-2. Draw two-room ground-floor plan with polyline.
-3. Add wall thickness using offset.
-4. Create door and window openings using trim and extend.
-5. Create one simple section.
-6. Create one simple elevation.
-7. Add dimensions and annotations.
-8. Create one layout and export PDF.
+```mermaid
+flowchart TD
+    A[Set project CRS EPSG 32643] --> B[Add cleaned points]
+    B --> C[Load basemap]
+    C --> D[Download AOI basemap and DEM]
+    D --> E[Warp both rasters to EPSG 32643]
+    E --> F[DEM optional cleanup 0 to NoData]
+    F --> G[Generate contours]
+```
 
-## Step 4: Prepare Basemap and DEM in QGIS
+1. Set QGIS project CRS to `EPSG:32643` before processing.
+2. Import cleaned CSV as points.
+3. Load basemap with QuickMapServices and download AOI raster if needed.
+4. Download Copernicus DEM.
+5. Reproject basemap and DEM with Warp to `EPSG:32643`.
+6. Optionally set DEM zero values to NoData.
+7. Extract contours using practical interval.
 
-1. Set project CRS.
-2. Load satellite map from QuickMapServices.
-3. Download AOI basemap using Advanced Map Downloader.
-4. Download Copernicus DEM from OpenTopography DEM Downloader.
-5. Reproject both rasters to EPSG:32643 with Warp GDAL.
+## Step 4: Draft and Plot in Civil 3D
 
-## Step 5: Generate Contours and Basic Map
+1. Start drawing with layer discipline.
+2. Assign `MAPCSASSIGN` to `UTM84-43N` (workshop CRS target).
+3. Import required GIS vector using `MAPIMPORT`.
+4. Draft two-room plan, wall thickness, and openings.
+5. Add dimensions and annotations.
+6. Build one layout and export plot PDF.
 
-1. Run GDAL Contour on reprojected DEM.
-2. Select practical contour interval.
-3. Style contours with readable labels.
-4. Build map layout with title, legend, north arrow, and scale bar.
-5. Export PDF.
+## Step 5: Prepare Communication Outputs
 
-## Step 6: Exchange Data Across Tools
+1. In QGIS, style contour and key layers for readability.
+2. Build map layout (title, legend, north arrow, scale bar).
+3. Export QGIS map PDF.
+4. Export final communication layer to KMZ.
+5. Open KMZ in Google Earth Pro and verify labels/geometry.
 
-1. Import cleaned CSV to QGIS as points.
-2. Export selected layer to shapefile or GeoPackage.
-3. Import vector into Civil 3D using mapimport.
-4. Insert georeferenced raster in Civil 3D using mapiinsert.
-5. Export CAD output for GIS using mapexport.
-6. Convert final vector to KML or KMZ.
-7. Open in Google Earth Pro.
+## Step 6: Compact Data Exchange Across Tools
+
+1. QGIS point/vector -> Civil 3D via GeoPackage/Shapefile and `MAPIMPORT`.
+2. QGIS raster -> Civil 3D via GeoTIFF and `MAPIINSERT`.
+3. Civil 3D -> GIS via `MAPEXPORT`.
+4. QGIS -> Google Earth Pro via KMZ.
 
 ## Step 7: Save and Share with OneDrive
 
-1. Save project files to OneDrive synced folder.
-2. Keep file names version-friendly.
-3. Use version history after major edits.
-4. Share read-only and edit links as required.
+```mermaid
+flowchart TD
+    A[Finalize PDF KMZ and editable files] --> B[Move to OneDrive project folder]
+    B --> C[Share with specific people]
+    C --> D[Set view or edit permissions]
+    D --> E[Use Version History after milestones]
+```
+
+1. Publish final files in OneDrive project folder.
+2. Share PDF/KMZ as view-only by default.
+3. Share editable files only to required editors.
+4. Use Version History after major edits.
+5. For detailed collaboration settings, use [OneDrive Reference](onedrive-reference.md).
+
+## Daily Quick Check (Before Closing Work)
+
+- Files saved in OneDrive synced folder.
+- No active sync warnings.
+- CRS remains `EPSG:32643` for all GIS/CAD exchange outputs.
+- Latest PDF and KMZ open correctly.
+- Major edits are version-labeled.
 
 ## Final Quality Checks
 
 - Geometry is clean and readable.
 - Units and CRS are consistent.
 - Tables have no duplicate critical IDs.
-- Map and CAD outputs align spatially.
-- Final exports open in target tools.
+- CAD, GIS, and Google Earth outputs align spatially.
+- Communication deliverables (PDF + KMZ) are present and verified.
 
-## Screenshot Placeholders
+## Related Pages
 
-> Insert screenshot: integrated project folder with all output files.
-
-![Integrated Output Placeholder](assets/images/placeholder-practical-integrated-output.png)
-
-> Insert screenshot: final CAD plot and GIS map side by side.
-
-![CAD GIS Output Placeholder](assets/images/placeholder-practical-cad-gis-output.png)
+- [Excel 365 Reference](excel-365-reference.md)
+- [QGIS Reference](qgis-gep-reference.md)
+- [AutoCAD Civil 3D Reference](autocad-civil3d-reference.md)
+- [Google Earth Pro Reference](google-earth-pro-reference.md)
+- [Interoperability Workflow](interoperability-workflow.md)
+- [OneDrive Reference](onedrive-reference.md)
