@@ -1,40 +1,66 @@
 <!-- prettier-ignore -->
 # AutoCAD Civil 3D Reference
 
-This page explains high-impact Civil 3D drafting and interoperability operations in simple language.
+This page explains high-impact Civil 3D drafting and GIS interoperability operations in simple language.
+
+This reference is intentionally basic-level. It focuses on drafting and CAD-GIS exchange, not advanced civil modeling.
+
+## What This Page Covers
+
+- Interface overview.
+- Must-know basics to get started.
+- Must-know basic configuration (CRS first).
+- High-impact command cards for beginner workflows.
+- Simple drafting workflow.
+- Simple GIS interoperability and georeferencing workflow.
 
 ## What AutoCAD Civil 3D Is
 
-Definition:
-AutoCAD Civil 3D is a CAD platform used to create, edit, and present engineering drawings and civil design elements.
-
-Context:
-It is used where geometry clarity, drafting speed, and plotting quality matter.
+AutoCAD Civil 3D is an AutoCAD-based platform that combines drafting tools with civil and mapping utilities.
+In this handbook context, it is used primarily as a drafting and CAD-GIS exchange tool, not as an advanced corridor/surface modeling platform.
 
 Typical use cases:
 
 - Building plan drafting.
 - Section and elevation preparation.
-- Road alignment context drawing.
+- Road context drawing.
 - CAD and GIS data exchange.
 
-## Why It Is Useful
+In this training context, the highest-value commands are MAPCSASSIGN, MAPIMPORT, MAPIINSERT, MAPEXPORT, and ALIGN (for simple georeference correction).
 
-Pros:
+## Overview of the Interface
 
-- Precise drafting control.
-- Strong layer and property management.
-- Industry-accepted drawing outputs.
-- Good interoperability with GIS through map tools.
+The interface elements below are the most useful for beginner drafting and map interoperability work:
 
-Cons:
+![Civil 3D interface overview (Greater Sudbury)](assets/images/civil3d-greatersudbury-interface.png)
 
-- Learning curve for new users.
-- Wrong units or CRS setup can create major location errors.
-- Over-detailed styling can slow practical work.
+1. Toolspace: central panel to access Prospector, Settings, and Toolbox.
+2. Prospector tab: manage drawing objects and references in a hierarchy.
+3. Settings tab: control styles and command defaults.
+4. Toolbox tab: access map tools for GIS interoperability.
+5. Annotation scale: controls display scale behavior for annotative objects.
+6. Ribbon tabs, panels and menus: quick access to drafting and map commands.
 
-Recommendation:
-Focus first on geometry quality, dimensions, and clean layers. Styling can be refined later.
+## Must-Know Basics to Get Started
+
+1. Start from the project template and save to the project Drawings folder.
+2. Set drawing units to meters before drafting.
+3. Set layer strategy before linework (base, walls, openings, annotation, GIS-import).
+4. Turn on object snaps for precise drafting.
+5. Keep one master drawing and export/share copies.
+
+## Must-Know Basic Configuration
+
+Assumption for this workshop: AOI falls in UTM Zone 43N. For any different AOI, assign the correct UTM zone before import/export.
+
+| Setting area               | Workshop default                                          | Why it matters                                       |
+| -------------------------- | --------------------------------------------------------- | ---------------------------------------------------- |
+| Coordinate system          | MAPCSASSIGN to UTM84-43N (for this AOI)                   | Prevents major location mismatch during GIS exchange |
+| Units                      | Decimal, insertion scale in meters                        | Keeps drafting and GIS distances consistent          |
+| OSNAP (F3)                 | Endpoint, Midpoint, Intersection, Perpendicular           | Reduces geometry errors                              |
+| ORTHO (F8) and Polar (F10) | ON while drafting straight walls and offsets              | Improves speed and line quality                      |
+| Layer discipline           | Separate layers for base, design, annotation, GIS-import  | Improves readability and export control              |
+| XREF fade                  | Use XDWGFADECTL around 60 for referenced background plans | Improves tracing visibility                          |
 
 ## Core Drafting Concepts
 
@@ -43,56 +69,48 @@ Focus first on geometry quality, dimensions, and clean layers. Styling can be re
 - Layer discipline keeps files readable and reusable.
 - Object snaps improve precision and reduce rework.
 
-## High-Impact Commands
+## High-Impact Command Cards
 
-Selection and navigation:
+### Drafting Commands
 
-<!-- prettier-ignore -->
-- Different object selection methods:
-    - window selection
-    - crossing selection
-    - add or remove selection
-- Zoom:
-    - extents
-    - window
-- Pan
-- Regen
+| Command      | Purpose                                         | Practical tip                                     | Must-know options                 | Common mistake                                                       |
+| ------------ | ----------------------------------------------- | ------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------- |
+| LINE / PLINE | Create base and wall geometry                   | Prefer PLINE for connected geometry               | Length, Close, Width, Arc segment | Mixing disconnected LINE entities where closed boundaries are needed |
+| OFFSET       | Create wall thickness and parallel features     | Offset from centerline once, then clean with TRIM | Distance value, Multiple          | Offsetting wrong side repeatedly                                     |
+| TRIM         | Remove extra geometry                           | Trim in batches after offset operations           | Cutting edges selection           | Trimming before selecting proper boundaries                          |
+| EXTEND       | Extend linework to boundaries                   | Use after TRIM to close corners                   | Boundary edges                    | Extending to the wrong edge due to zoom level                        |
+| MOVE         | Reposition objects                              | Use base point snapping for accuracy              | Base point, displacement          | Picking non-snap base points                                         |
+| COPY         | Duplicate objects                               | Use for repetitive doors/windows                  | Multiple                          | Uncontrolled duplicate clutter                                       |
+| ROTATE       | Rotate blocks/linework                          | Rotate around logical anchor points               | Reference angle                   | Rotating around arbitrary point                                      |
+| SCALE        | Resize geometry                                 | Use Reference option for known scale conversion   | Reference, base point             | Free-scaling without known ratio                                     |
+| ALIGN        | Move + rotate + optional scale in one step      | Best for quick georeference with 2 point pairs    | 2-point align, scale Yes/No       | Using only one point and expecting full fit                          |
+| JOIN / PEDIT | Clean polylines for closed boundaries           | Convert to polyline before JOIN if needed         | Join tolerance                    | Leaving tiny gaps that break hatch/export                            |
+| LAYER        | Organize drawing readability and export control | Create layers before drafting, not after          | On/Off, Freeze, Color, Lineweight | Drawing everything on layer 0                                        |
+| MATCHPROP    | Apply consistent properties quickly             | Standardize by copying from a correct object      | Property filters                  | Copying unwanted properties blindly                                  |
+| DIM          | Add construction dimensions                     | Dimension after geometry cleanup                  | Style selection                   | Dimensioning unstable/unfixed geometry                               |
+| PLOT         | Final print output                              | Always run preview and check lineweights          | Plot style, paper size, scale     | Plotting without verifying viewport scale                            |
 
-Drawing and editing:
+### GIS Interoperability Commands
 
-- Polyline
-- Closed polyline
-- Circle
-- Erase
-- Move
-- Copy
-- Rotate
-- Scale
-- Offset
-- Trim
-- Extend
-- Mirror
-- Boundary
-- Explode
-- Join
-- Pedit
-
-Standards and readability:
-
-- Layer panel
-- Properties panel
-- Match properties
-- Snap
-- Osnap
-- Dimensions
-
-GIS interoperability commands:
-
-- mapimport
-- mapiinsert
-- mapexport
+| Command     | Purpose                          | Practical tip                         | Must-know options                                                      | Common mistake                                  |
+| ----------- | -------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------- |
+| MAPCSASSIGN | Assign drawing coordinate system | Do this first in every project        | Set CRS to UTM84-43N for this AOI, or correct UTM zone for another AOI | Importing GIS data before CRS assignment        |
+| MAPIMPORT   | Bring GIS vectors into CAD       | Import only required layers initially | Source format, layer mapping, attribute mapping                        | Importing all layers and creating heavy clutter |
+| MAPIINSERT  | Insert georeferenced raster      | Check placement right after insertion | Image source, insertion alignment                                      | Ignoring raster CRS mismatch                    |
+| MAPEXPORT   | Export CAD to GIS-ready format   | Export clean layers only              | Output format, object selection, attributes                            | Exporting mixed construction layers             |
 
 ## Step-by-Step Practical Workflow
+
+```mermaid
+flowchart TD
+    A[Set project template and units] --> B[Assign CRS with MAPCSASSIGN UTM84-43N]
+    B --> C[Draft base footprint with PLINE]
+    C --> D[Offset walls]
+    D --> E[Trim and Extend cleanup]
+    E --> F[Add openings and dimensions]
+    F --> G[Layer and property cleanup]
+    G --> H[Plot to PDF]
+```
 
 Use the simple sample: two-room ground-floor building with approach road context.
 
@@ -127,6 +145,19 @@ Use the simple sample: two-room ground-floor building with approach road context
 
 ## CAD and GIS Interoperability
 
+```mermaid
+flowchart TD
+    A[Assign CRS UTM84-43N] --> B[MAPIMPORT vector data]
+    B --> C[MAPIINSERT georeferenced raster]
+    C --> D{Local drawing not georeferenced?}
+    D -->|Yes| E[MOVE by control point]
+    E --> F[SCALE by known reference distance]
+    F --> G[Optional ALIGN with 2 point pairs]
+    G --> H[Verify against known UTM points]
+    D -->|No| H
+    H --> I[MAPEXPORT cleaned output]
+```
+
 ### Import GIS vectors
 
 1. Use mapimport.
@@ -140,6 +171,30 @@ Use the simple sample: two-room ground-floor building with approach road context
 2. Select georeferenced basemap GeoTIFF.
 3. Confirm scale and placement.
 
+### Georeference Local CAD to UTM84-43N
+
+Use this workflow when local CAD linework does not match GIS location:
+
+```mermaid
+flowchart TD
+    A[Assign MAPCSASSIGN CRS first] --> B[Pick 2 known local control points]
+    B --> C[Identify matching UTM target points]
+    C --> D[MOVE near first UTM point]
+    D --> E[SCALE by reference distance]
+    E --> F[ALIGN with 2 point pairs if rotation remains]
+    F --> G[Verify with independent checkpoint]
+    G --> H[Proceed to MAPEXPORT]
+```
+
+1. Assign drawing CRS first using MAPCSASSIGN and set UTM84-43N.
+2. Identify at least two known control points in local CAD and corresponding UTM positions.
+3. Use MOVE to place local drawing near the first UTM control point.
+4. Use SCALE with Reference option using known local distance versus UTM distance.
+5. If rotation mismatch exists, use ALIGN with two source-target point pairs and allow scaling.
+6. Verify final position using at least one independent checkpoint.
+
+Output: local CAD geometry aligned to UTM84-43N for reliable GIS exchange.
+
 ### Export GIS-ready output
 
 1. Use mapexport.
@@ -147,35 +202,32 @@ Use the simple sample: two-room ground-floor building with approach road context
 3. Keep useful attributes.
 4. Validate export in QGIS.
 
-## Industry Practices
+## Must-Know Tool Paths
 
-- Keep base drawing units in meters for field workflows.
-- Use clear layer naming conventions.
-- Avoid exploding blocks unless required.
-- Keep one clean master file and export working copies.
-- Record CRS assumptions when exchanging with GIS users.
+- Coordinate system assignment: MAPCSASSIGN
+- Import vector GIS data: MAPIMPORT
+- Insert georeferenced raster: MAPIINSERT
+- Export GIS data: MAPEXPORT
+- Georef alignment helper: ALIGN
+- Drafting cleanup: TRIM, EXTEND, JOIN, PEDIT
+- Output: PLOT
 
-## Recommendations for Beginner to Intermediate Users
+## Critical QA Checks
 
-- Do not over-customize settings early.
-- Use default styles first and improve only critical output elements.
-- Validate geometry before adding detailed annotations.
-- Check print preview before final PDF.
+- CRS is assigned first and confirmed (UTM84-43N for this AOI, or correct UTM zone for another AOI).
+- Drawing units are meters.
+- Export boundaries are closed polylines.
+- Construction/helper layers are excluded from GIS export.
+- Exported output is validated in QGIS before sharing.
 
-## Screenshot Placeholders
+## References and Image Sources
 
-> Insert screenshot: layer setup and properties panel with minimal standard layers.
+- [Greater Sudbury AutoCAD Civil 3D Design Manual (Jan 2025)](https://www.greatersudbury.ca/sites/sudburyen/assets/File/Engineering/AutoCAD-Civil-3D-Design-Manual_JAN2025.pdf)
+- [Autodesk Civil 3D and AutoCAD Help Home](https://help.autodesk.com)
 
-![CAD Layers Placeholder](assets/images/placeholder-cad-layers.png)
+## Related Pages
 
-> Insert screenshot: line plan transformed into wall plan with openings.
-
-![CAD Wall Plan Placeholder](assets/images/placeholder-cad-wall-plan.png)
-
-> Insert screenshot: mapimport dialog for shapefile import.
-
-![CAD Mapimport Placeholder](assets/images/placeholder-cad-mapimport.png)
-
-> Insert screenshot: mapiinsert result with georeferenced raster in background.
-
-![CAD Mapiinsert Placeholder](assets/images/placeholder-cad-mapiinsert.png)
+- [Core Concepts and Standards](concepts-and-standards.md)
+- [QGIS Reference](qgis-gep-reference.md)
+- [Google Earth Pro Reference](google-earth-pro-reference.md)
+- [Interoperability Workflow](interoperability-workflow.md)
