@@ -2,52 +2,60 @@
 
 Use this page when outputs are not matching expected results.
 
+## Fast Triage Order (Always First)
+
+1. Check CRS and units.
+2. Check layer/file naming and selected inputs.
+3. Check export format and destination path.
+4. Check OneDrive sync status before sharing.
+
 ## Civil 3D
 
-- Objects not visible after zoom:
-   Use zoom extents and check layer on or off state.
-- Wrong plot output:
-   Check viewport scale, lineweight display, and plot area.
-- Imported GIS data shifted:
-   Verify drawing units and coordinate system assumptions.
-- Raster not aligning:
-   Check georeferencing and CRS before mapiinsert.
+| Symptom                           | Quick fix                                                |
+| --------------------------------- | -------------------------------------------------------- |
+| Objects not visible after zoom    | Run Zoom Extents and check layer On/Off/Freeze state     |
+| Plot output unreadable            | Verify viewport scale, plot area, and lineweight display |
+| Imported GIS vector shifted       | Set `MAPCSASSIGN` first and verify units are meters      |
+| Georeferenced raster not aligning | Confirm raster CRS and insert again with `MAPIINSERT`    |
 
 ## Excel
 
-- Wrong formula results:
-   Check numeric format and decimal separator.
-- index-match not returning value:
-   Check exact key match and remove hidden spaces.
-- Duplicate detection issues:
-   Normalize text case and trim spaces first.
-- Print output broken:
-   Reset print area and verify page orientation.
+| Symptom                               | Quick fix                                     |
+| ------------------------------------- | --------------------------------------------- |
+| Formula result is wrong               | Confirm numeric format and decimal separator  |
+| `INDEX+MATCH` returns blank/wrong row | Use exact match and clean keys with `TRIM`    |
+| Duplicate checks look inconsistent    | Normalize text and run duplicate check again  |
+| Print output broken                   | Reset print area and verify orientation/scale |
 
 ## QGIS
 
-- Layer appears in wrong location:
-   Check source CRS at import and project CRS.
-- Warp output empty or wrong:
-   Verify input raster validity and target CRS EPSG 32643.
-- Contour not generated:
-   Confirm DEM has valid elevation values and no-data settings.
-- KML output misplaced in Google Earth:
-   Verify export CRS and geometry type.
+| Symptom                               | Quick fix                                                  |
+| ------------------------------------- | ---------------------------------------------------------- |
+| Layer appears in wrong location       | Verify source CRS at import and project CRS (`EPSG:32643`) |
+| Warp output is empty/wrong            | Recheck input raster validity and Warp target CRS          |
+| Contour generation fails              | Validate DEM values and NoData settings                    |
+| KMZ/KML misplaced in Google Earth Pro | Re-export with correct CRS and valid geometry              |
+
+## Google Earth Pro
+
+| Symptom                           | Quick fix                                     |
+| --------------------------------- | --------------------------------------------- |
+| KMZ view orientation is confusing | Press `R` to reset north-up/no-tilt           |
+| Labels/geometry look wrong        | Recheck KMZ export layer and simplify styling |
 
 ## OneDrive
 
-- Sync conflict files created:
-   Keep latest file, archive conflict copy, and continue.
-- Shared file not visible to reviewer:
-   Verify link permissions and account sign-in.
+| Symptom                               | Quick fix                                           |
+| ------------------------------------- | --------------------------------------------------- |
+| Sync conflict copy created            | Keep latest approved file and archive conflict copy |
+| Reviewer cannot open shared file      | Verify sharing permissions and recipient sign-in    |
+| File version accidentally overwritten | Open Version History and restore required version   |
+| Sync stuck or pending                 | Resume/restart sync and confirm green status icon   |
 
-## Screenshot Placeholders
+## Cross-Tool Alignment Issues
 
-> Insert screenshot: CRS mismatch example and corrected alignment.
-
-![CRS Fix Placeholder](assets/images/placeholder-troubleshooting-crs.png)
-
-> Insert screenshot: common Civil 3D plot settings for readable PDF.
-
-![Plot Settings Placeholder](assets/images/placeholder-troubleshooting-plot.png)
+| Symptom                            | Quick fix                                            |
+| ---------------------------------- | ---------------------------------------------------- |
+| CAD and GIS outputs do not overlap | Confirm both workflows use `EPSG:32643` and meters   |
+| PDF and KMZ do not match same area | Check AOI extent and export selection                |
+| Final share package is incomplete  | Verify required outputs: Civil 3D PDF, QGIS PDF, KMZ |
