@@ -41,23 +41,42 @@ Use a simple project:
 
 ```mermaid
 flowchart TD
-    A[Prepare dataset and folders] --> B[Clean survey CSV in Excel]
-    B --> C[Import points in QGIS]
-    C --> D[Download basemap and DEM]
-    D --> E[Reproject rasters to EPSG 32643]
-    E --> F[Generate contours and map layout]
-    F --> G[Export QGIS map PDF]
+    subgraph BuildData[Data and GIS Build Workflow]
+        A[Prepare dataset and folders] --> B[Clean survey CSV in Excel]
+        B --> C[Import points in QGIS]
+        C --> D[Download basemap and DEM]
+        D --> E[Reproject rasters to EPSG 32643]
+        E --> F[Generate contours and map layout]
+        F --> G[Export QGIS map PDF]
+    end
 
-    C --> H[Export vector for CAD]
-    H --> I[Civil 3D MAPIMPORT and drafting]
-    I --> J[Create layout and export plot PDF]
+    subgraph CadDraft[CAD Drafting Workflow]
+        C --> H[Export vector for CAD]
+        H --> I[Civil 3D MAPIMPORT and drafting]
+        I --> J[Create layout and export plot PDF]
+    end
 
-    F --> K[Export communication KMZ]
-    K --> L[Google Earth Pro review]
+    subgraph EarthQA[Google Earth Review Workflow]
+        F --> K[Export communication KMZ]
+        K --> L[Google Earth Pro review]
+    end
 
-    G --> M[Publish in OneDrive]
+    subgraph Publish[Unified Delivery Workflow]
+        M[Publish in OneDrive]
+    end
+
+    G --> M
     J --> M
     L --> M
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,H,I,K,L process;
+    class G,J,M output;
 ```
 
 ## Step 1: Prepare Project Folder
@@ -85,6 +104,15 @@ flowchart TD
     D --> E[Warp both rasters to EPSG 32643]
     E --> F[DEM optional cleanup 0 to NoData]
     F --> G[Generate contours]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F process;
+    class G output;
 ```
 
 1. Set QGIS project CRS to `EPSG:32643` before processing.
@@ -127,6 +155,15 @@ flowchart TD
     B --> C[Share with specific people]
     C --> D[Set view or edit permissions]
     D --> E[Use Version History after milestones]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;
 ```
 
 1. Publish final files in OneDrive project folder.

@@ -129,6 +129,15 @@ flowchart TD
 	E --> F[Set 0 Pixel to NoData]
 	F --> G[Generate Contours]
 	G --> H[Styled Contour Output]
+
+	classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+	classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+	classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+	classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+	class A input;
+	class B,C,D,E,F,G process;
+	class H output;
 ```
 
 ### Workflow A: Basemap Workflow
@@ -193,6 +202,16 @@ flowchart TD
 	E --> F
 	F --> G[Validate with Terrain Logic]
 	G --> H[Route Check with Road Slope Calculator]
+
+	classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+	classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+	classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+	classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+	class A input;
+	class B,D,E,F,G process;
+	class C decision;
+	class H output;
 ```
 
 ### Workflow E: Build a Slope Map from DEM
@@ -218,6 +237,15 @@ flowchart TD
 	E --> F[Export Profile Chart and Samples]
 	F --> G[Derive Slope Profile]
 	G --> H[Cross-check with Road Slope Calculator]
+
+	classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+	classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+	classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+	classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+	class A input;
+	class B,C,D,E,F,G process;
+	class H output;
 ```
 
 ### Workflow F: Generate Elevation and Slope Profile Along Alignment
@@ -260,6 +288,16 @@ flowchart TD
 	F --> I[Validate CRS and Geometry]
 	G --> I
 	I --> J[Versioned Deliverables]
+
+	classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+	classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+	classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+	classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+	class A input;
+	class B,C,F,G,I process;
+	class E decision;
+	class D,H,J output;
 ```
 
 1. Finalize layer symbology and labels for readability.

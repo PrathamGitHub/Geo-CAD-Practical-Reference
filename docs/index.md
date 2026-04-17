@@ -43,16 +43,44 @@ This documentation is for beginner-to-intermediate users who need clear theory, 
 
 ```mermaid
 flowchart TD
-    A[Survey CSV] --> B[Excel clean and validate]
-    B --> C[QGIS import and processing]
-    C --> D[Civil 3D drafting and layout]
-    C --> E[QGIS map layout PDF]
-    D --> F[Civil 3D plot PDF]
-    C --> G[QGIS to KMZ]
-    G --> H[Google Earth Pro review]
-    E --> I[OneDrive publish]
+    subgraph Prep[Survey and Data Preparation]
+        A[Survey CSV] --> B[Excel clean and validate]
+    end
+
+    subgraph GIS[QGIS Processing Workflow]
+        C[QGIS import and processing]
+        E[QGIS map layout PDF]
+        G[QGIS to KMZ]
+        H[Google Earth Pro review]
+    end
+
+    subgraph CAD[Civil 3D Drafting Workflow]
+        D[Civil 3D drafting and layout]
+        F[Civil 3D plot PDF]
+    end
+
+    subgraph Publish[Delivery Workflow]
+        I[OneDrive publish package]
+    end
+
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+    C --> G
+    G --> H
+    E --> I
     F --> I
     H --> I
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,G,H process;
+    class E,F,I output;
 ```
 
 ## Quick Start Path

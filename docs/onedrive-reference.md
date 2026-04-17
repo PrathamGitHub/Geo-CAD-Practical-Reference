@@ -85,6 +85,15 @@ flowchart TD
     C --> D[Share with specific people]
     D --> E[Set permissions view or edit]
     E --> F[Team confirms access]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E process;
+    class F output;
 ```
 
 1. Sign in and confirm account type (personal or work/school).
@@ -104,6 +113,15 @@ flowchart TD
     B --> C[Review latest changes]
     C --> D[Lock final values and save]
     D --> E[Capture version milestone]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;
 ```
 
 1. Open the shared Excel file from OneDrive.
@@ -122,6 +140,15 @@ flowchart TD
     C --> D[Restore required version]
     D --> E[Validate content]
     E --> F[Notify team of rollback]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E process;
+    class F output;
 ```
 
 1. Right-click file (web or File Explorer) and open Version History.
@@ -140,6 +167,15 @@ flowchart TD
     B --> C[Resume sync or restart OneDrive]
     C --> D[Fix filename or path issue if shown]
     D --> E[Confirm green sync status]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;
 ```
 
 1. Check tray icon and file status.

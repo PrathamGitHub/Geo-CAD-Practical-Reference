@@ -110,6 +110,15 @@ flowchart TD
     E --> F[Add openings and dimensions]
     F --> G[Layer and property cleanup]
     G --> H[Plot to PDF]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,G process;
+    class H output;
 ```
 
 Use the simple sample: two-room ground-floor building with approach road context.
@@ -156,6 +165,16 @@ flowchart TD
     G --> H[Verify against known UTM points]
     D -->|No| H
     H --> I[MAPEXPORT cleaned output]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,E,F,G,H process;
+    class D decision;
+    class I output;
 ```
 
 ### Import GIS vectors
@@ -184,6 +203,15 @@ flowchart TD
     E --> F[ALIGN with 2 point pairs if rotation remains]
     F --> G[Verify with independent checkpoint]
     G --> H[Proceed to MAPEXPORT]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,G process;
+    class H output;
 ```
 
 1. Assign drawing CRS first using MAPCSASSIGN and set UTM84-43N.

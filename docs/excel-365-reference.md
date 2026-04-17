@@ -112,6 +112,15 @@ flowchart TD
     E --> F[Generate controlled code list with UNIQUE]
     F --> G[Apply rounding rules]
     G --> H[Export clean CSV for CAD or GIS]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,G process;
+    class H output;
 ```
 
 1. Open CSV and verify delimiter, decimals, and column names.
@@ -133,6 +142,15 @@ flowchart TD
     E --> F[Freeze panes and apply filters]
     F --> G[Set print area titles and scaling]
     G --> H[Export PDF and share]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,G process;
+    class H output;
 ```
 
 1. Create room and opening schedules as separate tables.

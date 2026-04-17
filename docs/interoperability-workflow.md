@@ -31,39 +31,72 @@ Rule: treat one dataset as source-of-truth, then publish derived exports for oth
 
 ```mermaid
 flowchart TD
-    A[Survey CSV] --> B[Excel clean and validate]
-    B --> C[QGIS import as points]
-    C --> D[Save engineering layer as GeoPackage]
-    D --> E[Civil 3D MAPIMPORT]
-    E --> F[Civil 3D drafting and annotation]
-    F --> G[Plot PDF]
+    subgraph SurveyCad[Survey to CAD Workflow]
+        A[Survey CSV] --> B[Excel clean and validate]
+        B --> C[QGIS import as points]
+        C --> D[Save engineering layer as GeoPackage]
+        D --> E[Civil 3D MAPIMPORT]
+        E --> F[Civil 3D drafting and annotation]
+        F --> G[Plot PDF]
+    end
 
-    H[AOI in QGIS] --> I[Basemap and DEM download]
-    I --> J[Reproject to EPSG 32643]
-    J --> K[Contour extraction]
-    K --> L[Map PDF]
+    subgraph TerrainMap[Terrain to Map Workflow]
+        H[AOI in QGIS] --> I[Basemap and DEM download]
+        I --> J[Reproject to EPSG 32643]
+        J --> K[Contour extraction]
+        K --> L[Map PDF]
+    end
 
-    K --> M[QGIS to KMZ export]
-    M --> N[Google Earth Pro review]
+    subgraph EarthReview[Google Earth Review Workflow]
+        K --> M[QGIS to KMZ export]
+        M --> N[Google Earth Pro review]
+    end
 
-    G --> O[OneDrive publish]
+    subgraph Publish[Unified Delivery Workflow]
+        O[OneDrive publish package]
+    end
+
+    G --> O
     L --> O
     N --> O
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A,H input;
+    class B,C,D,E,F,I,J,K,M,N process;
+    class G,L,O output;
 ```
 
 ## Format Decision Guide
 
 ```mermaid
 flowchart TD
-    A[Need to exchange data] --> B{Data type}
-    B -->|Tabular survey points| C[CSV then Excel and QGIS]
-    B -->|Editable engineering vectors| D[GeoPackage or Shapefile]
-    B -->|Background raster| E[GeoTIFF EPSG 32643]
-    B -->|Communication for stakeholders| F[KMZ]
+    subgraph Select[Exchange Selection]
+        A[Need to exchange data] --> B{Data type}
+        B -->|Tabular survey points| C[CSV then Excel and QGIS]
+        B -->|Editable engineering vectors| D[GeoPackage or Shapefile]
+        B -->|Background raster| E[GeoTIFF EPSG 32643]
+        B -->|Communication for stakeholders| F[KMZ]
+    end
 
-    D --> G{Need CAD edits?}
-    G -->|Yes| H[MAPIMPORT in Civil 3D]
-    G -->|No| I[Use in QGIS directly]
+    subgraph Use[Workflow Usage]
+        D --> G{Need CAD edits?}
+        G -->|Yes| H[MAPIMPORT in Civil 3D]
+        G -->|No| I[Use in QGIS directly]
+    end
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,G decision;
+    class C,D,E,H,I process;
+    class F output;
 ```
 
 ## Practical Handoff Workflows
@@ -100,6 +133,15 @@ flowchart TD
     C --> D[Save GeoTIFF outputs]
     D --> E[Civil 3D MAPIINSERT]
     E --> F[Check alignment with known points]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E process;
+    class F output;
 ```
 
 1. Download basemap and DEM in QGIS.
@@ -127,6 +169,15 @@ flowchart TD
     B --> C[Share with specific people]
     C --> D[Set view or edit permissions]
     D --> E[Use Version History for rollback]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;
 ```
 
 1. Publish final files in OneDrive project structure.
