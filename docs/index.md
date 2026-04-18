@@ -29,7 +29,7 @@ This documentation is for beginner-to-intermediate users who need clear theory, 
 ## CRS Assumption for The Handbook
 
 - Target training area assumes UTM Zone 43N (`EPSG:32643`).
-- If your AOI is in a different zone, use the appropriate UTM zone for that AOI.
+- If your Area of Interest (AOI) is in a different zone, use the appropriate UTM zone for that AOI.
 - Keep one projected CRS consistent across QGIS, Civil 3D, exports, and exchange files.
 
 ## Reference Scope

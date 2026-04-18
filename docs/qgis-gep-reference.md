@@ -110,6 +110,7 @@ Quick quality check before any measurement:
 Plugins used in this reference:
 
 - QuickWKT for coordinate checks.
+- OSM Place Search for quick AOI location and basemap validation.
 - NextGIS QuickMapServices for quick basemap loading.
 - Advanced Map Downloader for AOI basemap download.
 - OpenTopography DEM Downloader for Copernicus DEM.
