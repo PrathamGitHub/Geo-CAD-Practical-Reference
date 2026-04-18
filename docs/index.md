@@ -8,6 +8,14 @@
 
 This documentation is for beginner-to-intermediate users who need clear theory, practical execution, and reliable data handoff.
 
+## What This Reference Covers
+
+- Core concepts in plain language.
+- Tool-specific beginner workflows.
+- Interoperability and format decisions.
+- Practical execution from raw survey data to final deliverables.
+- Collaboration and version recovery with OneDrive.
+
 ## Prerequisites
 
 - AutoCAD Civil 3D 2021 installed.
@@ -18,19 +26,11 @@ This documentation is for beginner-to-intermediate users who need clear theory, 
 - Internet available for basemap/DEM downloads.
 - Starter dataset available from [Dataset Templates](dataset-templates.md).
 
-## CRS Assumption for This Workshop
+## CRS Assumption for The Handbook
 
 - Target training area assumes UTM Zone 43N (`EPSG:32643`).
 - If your AOI is in a different zone, use the appropriate UTM zone for that AOI.
 - Keep one projected CRS consistent across QGIS, Civil 3D, exports, and exchange files.
-
-## What This Reference Covers
-
-- Core concepts in plain language.
-- Tool-specific beginner workflows.
-- Interoperability and format decisions.
-- Practical execution from raw survey data to final deliverables.
-- Collaboration and version recovery with OneDrive.
 
 ## Reference Scope
 
