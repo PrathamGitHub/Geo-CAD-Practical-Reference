@@ -73,10 +73,10 @@ copyright: Copyright &copy; 2026 Prathamesh Barane
 nav:
   - Home: index.md
   - Core Concepts and Standards: concepts-and-standards.md
-  - AutoCAD Civil 3D Reference: autocad-civil3d-reference.md
-  - Excel 365 Reference: excel-365-reference.md
   - QGIS Reference: qgis-gep-reference.md
   - Google Earth Pro Reference: google-earth-pro-reference.md
+  - AutoCAD Civil 3D Reference: autocad-civil3d-reference.md
+  - Excel 365 Reference: excel-365-reference.md
   - OneDrive Reference: onedrive-reference.md
   - Interoperability Workflow: interoperability-workflow.md
   - Practical Execution Guide: practical-execution-guide.md
