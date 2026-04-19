@@ -29,12 +29,14 @@ Use this page when outputs are not matching expected results.
 
 ## QGIS
 
-| Symptom                               | Quick fix                                                  |
-| ------------------------------------- | ---------------------------------------------------------- |
-| Layer appears in wrong location       | Verify source CRS at import and project CRS (`EPSG:32643`) |
-| Warp output is empty/wrong            | Recheck input raster validity and Warp target CRS          |
-| Contour generation fails              | Validate DEM values and NoData settings                    |
-| KMZ/KML misplaced in Google Earth Pro | Re-export with correct CRS and valid geometry              |
+| Symptom                               | Quick fix                                                                                     |
+| ------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Layer appears in wrong location       | Verify source CRS at import and project CRS (`EPSG:32643`)                                    |
+| Warp output is empty/wrong            | Recheck input raster validity and Warp target CRS                                             |
+| Contour generation fails              | Validate DEM values and NoData settings                                                       |
+| Contour/slope/profile too generalized | Check if Copernicus 30m DEM is being used; switch to survey-derived DEM for detailed analysis |
+| Survey DEM has spikes or pits         | Check outliers in survey points and adjust interpolation method/resolution                    |
+| KMZ/KML misplaced in Google Earth Pro | Re-export with correct CRS and valid geometry                                                 |
 
 ## Google Earth Pro
 
@@ -54,8 +56,9 @@ Use this page when outputs are not matching expected results.
 
 ## Cross-Tool Alignment Issues
 
-| Symptom                            | Quick fix                                            |
-| ---------------------------------- | ---------------------------------------------------- |
-| CAD and GIS outputs do not overlap | Confirm both workflows use `EPSG:32643` and meters   |
-| PDF and KMZ do not match same area | Check AOI extent and export selection                |
-| Final share package is incomplete  | Verify required outputs: Civil 3D PDF, QGIS PDF, KMZ |
+| Symptom                            | Quick fix                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| CAD and GIS outputs do not overlap | Confirm both workflows use `EPSG:32643` and meters                                   |
+| CAD profile and GIS profile differ | Confirm both are derived from the same DEM source (Copernicus 30m or survey-derived) |
+| PDF and KMZ do not match same area | Check AOI extent and export selection                                                |
+| Final share package is incomplete  | Verify required outputs: Civil 3D PDF, QGIS PDF, KMZ                                 |

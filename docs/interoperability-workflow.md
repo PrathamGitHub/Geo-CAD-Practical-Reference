@@ -18,12 +18,19 @@ This is a beginner-first workflow focused on communication outputs (PDF and KMZ)
 - Communication priority outputs: Plot PDF and KMZ
 - Editable exchange outputs: GeoPackage/Shapefile and GeoTIFF
 
+## Critical Elevation Source Rule
+
+- Preliminary analysis without detailed site survey: use Copernicus 30m DEM.
+- Detailed analysis with detailed site survey: generate DEM from detailed survey and use it for contour/slope/profile products.
+- Carry DEM source information in filenames/metadata so CAD, GIS, and reporting teams use the same terrain basis.
+
 ## Why Interoperability Fails
 
 - CRS missing or wrong during import/export.
 - Mixed units across tools.
 - Attribute field names changed during conversion.
 - Uncontrolled file naming and versioning.
+- Terrain-derived outputs generated from the wrong elevation source for the analysis stage.
 
 Rule: treat one dataset as source-of-truth, then publish derived exports for other tools.
 
@@ -34,31 +41,34 @@ flowchart TD
     subgraph SurveyCad[Survey to CAD Workflow]
         A[Survey CSV] --> B[Excel clean and validate]
         B --> C[QGIS import as points]
-        C --> D[Save engineering layer as GeoPackage]
+        C --> D[Save engineering layer <br> as GeoPackage]
         D --> E[Civil 3D MAPIMPORT]
         E --> F[Civil 3D drafting and annotation]
         F --> G[Plot PDF]
     end
 
     subgraph TerrainMap[Terrain to Map Workflow]
-        H[AOI in QGIS] --> I[Basemap and DEM download]
-        I --> J[Reproject to EPSG 32643]
-        J --> K[Contour extraction]
-        K --> L[Map PDF]
+        H[AOI in QGIS] --> I{Detailed survey available?}
+        I -->|No| J[Copernicus 30m <br> DEM download]
+        I -->|Yes| K[Survey points <br> to DEM conversion]
+        J --> L[Reproject to EPSG 32643]
+        K --> L
+        L --> M[Contour extraction]
+        M --> N[Map PDF]
     end
 
     subgraph EarthReview[Google Earth Review Workflow]
-        K --> M[QGIS to KMZ export]
-        M --> N[Google Earth Pro review]
+        M --> O[QGIS to KMZ export]
+        O --> P[Google Earth Pro review]
     end
 
     subgraph Publish[Unified Delivery Workflow]
-        O[OneDrive publish package]
+        Q[OneDrive publish package]
     end
 
-    G --> O
-    L --> O
-    N --> O
+    G --> Q
+    N --> Q
+    P --> Q
 
     classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
     classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
@@ -66,8 +76,9 @@ flowchart TD
     classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
 
     class A,H input;
-    class B,C,D,E,F,I,J,K,M,N process;
-    class G,L,O output;
+    class B,C,D,E,F,J,K,L,M,O,P process;
+    class I decision;
+    class G,N,Q output;
 ```
 
 ## Format Decision Guide
@@ -103,8 +114,6 @@ flowchart TD
 
 ### Workflow A: Survey CSV -> Excel -> QGIS Points
 
-![Data Source Manager in QGIS (Training Manual)](assets/images/qgis-manual-add-data-dialog.png)
-
 1. Import survey CSV in Excel and validate `PointID`, `Easting`, `Northing`, `Elevation`, `Code`.
 2. Remove duplicates and apply naming consistency.
 3. Save cleaned CSV as publish-ready input.
@@ -124,15 +133,19 @@ Output: reliable point layer for GIS/CAD exchange.
 
 Output: CAD and GIS stay aligned without rework.
 
-### Workflow C: QGIS Raster -> Civil 3D Background
+### Workflow C: QGIS Raster -> Civil 3D Background (Preliminary or Detailed)
 
 ```mermaid
 flowchart TD
-    A[Download basemap and DEM in QGIS] --> B[Warp reproject to EPSG 32643]
-    B --> C[DEM optional cleanup: 0 to NoData]
-    C --> D[Save GeoTIFF outputs]
-    D --> E[Civil 3D MAPIINSERT]
-    E --> F[Check alignment with known points]
+    A[Prepare basemap in QGIS] --> B{Detailed survey available?}
+    B -->|No| C[Download Copernicus 30m DEM]
+    B -->|Yes| D[Convert surveypoints to DEM]
+    C --> E[Warp reproject to EPSG 32643]
+    D --> E
+    E --> F[DEM optional cleanup: 0 to NoData]
+    F --> G[Save GeoTIFF outputs with source tag]
+    G --> H[Civil 3D MAPIINSERT]
+    H --> I[Check alignment with known points]
 
     classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
     classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
@@ -140,15 +153,20 @@ flowchart TD
     classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
 
     class A input;
-    class B,C,D,E process;
-    class F output;
+    class C,D,E,F,G,H process;
+    class B decision;
+    class I output;
 ```
 
-1. Download basemap and DEM in QGIS.
-2. Reproject both to `EPSG:32643`.
-3. Optionally clean DEM zero pixels to NoData before contour generation.
-4. Insert georeferenced raster in Civil 3D using `MAPIINSERT`.
-5. Verify against known control locations.
+1. Prepare basemap in QGIS.
+2. Decide terrain source by analysis stage:
+   - Preliminary analysis: use Copernicus 30m DEM.
+   - Detailed analysis: create DEM from detailed survey points.
+3. Reproject raster outputs to `EPSG:32643`.
+4. Optionally clean DEM zero pixels to NoData before contour generation.
+5. Insert georeferenced raster in Civil 3D using `MAPIINSERT`.
+6. Verify against known control locations.
+7. Keep source tag in filename (example: `_copernicus30m_` or `_survey_`).
 
 Output: consistent background context in CAD and GIS.
 
@@ -191,6 +209,7 @@ Output: controlled collaboration and recovery-ready file trail.
 
 - CRS is explicit and correct (`EPSG:32643`) in all GIS/CAD exports.
 - Units are meters for distance/elevation.
+- DEM source is explicit for terrain-derived products (Copernicus 30m preliminary or survey-derived detailed).
 - Critical IDs and attributes remain intact after conversion.
 - Final PDF and KMZ open correctly in target tools.
 - OneDrive permissions match intended audience.

@@ -123,9 +123,10 @@ Output: reviewed KMZ package with stakeholder-ready layer organization.
 3. Confirm units are meters or kilometers.
 4. Measure required distances/areas for quick communication checks.
 5. Save measurements into Places for traceability.
-6. For path-based checks, use elevation profile where relevant.
+6. For path-based checks, use elevation profile only for quick communication-level context.
+7. For detailed engineering profile decisions, use QGIS profile workflow with the correct DEM source (Copernicus 30m for preliminary or survey-derived DEM for detailed analysis).
 
-Output: saved measurement artifacts for rapid decision support.
+Output: saved communication-level measurement artifacts; detailed profile validation remains in QGIS workflows.
 
 ## Data Exchange Notes
 

@@ -9,7 +9,7 @@ Core GIS theory is covered in the [Core Concepts and Standards](concepts-and-sta
 - QGIS interface overview.
 - Must-know basics to start using the software.
 - Must-know project configuration settings.
-- Practical workflows for basemap, DEM, contour, slope map, and elevation/slope profile.
+- Practical workflows for basemap, DEM source selection, contour, slope map, and elevation/slope profile.
 - Map export and data conversion workflows.
 - High-impact plugins and where to use them.
 - High-impact native tools organized by toolbar.
@@ -113,11 +113,19 @@ Plugins used in this reference:
 - OSM Place Search for quick AOI location and basemap validation.
 - NextGIS QuickMapServices for quick basemap loading.
 - Advanced Map Downloader for AOI basemap download.
-- OpenTopography DEM Downloader for Copernicus DEM.
+- OpenTopography DEM Downloader for preliminary Copernicus DEM.
 - Profile Tool for elevation profiles.
 - Road Slope Calculator for route slope checks.
 
 Use plugins selectively. Built-in tools should be your default for reproducible workflows.
+
+## Critical Elevation Source Rule
+
+Use this decision before contour, slope, and profile generation:
+
+- Preliminary analysis without detailed site survey: use Copernicus 30m DEM.
+- Detailed analysis with detailed site survey: convert local site survey to DEM and use it for derived products.
+- Do not use Copernicus 30m DEM for detailed grading/alignment decisions when survey-derived DEM is available.
 
 ## Practical Workflows
 
@@ -125,11 +133,14 @@ Use plugins selectively. Built-in tools should be your default for reproducible 
 flowchart TD
 	A[Basemap with QuickMapServices] --> B[AOI Download with Advanced Map Downloader]
 	B --> C[GeoTIFF Basemap]
-	C --> D[DEM Download from OpenTopography]
-	D --> E[Reproject DEM to EPSG 32643]
-	E --> F[Set 0 Pixel to NoData]
-	F --> G[Generate Contours]
-	G --> H[Styled Contour Output]
+	C --> D{Detailed survey available?}
+	D -->|No| E[DEM Download from OpenTopography Copernicus 30m]
+	D -->|Yes| F[Convert local survey to DEM]
+	E --> G[Reproject DEM to EPSG 32643]
+	F --> G
+	G --> H[Set 0 Pixel to NoData]
+	H --> I[Generate Contours]
+	I --> J[Styled Contour Output]
 
 	classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
 	classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
@@ -137,8 +148,9 @@ flowchart TD
 	classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
 
 	class A input;
-	class B,C,D,E,F,G process;
-	class H output;
+	class B,C,E,F,G,H,I process;
+	class D decision;
+	class J output;
 ```
 
 ### Workflow A: Basemap Workflow
@@ -154,19 +166,33 @@ Goal: prepare AOI-specific basemap raster for consistent project context.
 
 Output: project basemap raster ready for overlay and map layouts.
 
-### Workflow B: DEM Workflow
+### Workflow B: Preliminary DEM Workflow (Copernicus 30m)
 
-Goal: create analysis-ready DEM for terrain-derived products.
+Goal: create preliminary analysis DEM when detailed site survey is not available.
 
 1. Open OpenTopography DEM Downloader and select Copernicus DEM source.
 2. Set AOI and download DEM.
-3. Save DEM with clear naming (example: `dem_copernicus_32643_v1.tif`).
+3. Save DEM with clear naming (example: `dem_copernicus30m_32643_v1.tif`).
 4. Reproject using Raster > Projections > Warp (Reproject) to EPSG:32643.
 5. Check no-data regions and clipping needs before analysis.
 
-Output: projected DEM ready for contour, slope, and profiles.
+Output: projected preliminary DEM ready for initial contour, slope, and profile screening.
 
-### Workflow C: Set DEM Zero Pixels to NoData (Save Raster Layer As)
+### Workflow C: Convert Local Site Survey to DEM
+
+Goal: generate detailed terrain DEM from detailed survey points for design-grade derived products.
+
+1. Load cleaned survey point layer with `Easting`, `Northing`, and `Elevation` fields.
+2. Confirm project CRS is projected (preferably EPSG:32643) and points align with AOI.
+3. Run Processing Toolbox > Interpolation > TIN interpolation (or IDW when required by data pattern).
+4. Set interpolation field to `Elevation` and define AOI extent.
+5. Choose output resolution based on survey point spacing (for example 0.5 m to 2 m).
+6. Save output DEM with clear naming (example: `dem_survey_32643_v1.tif`).
+7. Validate DEM against known survey points and investigate spikes/pits before deriving products.
+
+Output: survey-derived DEM ready for detailed contour, slope, and profile analysis.
+
+### Workflow D: Set DEM Zero Pixels to NoData (Save Raster Layer As)
 
 Goal: replace non-real elevation pixels (value 0) with NoData so terrain outputs are not distorted.
 
@@ -180,18 +206,18 @@ Goal: replace non-real elevation pixels (value 0) with NoData so terrain outputs
 
 Output: cleaned DEM with 0-value artifacts removed from analysis.
 
-### Workflow D: Contour Workflow
+### Workflow E: Contour Workflow
 
 Goal: derive contour lines for terrain interpretation and communication.
 
 1. Open Processing Toolbox > GDAL > Raster extraction > Contour.
-2. Select projected DEM as input.
+2. Select projected DEM as input (Copernicus 30m for preliminary, survey-derived for detailed).
 3. Set contour interval based on project scale (for example 1 m, 2 m, or 5 m).
 4. Save output as GeoPackage or Shapefile.
 5. Style major/minor contours and label elevation values.
 6. Record contour interval in layer name or map metadata.
 
-Output: contour layer suitable for design review and reporting.
+Output: contour layer suitable for preliminary review or detailed design, based on DEM source.
 
 ```mermaid
 flowchart TD
@@ -215,17 +241,18 @@ flowchart TD
 	class H output;
 ```
 
-### Workflow E: Build a Slope Map from DEM
+### Workflow F: Build a Slope Map from DEM
 
 Goal: identify steep zones for route feasibility and design risk checks.
 
 1. Load DEM raster and confirm it is in projected CRS (preferably EPSG:32643).
-2. Open Processing Toolbox > GDAL > Raster analysis > Slope.
-3. Set output unit (degrees or percent) based on design requirement.
-4. Save output as GeoTIFF (example: `slope_percent_32643.tif`).
-5. Apply a clear graduated color ramp and classify critical ranges.
-6. Validate high-slope areas against known terrain or contour logic.
-7. For alignment-specific slope summary, run Road Slope Calculator.
+2. Confirm DEM source matches analysis stage (Copernicus 30m for preliminary, survey-derived for detailed).
+3. Open Processing Toolbox > GDAL > Raster analysis > Slope.
+4. Set output unit (degrees or percent) based on design requirement.
+5. Save output as GeoTIFF (example: `slope_percent_32643.tif`).
+6. Apply a clear graduated color ramp and classify critical ranges.
+7. Validate high-slope areas against known terrain or contour logic.
+8. For alignment-specific slope summary, run Road Slope Calculator.
 
 Output: a slope raster that supports feasibility, alignment screening, and risk communication.
 
@@ -249,18 +276,19 @@ flowchart TD
 	class H output;
 ```
 
-### Workflow F: Generate Elevation and Slope Profile Along Alignment
+### Workflow G: Generate Elevation and Slope Profile Along Alignment
 
 Goal: evaluate rise-fall behavior and gradient suitability along a line (road, drain, pipeline).
 
 1. Load DEM and alignment line layer.
-2. Use QuickWKT to verify key coordinates when source alignment quality is uncertain.
-3. Open Profile Tool and select DEM as profile source.
-4. Choose alignment line as profile path.
-5. Review elevation graph for abrupt transitions and critical points.
-6. Export profile chart and sampled values.
-7. Derive slope profile from sampled values (delta elevation over distance).
-8. Cross-check route gradients using Road Slope Calculator.
+2. Confirm DEM source matches objective (preliminary screening vs detailed design).
+3. Use QuickWKT to verify key coordinates when source alignment quality is uncertain.
+4. Open Profile Tool and select DEM as profile source.
+5. Choose alignment line as profile path.
+6. Review elevation graph for abrupt transitions and critical points.
+7. Export profile chart and sampled values.
+8. Derive slope profile from sampled values (delta elevation over distance).
+9. Cross-check route gradients using Road Slope Calculator.
 
 Output: elevation profile plus slope profile summary for engineering review.
 
@@ -269,6 +297,7 @@ Output: elevation profile plus slope profile summary for engineering review.
 - Plugin Manager: Plugins > Manage and Install Plugins.
 - Data Source Manager: Layer > Add Layer > Add Layer.
 - Warp (Reproject): Raster > Projections > Warp (Reproject).
+- Interpolation (TIN/IDW): Processing Toolbox > Interpolation.
 - Save Raster Layer As: Right-click raster layer > Export > Save As....
 - Contour: Processing Toolbox > GDAL > Raster extraction > Contour.
 - Slope: Processing Toolbox > GDAL > Raster analysis > Slope.
@@ -319,6 +348,7 @@ flowchart TD
 
 - Project CRS is verified before processing.
 - Input/output file names include CRS and product purpose.
+- DEM source is documented for each terrain-derived output (Copernicus 30m or survey-derived).
 - Contour interval and slope unit are documented.
 - Profile outputs are exported and archived with date/version.
 - Exported maps include legend, scale, north arrow, and source metadata.

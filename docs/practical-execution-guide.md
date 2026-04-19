@@ -13,13 +13,19 @@ Use a simple project:
 - Two-room building, ground floor only.
 - One short approach road.
 - Total station points in CSV.
-- AOI for basemap and DEM.
+- AOI for basemap and terrain analysis.
 
 ## Handbook Defaults (Do Not Change)
 
 - Working projected CRS: `EPSG:32643`
 - Units for distance/elevation: meters
 - Final communication deliverables: PDF and KMZ
+
+## Critical Elevation Source Rule
+
+- Preliminary analysis without detailed site survey: use Copernicus 30m DEM.
+- Detailed analysis with detailed site survey: generate DEM from detailed survey and use that DEM for contours, slope, and profiles.
+- For detailed checks, do not rely on Copernicus 30m DEM if survey-derived DEM is available.
 
 ## Expected Outputs
 
@@ -33,7 +39,8 @@ Use a simple project:
 
 - Excel cleaned survey workbook/CSV.
 - Reprojected basemap GeoTIFF (`EPSG:32643`).
-- Reprojected DEM GeoTIFF (`EPSG:32643`).
+- Reprojected Copernicus 30m DEM GeoTIFF (`EPSG:32643`) for preliminary analysis.
+- Survey-derived DEM GeoTIFF (`EPSG:32643`) for detailed analysis.
 - Contour vector layer (GeoPackage/Shapefile).
 - CAD/GIS exchange layers.
 
@@ -44,30 +51,34 @@ flowchart TD
     subgraph BuildData[Data and GIS Build Workflow]
         A[Prepare dataset and folders] --> B[Clean survey CSV in Excel]
         B --> C[Import points in QGIS]
-        C --> D[Download basemap and DEM]
-        D --> E[Reproject rasters to EPSG 32643]
-        E --> F[Generate contours and map layout]
-        F --> G[Export QGIS map PDF]
+        C --> D[Download basemap]
+        D --> E{Detailed survey available?}
+        E -->|No| F[Use Copernicus 30m DEM]
+        E -->|Yes| G[Convert survey points to DEM]
+        F --> H[Reproject rasters to EPSG 32643]
+        G --> H
+        H --> I[Generate contours and map layout]
+        I --> J[Export QGIS map PDF]
     end
 
     subgraph CadDraft[CAD Drafting Workflow]
-        C --> H[Export vector for CAD]
-        H --> I[Civil 3D MAPIMPORT and drafting]
-        I --> J[Create layout and export plot PDF]
+        C --> K[Export vector for CAD]
+        K --> L[Civil 3D MAPIMPORT and drafting]
+        L --> M[Create layout and export plot PDF]
     end
 
     subgraph EarthQA[Google Earth Review Workflow]
-        F --> K[Export communication KMZ]
-        K --> L[Google Earth Pro review]
+        I --> N[Export communication KMZ]
+        N --> O[Google Earth Pro review]
     end
 
     subgraph Publish[Unified Delivery Workflow]
-        M[Publish in OneDrive]
+        P[Publish in OneDrive]
     end
 
-    G --> M
-    J --> M
-    L --> M
+    J --> P
+    M --> P
+    O --> P
 
     classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
     classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
@@ -75,8 +86,9 @@ flowchart TD
     classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
 
     class A input;
-    class B,C,D,E,F,H,I,K,L process;
-    class G,J,M output;
+    class B,C,D,F,G,H,I,K,L,N,O process;
+    class E decision;
+    class J,M,P output;
 ```
 
 ## Step 1: Prepare Project Folder
@@ -94,16 +106,19 @@ flowchart TD
 4. Save cleaned survey file in `02_excel`.
 5. Keep a `v1`, `v2` naming pattern for major changes.
 
-## Step 3: Build Base GIS Layers in QGIS
+## Step 3: Build Base GIS Layers in QGIS (Select Elevation Source)
 
 ```mermaid
 flowchart TD
     A[Set project CRS EPSG 32643] --> B[Add cleaned points]
     B --> C[Load basemap]
-    C --> D[Download AOI basemap and DEM]
-    D --> E[Warp both rasters to EPSG 32643]
-    E --> F[DEM optional cleanup 0 to NoData]
-    F --> G[Generate contours]
+    C --> D{Detailed survey available?}
+    D -->|No| E[Download AOI basemap and Copernicus 30m DEM]
+    D -->|Yes| F[Create DEM from detailed survey points]
+    E --> G[Warp rasters to EPSG 32643]
+    F --> G
+    G --> H[DEM optional cleanup 0 to NoData]
+    H --> I[Generate contours]
 
     classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
     classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
@@ -111,17 +126,21 @@ flowchart TD
     classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
 
     class A input;
-    class B,C,D,E,F process;
-    class G output;
+    class B,C,E,F,G,H process;
+    class D decision;
+    class I output;
 ```
 
 1. Set QGIS project CRS to `EPSG:32643` before processing.
 2. Import cleaned CSV as points.
 3. Load basemap with QuickMapServices and download AOI raster if needed.
-4. Download Copernicus DEM.
-5. Reproject basemap and DEM with Warp to `EPSG:32643`.
+4. Decide terrain source:
+   - Preliminary analysis: download Copernicus 30m DEM.
+   - Detailed analysis: generate DEM from detailed survey points (TIN/IDW interpolation in QGIS).
+5. Reproject basemap and DEM with Warp to `EPSG:32643` if required.
 6. Optionally set DEM zero values to NoData.
 7. Extract contours using practical interval.
+8. Record DEM source in output layer metadata/file name.
 
 ## Step 4: Draft and Plot in Civil 3D
 
@@ -177,6 +196,7 @@ flowchart TD
 - Files saved in OneDrive synced folder.
 - No active sync warnings.
 - CRS remains `EPSG:32643` for all GIS/CAD exchange outputs.
+- DEM source selection matches objective (Copernicus 30m preliminary, survey-derived detailed).
 - Latest PDF and KMZ open correctly.
 - Major edits are version-labeled.
 

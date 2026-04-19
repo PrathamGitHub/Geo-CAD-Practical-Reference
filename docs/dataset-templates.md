@@ -40,7 +40,8 @@ Use these templates to run the full workflow quickly and consistently.
 1. Copy all template files into your project `01_raw` folder.
 2. Keep originals unchanged.
 3. Create cleaned derivatives in `02_excel` and `03_qgis`.
-4. Use outputs from [Practical Execution Guide](practical-execution-guide.md) for final publish.
+4. For detailed analysis, use cleaned survey points to generate survey-derived DEM in QGIS.
+5. Use outputs from [Practical Execution Guide](practical-execution-guide.md) for final publish.
 
 ## How To Adapt for Any Location
 

@@ -32,12 +32,20 @@ This documentation is for beginner-to-intermediate users who need clear theory, 
 - If your Area of Interest (AOI) is in a different zone, use the appropriate UTM zone for that AOI.
 - Keep one projected CRS consistent across QGIS, Civil 3D, exports, and exchange files.
 
+## Critical Elevation Source Rule
+
+For all terrain-derived products (contour, slope, elevation profile, slope profile), use this rule:
+
+- Preliminary analysis without detailed site survey: use Copernicus 30m DEM.
+- Detailed analysis with detailed site survey available: generate DEM from detailed survey and use that as source.
+- Do not use Copernicus 30m DEM for detailed design checks when detailed survey data is available.
+
 ## Reference Scope
 
 - Building example: two-room, ground-floor plan.
 - Site context: one simple approach road.
 - Survey input: total station CSV points.
-- GIS input: AOI, basemap, DEM, contours.
+- GIS input: AOI, basemap, and terrain source (Copernicus 30m DEM for preliminary work or survey-derived DEM for detailed work).
 
 ## End-to-End Data Flow
 
@@ -49,6 +57,9 @@ flowchart TD
 
     subgraph GIS[QGIS Processing Workflow]
         C[QGIS import and processing]
+        C1{Detailed site survey available?}
+        C2[Copernicus 30m DEM <br> for preliminary analysis]
+        C3[Survey to DEM conversion <br> for detailed analysis]
         E[QGIS map layout PDF]
         G[QGIS to KMZ]
         H[Google Earth Pro review]
@@ -64,6 +75,11 @@ flowchart TD
     end
 
     B --> C
+    C --> C1
+    C1 -->|No| C2
+    C1 -->|Yes| C3
+    C2 --> E
+    C3 --> E
     C --> D
     C --> E
     D --> F

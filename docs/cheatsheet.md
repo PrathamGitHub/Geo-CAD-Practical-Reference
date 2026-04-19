@@ -20,6 +20,12 @@ Use this when you are actively working, not for detailed theory.
 
 Rule: if AOI is outside UTM Zone 43N, switch to the correct UTM zone and keep it consistent everywhere.
 
+## Elevation Source Rule (Critical)
+
+- Preliminary analysis without detailed survey: use Copernicus 30m DEM.
+- Detailed analysis with detailed survey: convert survey to DEM and use that for contour/slope/profile.
+- Label outputs with source tag (`copernicus30m` or `survey`) to avoid mix-ups.
+
 ## AutoCAD Civil 3D Cheatsheet
 
 | Task                        | Command/Path                      | Quick reminder                            |
@@ -54,18 +60,19 @@ Rule: if AOI is outside UTM Zone 43N, switch to the correct UTM zone and keep it
 
 ## QGIS Cheatsheet
 
-| Task                 | Tool Path                            | Quick reminder                            |
-| -------------------- | ------------------------------------ | ----------------------------------------- |
-| Set project CRS      | Project properties/status bar        | Keep `EPSG:32643` fixed                   |
-| Add CSV as points    | Data Source Manager > Delimited Text | Set X/Easting and Y/Northing correctly    |
-| Add basemap          | QuickMapServices plugin              | Use as visual context, not metric truth   |
-| Download AOI basemap | Advanced Map Downloader              | Balance zoom detail vs file size          |
-| Download DEM         | OpenTopography DEM Downloader        | Save with clear naming                    |
-| Reproject rasters    | Raster > Projections > Warp          | Target `EPSG:32643`                       |
-| DEM cleanup          | Save Raster Layer As                 | Set 0 value to NoData if needed           |
-| Extract contours     | Processing > GDAL Contour            | Use practical interval                    |
-| Export map PDF       | Layout Manager                       | Include title, legend, scale, north arrow |
-| Export KMZ           | Right-click layer > Export           | Validate labels in Google Earth Pro       |
+| Task                 | Tool Path                            | Quick reminder                             |
+| -------------------- | ------------------------------------ | ------------------------------------------ |
+| Set project CRS      | Project properties/status bar        | Keep `EPSG:32643` fixed                    |
+| Add CSV as points    | Data Source Manager > Delimited Text | Set X/Easting and Y/Northing correctly     |
+| Add basemap          | QuickMapServices plugin              | Use as visual context, not metric truth    |
+| Download AOI basemap | Advanced Map Downloader              | Balance zoom detail vs file size           |
+| Download DEM         | OpenTopography DEM Downloader        | Use for preliminary Copernicus 30m DEM     |
+| Survey to DEM        | Processing > Interpolation (TIN/IDW) | Use for detailed analysis with survey data |
+| Reproject rasters    | Raster > Projections > Warp          | Target `EPSG:32643`                        |
+| DEM cleanup          | Save Raster Layer As                 | Set 0 value to NoData if needed            |
+| Extract contours     | Processing > GDAL Contour            | Use practical interval                     |
+| Export map PDF       | Layout Manager                       | Include title, legend, scale, north arrow  |
+| Export KMZ           | Right-click layer > Export           | Validate labels in Google Earth Pro        |
 
 ## Google Earth Pro Cheatsheet
 

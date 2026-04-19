@@ -166,26 +166,34 @@ Rule of thumb:
 
 In civil engineering mapping workflows, some outputs are base products, and some are derived from analysis.
 
+### Elevation Source Decision Standard
+
+Apply this standard before generating contour, slope, or profile outputs:
+
+- Preliminary analysis (detailed survey not available): use Copernicus 30m DEM.
+- Detailed analysis (detailed survey available): generate DEM from detailed survey and use that DEM.
+- For detailed design decisions, prefer survey-derived DEM over Copernicus 30m DEM.
+
 ### Base Data Products
 
-| Product | What it gives you                                | Common source                    |
-| ------- | ------------------------------------------------ | -------------------------------- |
-| Basemap | Ground context and visual reference for planning | Web tiles or orthophoto          |
-| DEM     | Elevation surface where each cell stores height  | Survey/drone/LiDAR/raster source |
+| Product | What it gives you                                | Common source                                                                         |
+| ------- | ------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| Basemap | Ground context and visual reference for planning | Web tiles or orthophoto                                                               |
+| DEM     | Elevation surface where each cell stores height  | Copernicus 30m DEM for preliminary analysis, survey-derived DEM for detailed analysis |
 
 ### Derived Products (Generated from Base Data)
 
-| Product           | Derived from        | Why it is used in civil work                             |
-| ----------------- | ------------------- | -------------------------------------------------------- |
-| Contours          | DEM                 | Understand terrain form and grading intent               |
-| Slope map         | DEM                 | Identify steep zones and feasibility/risk                |
-| Elevation profile | DEM + selected line | Check rise/fall along road, drain, or pipeline alignment |
-| Slope profile     | Elevation profile   | Quantify gradient changes and design comfort/safety      |
+| Product           | Derived from                                                      | Why it is used in civil work                             |
+| ----------------- | ----------------------------------------------------------------- | -------------------------------------------------------- |
+| Contours          | DEM (Copernicus 30m for preliminary, survey-derived for detailed) | Understand terrain form and grading intent               |
+| Slope map         | DEM (Copernicus 30m for preliminary, survey-derived for detailed) | Identify steep zones and feasibility/risk                |
+| Elevation profile | DEM + selected line (source based on analysis stage)              | Check rise/fall along road, drain, or pipeline alignment |
+| Slope profile     | Elevation profile                                                 | Quantify gradient changes and design comfort/safety      |
 
 Simple interpretation flow:
 
 - Basemap helps you see where features are.
-- DEM helps you know how high or low the ground is.
+- DEM helps you know how high or low the ground is. Select source by stage: Copernicus 30m for preliminary, survey-derived for detailed work.
 - Contours and slope map help you understand terrain behavior.
 - Elevation and slope profiles help you validate alignment decisions.
 
