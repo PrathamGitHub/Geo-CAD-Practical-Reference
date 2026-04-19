@@ -30,6 +30,7 @@ In this training context, the highest-value commands are MAPCSASSIGN, MAPIMPORT,
 
 ## Overview of the Interface
 
+Make sure to change the workspace to "Drafting and Annotation" for a simpler interface focused on drafting and CAD-GIS exchange.
 The interface elements below are the most useful for beginner drafting and map interoperability work:
 
 ![AutoCAD interface overview (by Atif Razi)](assets/images/autocad-atifrazi-interface.png)
