@@ -32,14 +32,22 @@ In this training context, the highest-value commands are MAPCSASSIGN, MAPIMPORT,
 
 The interface elements below are the most useful for beginner drafting and map interoperability work:
 
-![Civil 3D interface overview (Greater Sudbury)](assets/images/civil3d-greatersudbury-interface.png)
+![AutoCAD interface overview (by Atif Razi)](assets/images/autocad-atifrazi-interface.png)
 
-1. Toolspace: central panel to access Prospector, Settings, and Toolbox.
-2. Prospector tab: manage drawing objects and references in a hierarchy.
-3. Settings tab: control styles and command defaults.
-4. Toolbox tab: access map tools for GIS interoperability.
-5. Annotation scale: controls display scale behavior for annotative objects.
-6. Ribbon tabs, panels and menus: quick access to drafting and map commands.
+- Program Title Bar: Displays the program name and current drawing title; includes minimize, maximize, and close buttons at the top of the window.
+- Quick Access Toolbar: Customizable toolbar with shortcuts to frequently used commands like Save, Open, Undo, Redo, and Zoom; customize via right-click.
+- File Tabs: Located at the top, allowing quick switching between open files; right-click to close tabs.
+- Application Menu: Found in the top-left corner, provides commands for creating, opening, saving, and printing drawings.
+- UCS Icon: Positioned at the bottom-left, shows the current User Coordinate System; click to open UCS dialog for changes.
+- Model Tab: Located at the bottom of the AutoCAD window; used to work in model space where 2D and 3D objects are created and edited.
+- Layout Tabs: Also at the bottom; used to manage paper space layouts for creating and printing scaled drawings.
+- Ribbon: A graphical interface replacing menus and toolbars, organized into tabs with related commands accessible by clicking buttons.
+- InfoCenter: Positioned at the top-right corner; provides quick access to help, tutorials, and resources.
+- ViewCube: Allows rotation and zooming of the drawing view, and changing the perspective.
+- Drawing Area: Central part of the AutoCAD window where drawings are created and edited.
+- Navigation Bar: Located at the bottom, provides quick access to Pan, Zoom, and Orbit tools.
+- Command Window: Also at the bottom, lets you enter commands by typing and pressing Enter.
+- Status Bar: Displays information about the current drawing and provides quick access to settings like grid, snap, and ortho mode.
 
 ## Must-Know Basics to Get Started
 
@@ -253,7 +261,7 @@ Output: local CAD geometry aligned to UTM84-43N for reliable GIS exchange.
 
 ## References and Image Sources
 
-- [Greater Sudbury AutoCAD Civil 3D Design Manual (Jan 2025)](https://www.greatersudbury.ca/sites/sudburyen/assets/File/Engineering/AutoCAD-Civil-3D-Design-Manual_JAN2025.pdf)
+- [AutoCAD Basics by Atif Razi](https://www.slideshare.net/slideshow/autocad-basic-tutorial-with-sample-drawings/270499031#1)
 - [Autodesk Civil 3D and AutoCAD Help Home](https://help.autodesk.com)
 
 ## Related Pages
