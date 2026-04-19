@@ -138,6 +138,26 @@ Recommendation:
 - Use GeoPackage as the main editable GIS format when possible.
 - Export Shapefile, KML, or DXF only when external compatibility requires it.
 
+### CSV vs Excel Workbook
+
+Both are useful, but they serve different purposes in civil workflows.
+
+| Aspect           | CSV                                  | Excel Workbook (XLSX)                                 |
+| ---------------- | ------------------------------------ | ----------------------------------------------------- |
+| Structure        | Plain text table, one sheet          | Multi-sheet workbook with formatting and formulas     |
+| Best use         | Data exchange between tools          | Data cleaning, QA checks, calculations, reporting     |
+| Formulas         | Not stored                           | Stored and recalculated                               |
+| Formatting       | Not stored                           | Stored (headers, colors, filters, print setup)        |
+| Interoperability | Very high across GIS/CAD tools       | Good, but some tools read only specific sheets/ranges |
+| File size        | Usually smaller                      | Usually larger                                        |
+| Common risk      | Loss of data types and leading zeros | Hidden formulas or mixed formatting errors            |
+
+Practical rule:
+
+- Use Excel for cleaning, validation, and engineering checks.
+- Publish final exchange tables as CSV when moving data to GIS/CAD tools.
+- Keep field names stable between Excel and CSV exports.
+
 ### KML vs KMZ
 
 | Format | What it is                         | Best use                                  | Notes                             |
@@ -165,6 +185,50 @@ Rule of thumb:
 ## Data Products and Derived Products
 
 In civil engineering mapping workflows, some outputs are base products, and some are derived from analysis.
+
+### Surface Modeling for Engineering
+
+Surface modeling is the process of creating a DEM that represents ground elevation realistically enough for engineering decisions.
+
+#### Why surface modeling is needed
+
+- To derive reliable contours, slope maps, and profiles.
+- To evaluate feasibility, drainage behavior, and alignment options.
+- To reduce rework caused by poor terrain representation.
+
+#### How surface modeling is done
+
+- Remote sensing:
+
+<div style="padding-left: 2em;" markdown="1">
+Use raster elevation sources (for this handbook, Copernicus 30m DEM) for preliminary analysis. This is quick and easy but may not capture critical terrain features for detailed design. Use it for early-stage screening and feasibility checks. Satellite-based DEMs can have artifacts, so always check the DEM quality before relying on it for design decisions.
+
+Drone-based DEMs can be used for detailed analysis if available, but they require careful processing and validation. For this handbook, we will focus on using survey-derived DEMs for detailed analysis.
+
+</div>
+
+- Site survey:
+
+<div style="padding-left: 2em;" markdown="1">
+Use detailed survey points (for example total station data) to interpolate a project DEM for detailed analysis. This is more work but gives a more accurate representation of the terrain, which is critical for final design decisions. Ensure that survey points cover all relevant terrain features, including breaks in slope, ridges, drains, and road edges.
+</div>
+
+#### Guidelines for better surface representation
+
+For remote sensing DEM (preliminary analysis):
+
+- Use for early-stage screening, not final design-grade decisions.
+- Reproject to the project's projected CRS before terrain analysis.
+- Check NoData and edge artifacts before deriving contours or slope.
+- Use practical contour intervals that match raster resolution limits.
+
+For total station survey DEM (detailed analysis):
+
+- Ensure survey point coverage includes breaks in slope, ridges, drains, and road edges.
+- Maintain consistent coordinate system, units, and elevation datum across all points.
+- Remove outliers and duplicate points before interpolation.
+- Choose interpolation method and grid resolution according to point spacing and terrain complexity.
+- Validate generated surface against known control points before producing detailed contour/slope/profile outputs.
 
 ### Elevation Source Decision Standard
 
