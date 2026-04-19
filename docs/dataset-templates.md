@@ -6,26 +6,19 @@ Use these templates to run the full workflow quickly and consistently.
 
 ## What Is Included
 
-| File                                | Purpose                                         |
-| ----------------------------------- | ----------------------------------------------- |
-| `ts_points_sample.csv`              | Survey point input for Excel and QGIS workflows |
-| `aoi_sample.geojson`                | Area of interest for basemap and DEM operations |
-| `approach_road_sample.geojson`      | Road alignment context layer                    |
-| `building_footprint_sample.geojson` | Building polygon starter for planning checks    |
-| `cad_layers_template.csv`           | Starter layer naming and discipline for CAD     |
-| `cad_two_room_template.scr`         | Fast two-room drafting scaffold in Civil 3D     |
+| File                                                                     | Purpose                                                   |
+| ------------------------------------------------------------------------ | --------------------------------------------------------- |
+| [khandala_survey_utm43n.csv](assets/datasets/khandala_survey_utm43n.csv) | Survey point (UTM 43N) input for Excel and QGIS workflows |
+| [khandala_survey_local.csv](assets/datasets/khandala_survey_local.csv)   | Survey point (Local) input for Excel and QGIS workflows   |
+| [cad_layers_template.csv](assets/datasets/cad_layers_template.csv)       | Starter layer naming and discipline for CAD               |
+| [ts_points_sample.csv](assets/datasets/ts_points_sample.csv)             | Total station point sample for reference                  |
 
-## Download and Use
+## Workflow Specific Applications
 
-- [ts_points_sample.csv](assets/datasets/ts_points_sample.csv)
-- [aoi_sample.geojson](assets/datasets/aoi_sample.geojson)
-- [approach_road_sample.geojson](assets/datasets/approach_road_sample.geojson)
-- [building_footprint_sample.geojson](assets/datasets/building_footprint_sample.geojson)
-- [cad_layers_template.csv](assets/datasets/cad_layers_template.csv)
-- [cad_two_room_template.scr](assets/datasets/cad_two_room_template.scr)
-- [README.md](assets/datasets/README.md)
+- Planning a watchmen cabin in PWD Khandala campus.
+- Plan and design a road alignment for Kolwan. Road starting point coordinates: `Easting: 346305.44`, `Northing: 2054384.11` in UTM Zone 43N (EPSG:32643).
 
-## Required Survey CSV Fields
+## Sample Survey CSV Fields
 
 | Field       | Meaning                 | Required for                      |
 | ----------- | ----------------------- | --------------------------------- |
@@ -39,7 +32,7 @@ Use these templates to run the full workflow quickly and consistently.
 
 1. Copy all template files into your project `01_raw` folder.
 2. Keep originals unchanged.
-3. Create cleaned derivatives in `02_excel` and `03_qgis`.
+3. Create cleaned derivatives in `02_excel`, `03_cad` and `04_qgis`.
 4. For detailed analysis, use cleaned survey points to generate survey-derived DEM in QGIS.
 5. Use outputs from [Practical Execution Guide](practical-execution-guide.md) for final publish.
 
@@ -58,8 +51,8 @@ For a different AOI, switch to the correct UTM zone and keep that CRS consistent
 
 Use short, stable, version-friendly names:
 
-- Pattern: `project_component_v01_YYYYMMDD.ext`
-- Example: `training_points_clean_v02_20260417.csv`
+- Pattern: `YYYYMMDD_project_component_v01.ext`
+- Example: `20260417_training_points_clean_v02.csv`
 - Keep major milestone versions in OneDrive with Version History enabled.
 
 ## Recommended Data Hygiene
@@ -68,4 +61,4 @@ Use short, stable, version-friendly names:
 - Use separate cleaned versions.
 - Keep units in field names when needed.
 - Keep IDs unique and stable.
-- Avoid spaces/special characters in critical exchange file names.
+- Avoid spaces/special characters in critical exchange file names. Use underscores (\_) or hyphens (-) instead.
