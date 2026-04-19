@@ -120,6 +120,16 @@ Without a correct CRS, even good survey and CAD data can appear in the wrong pla
 - Use EPSG:3857 only for web background viewing.
 - Use UTM (for example EPSG:32643) for distance, area, and slope analysis in engineering tasks.
 
+### Longitude-Latitude-Altitude vs X-Y-Z
+
+<!-- prettier-ignore -->
+- Longitude and latitude are angular coordinates (in degrees) used in geographic CRS (for example EPSG:4326).
+    - Longitude (X) measures east-west position, and latitude (Y) measures north-south position.
+    - Altitude (Z) is the elevation (ELEV) value, which can be in meters above sea level or another vertical datum.
+- X and Y are planar map coordinates (usually in meters) used in projected CRS (for example UTM / EPSG:32643).
+- In engineering workflows, X and Y are also commonly denoted as Easting (X) and Northing (Y).
+- Practical implication: use latitude/longitude for global exchange and web mapping, and use X/Y (Easting/Northing) for measurement and design work.
+
 ## File Formats and Their Roles
 
 ### Common Formats in Daily Civil GIS Workflows
