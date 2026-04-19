@@ -78,6 +78,8 @@ In short, GIS reduces guesswork and rework.
 
 ## Data Models and Their Basic Types
 
+![Basic geospatial data models](assets/images/concepts-data-models.svg)
+
 Geospatial data is mainly represented in two models: vector and raster.
 
 ### Vector Model
@@ -95,7 +97,18 @@ Raster stores data in a grid of cells. It is best for continuous surfaces.
 - Typical uses: satellite imagery, DEM, slope, heat maps.
 - Precision depends on pixel size.
 
-![Basic geospatial data models](assets/images/concepts-data-models.svg)
+### Spatial Resolution of Aerial Imagery
+
+Spatial resolution is the ground size represented by one pixel in an image.
+
+- Higher resolution means smaller pixel size (for example 0.10 m to 0.30 m per pixel) and more visible detail.
+- Lower resolution means larger pixel size (for example 5 m to 30 m per pixel) and less visible detail.
+- Practical implication: use higher-resolution aerial imagery for detailed mapping, feature extraction, and design support; use lower-resolution imagery for regional context and preliminary screening.
+
+Simple example:
+
+- At 0.20 m resolution, one pixel represents 20 cm on ground.
+- At 30 m resolution, one pixel represents 30 m on ground.
 
 Practical rule:
 
@@ -104,15 +117,21 @@ Practical rule:
 
 ## Coordinate Reference System (CRS)
 
+![Coordinate Reference System](assets/images/crs-naxa.png)
+
 CRS is a rule set that tells software how coordinates relate to real-world locations.
 
 Without a correct CRS, even good survey and CAD data can appear in the wrong place.
 
 ### Key CRS Used in This Reference
 
-- WGS 84 (EPSG:4326): latitude and longitude on the Earth in degrees.
-- WGS 84 / Pseudo-Mercator (EPSG:3857): standard projected system for web maps like Google Maps and OpenStreetMap.
-- WGS 84 / UTM Zone 43N (EPSG:32643): projected CRS suited for metric engineering work in the target region.
+<!-- prettier-ignore -->
+- Geographic CRS:
+    - WGS 84 (EPSG:4326): latitude and longitude on the Earth in degrees.
+- Projected CRS:
+    - WGS 84 / Pseudo-Mercator (EPSG:3857): standard projected system for web maps like Google Maps and OpenStreetMap.
+    - WGS 84 / UTM Zone 43N (EPSG:32643): projected CRS suited for metric engineering work in the target region.
+    - WGS 84 / Maharashtra (EPSG:7767): projected CRS specific to Maharashtra, India, for engineering work within that state.
 
 ### Practical Rule
 
@@ -284,3 +303,7 @@ Simple interpretation flow:
 - Always use a projected CRS (for example UTM 43N) for engineering analysis to ensure accurate distance and area measurements.
 - Use geographic CRS (for example WGS 84) only for data exchange and when working with global datasets that require latitude and longitude.
 - Be consistent with CRS across all project files to avoid misalignment and errors in analysis.
+
+## References and Image Sources
+
+- [Introduction to MAPS,Coordinate System and Projection System](https://www.slideshare.net/slideshow/introduction-to-mapscoordinate-system-and-projection-system/42506034)
