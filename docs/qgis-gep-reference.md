@@ -161,7 +161,7 @@ Goal: prepare AOI-specific basemap raster for consistent project context.
 2. Open Advanced Map Downloader and set AOI extent.
 3. Choose zoom level based on required detail and file size.
 4. Download and save output as GeoTIFF.
-5. Reproject with Raster > Projections > Warp (Reproject) to EPSG:32643 if needed.
+5. Reproject with Raster > Projections > Warp (Reproject) to EPSG:32643.
 6. Validate alignment against known control layers.
 
 Output: project basemap raster ready for overlay and map layouts.
@@ -173,7 +173,7 @@ Goal: create preliminary analysis DEM when detailed site survey is not available
 1. Open OpenTopography DEM Downloader and select Copernicus DEM source.
 2. Set AOI and download DEM.
 3. Save DEM with clear naming (example: `dem_copernicus30m_32643_v1.tif`).
-4. Reproject using Raster > Projections > Warp (Reproject) to EPSG:32643.
+4. Reproject using Raster > Projections > Warp (Reproject) to EPSG:32643. Assign Nodata values for output bands as -9999.
 5. Check no-data regions and clipping needs before analysis.
 
 Output: projected preliminary DEM ready for initial contour, slope, and profile screening.
@@ -193,6 +193,8 @@ Goal: generate detailed terrain DEM from detailed survey points for design-grade
 Output: survey-derived DEM ready for detailed contour, slope, and profile analysis.
 
 ### Workflow D: Set DEM Zero Pixels to NoData (Save Raster Layer As)
+
+Note: This workflow is optional and only needed if the DEM source has 0-value artifacts that affect analysis. Always validate the need for this step by checking the DEM before and after.
 
 Goal: replace non-real elevation pixels (value 0) with NoData so terrain outputs are not distorted.
 
@@ -291,6 +293,27 @@ Goal: evaluate rise-fall behavior and gradient suitability along a line (road, d
 9. Cross-check route gradients using Road Slope Calculator.
 
 Output: elevation profile plus slope profile summary for engineering review.
+
+### Workflow H: Visualize Surface with 3d Map View
+
+Goal: use 3D view for visual validation of terrain features, design context, and stakeholder communication.
+
+1. Load DEM and confirm it is in projected CRS (preferably EPSG:32643).
+2. Open View > New 3D Map View.
+3. In 3D Map View, set DEM layer as the terrain source.
+4. Adjust vertical exaggeration for better visualization of features.
+5. Use navigation tools to explore terrain from different angles.
+6. Take screenshots for communication or use 3D view in print layout.
+
+### Workflow I: Layout and Export Maps
+
+Goal: create report-ready maps with clear symbology, legends, and metadata.
+
+1. Open Project > New Print Layout and give it a name.
+2. Add a map frame and set the map to the desired extent.
+3. Insert title, legend, north arrow, scale bar, and coordinate grid as needed.
+4. Add metadata text: CRS, data date, source, contour interval (if relevant).
+5. Export as PDF for reports and PNG for quick sharing.
 
 ## Must-Know Basic Tool Paths
 
