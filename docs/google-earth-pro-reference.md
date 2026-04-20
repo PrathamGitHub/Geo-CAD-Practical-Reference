@@ -159,8 +159,6 @@ Output: saved communication-level measurement artifacts; detailed profile valida
 - [Google Earth Help: Create and Manage Placemarks](https://support.google.com/earth/answer/148142)
 - [Google Earth Help: Measure Distance and Elevation](https://support.google.com/earth/answer/148134)
 
-Images on this page are sourced from the CartONG 2022 Google Earth Pro tutorial.
-
 ## Related Pages
 
 - [QGIS Reference](qgis-gep-reference.md)

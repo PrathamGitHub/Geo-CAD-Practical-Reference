@@ -102,13 +102,13 @@ Quick quality check before any measurement:
 
 Plugins used in this reference:
 
-- QuickWKT for coordinate checks.
-- OSM Place Search for quick AOI location and basemap validation.
-- NextGIS QuickMapServices for quick basemap loading.
-- Advanced Map Downloader for AOI basemap download.
-- OpenTopography DEM Downloader for preliminary Copernicus DEM.
-- Profile Tool for elevation profiles.
-- Road Slope Calculator for route slope checks.
+- **QuickWKT** for coordinate checks.
+- **OSM Place Search** for quick AOI location and basemap validation.
+- NextGIS **QuickMapServices** for quick basemap loading.
+- **Advanced Map Downloader** for AOI basemap download.
+- **OpenTopography DEM Downloader** for preliminary Copernicus DEM.
+- **Profile Tool** for elevation profiles.
+- **Road Slope Calculator** for route slope checks.
 
 Use plugins selectively. Built-in tools should be your default for reproducible workflows.
 
