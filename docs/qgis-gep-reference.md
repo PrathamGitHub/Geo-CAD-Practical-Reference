@@ -152,7 +152,7 @@ Goal: prepare AOI-specific basemap raster for consistent project context.
 
 1. Load online basemap with NextGIS QuickMapServices.
 2. Open Advanced Map Downloader and set AOI extent.
-3. Choose zoom level based on required detail and file size.
+3. Choose number of pixels (for example, 5000x5000) and spatial resolution (for example, 0.1 m to 2 m) based on project needs.
 4. Download and save output as GeoTIFF.
 5. Reproject with Raster > Projections > Warp (Reproject) to EPSG:32643.
 6. Validate alignment against known control layers.
