@@ -300,28 +300,6 @@ Goal: use 3D view for visual validation of terrain features, design context, and
 
 ### Workflow I: Layout and Export Maps
 
-Goal: create report-ready maps with clear symbology, legends, and metadata.
-
-1. Open Project > New Print Layout and give it a name.
-2. Add a map frame and set the map to the desired extent.
-3. Insert title, legend, north arrow, scale bar, and coordinate grid as needed.
-4. Add metadata text: CRS, data date, source, contour interval (if relevant).
-5. Export as PDF for reports and PNG for quick sharing.
-
-## Must-Know Basic Tool Paths
-
-- Plugin Manager: Plugins > Manage and Install Plugins.
-- Data Source Manager: Layer > Add Layer > Add Layer.
-- Warp (Reproject): Raster > Projections > Warp (Reproject).
-- Interpolation (TIN/IDW): Processing Toolbox > Interpolation.
-- Save Raster Layer As: Right-click raster layer > Export > Save As....
-- Contour: Processing Toolbox > GDAL > Raster extraction > Contour.
-- Slope: Processing Toolbox > GDAL > Raster analysis > Slope.
-- Print Layout: Project > New Print Layout.
-- Save Features As: Right-click layer > Export > Save Features As.
-
-## Map Making and Export Workflow
-
 ```mermaid
 flowchart TD
 	A[Analysis Outputs Ready] --> B[Apply Symbology and Labels]
@@ -346,11 +324,14 @@ flowchart TD
 	class D,H,J output;
 ```
 
+Goal: create report-ready maps with clear symbology, legends, and metadata.
+
 1. Finalize layer symbology and labels for readability.
-2. Open Project > New Print Layout and add map frame.
-3. Insert title, legend, north arrow, scale bar, and coordinate grid as needed.
-4. Add metadata text: CRS, data date, source, contour interval (if relevant).
-5. Export as PDF for reports and PNG for quick sharing.
+2. Open Project > New Print Layout and give it a name.
+3. Add a map frame and set the map to the desired extent.
+4. Insert title, legend, north arrow, scale bar, and coordinate grid as needed.
+5. Add metadata text: CRS, data date, source, contour interval (if relevant).
+6. Export as PDF for reports and PNG for quick sharing.
 
 ## Data Conversion Workflow
 
@@ -359,6 +340,18 @@ flowchart TD
 3. Use GDAL Translate (Convert format) for raster format conversion where needed.
 4. Recheck CRS and geometry after conversion.
 5. Keep converted outputs in a dedicated folder with versioned naming.
+
+## Must-Know Basic Tool Paths
+
+- Plugin Manager: Plugins > Manage and Install Plugins.
+- Data Source Manager: Layer > Add Layer > Add Layer.
+- Warp (Reproject): Raster > Projections > Warp (Reproject).
+- Interpolation (TIN/IDW): Processing Toolbox > Interpolation.
+- Save Raster Layer As: Right-click raster layer > Export > Save As....
+- Contour: Processing Toolbox > GDAL > Raster extraction > Contour.
+- Slope: Processing Toolbox > GDAL > Raster analysis > Slope.
+- Print Layout: Project > New Print Layout.
+- Save Features As: Right-click layer > Export > Save Features As.
 
 ## Quality Control Checklist
 
