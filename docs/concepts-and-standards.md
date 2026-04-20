@@ -156,11 +156,11 @@ Without a correct CRS, even good survey and CAD data can appear in the wrong pla
 | Format     | Data type             | Typical role in workflow                            |
 | ---------- | --------------------- | --------------------------------------------------- |
 | Excel/ CSV | Tabular               | Survey points, schedules, coordinate tables         |
+| DWG / DXF  | CAD geometry and text | Drafting/design source and CAD-GIS exchange         |
 | GeoTIFF    | Raster                | Basemap, DEM, orthophoto, terrain surfaces          |
 | Shapefile  | Vector                | Legacy-compatible exchange of points/lines/polygons |
 | GeoPackage | Vector and Raster     | Preferred single-file working format in GIS         |
 | KML / KMZ  | Vector with styling   | Earth-browser sharing and quick review              |
-| DWG / DXF  | CAD geometry and text | Drafting/design source and CAD-GIS exchange         |
 
 Recommendation:
 
