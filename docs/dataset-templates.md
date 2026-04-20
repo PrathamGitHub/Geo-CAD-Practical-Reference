@@ -18,6 +18,10 @@ Use these templates to run the full workflow quickly and consistently.
 - Planning a watchmen cabin in PWD Khandala campus.
 - Plan and design a road alignment for Kolwan. Road starting point coordinates: `Easting: 346305.44`, `Northing: 2054384.11` in UTM Zone 43N (EPSG:32643).
 
+## OpenTopygraphy API KEY
+
+- For temporary use in the workshop, use the following API key for OpenTopography DEM downloads: **dfceae7f7bf42b0a89b4e1b5e595cacd**.
+
 ## Sample Survey CSV Fields
 
 | Field       | Meaning                 | Required for                      |
