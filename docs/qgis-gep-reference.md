@@ -18,23 +18,16 @@ Core GIS theory is covered in the [Core Concepts and Standards](concepts-and-sta
 
 From the QGIS Training Manual (Module 2.1), these are the six UI areas you should identify first:
 
-1. Layers panel and Browser panel.
-2. Toolbars.
-3. Map canvas.
-4. Status bar.
-5. Side toolbar.
-6. Locator bar.
-
 ![QGIS interface overview (Training Manual)](assets/images/qgis-manual-interface-overview.png)
 
 Why this matters in daily work:
 
-- Layers panel and Browser panel: control draw order, visibility, and quick data discovery from folders/databases.
-- Toolbars: reduce clicks for common actions like add layer, pan/zoom, and save/export.
-- Map canvas: where you visually validate alignment, overlaps, and output quality.
-- Status bar: quickly verify CRS, scale, coordinates, and map units before measurement.
-- Side toolbar: fast entry point for layer loading and layer creation actions.
-- Locator bar: fastest way to find tools, algorithms, layers, and settings using search.
+1. Layers panel and Browser panel: control draw order, visibility, and quick data discovery from folders/databases.
+2. Toolbars: reduce clicks for common actions like add layer, pan/zoom, and save/export.
+3. Map canvas: where you visually validate alignment, overlaps, and output quality.
+4. Status bar: quickly verify CRS, scale, coordinates, and map units before measurement.
+5. Side toolbar: fast entry point for layer loading and layer creation actions.
+6. Locator bar: fastest way to find tools, algorithms, layers, and settings using search.
 
 ## Must-Know Basics to Get Started
 
