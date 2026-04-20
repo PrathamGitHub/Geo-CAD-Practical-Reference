@@ -1,0 +1,1451 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical reference for AutoCAD Civil 3D, Excel 365, QGIS, Google Earth Pro, and OneDrive workflows">
+      
+      
+        <meta name="author" content="Prathamesh Barane and Prashant Kote">
+      
+      
+      
+        <link rel="prev" href="../excel-365-reference/">
+      
+      
+        <link rel="next" href="../interoperability-workflow/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/Logo_Transparent.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>OneDrive Reference - Geo-CAD Practical Reference</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#onedrive-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Geo-CAD Practical Reference" class="md-header__button md-logo" aria-label="Geo-CAD Practical Reference" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geo-CAD Practical Reference
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OneDrive Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                       
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Geo-CAD Practical Reference"
+      class="md-nav__button md-logo"
+      aria-label="Geo-CAD Practical Reference"
+      data-md-component="logo"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    Geo-CAD Practical Reference
+  </label>
+  
+  <div class="md-nav__source"><a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a></div>
+   <div class="author-stack" data-md-component="author-stack">
+  <div class="author-stack__title">Authors</div>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/Dar_Photo.jpg"
+      alt="Photo of Prathamesh Barane"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prathamesh Barane</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://static.beservices.in/prathamesh/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Website"
+          title="Website"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://www.linkedin.com/in/prathameshbarane"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/prashant.svg"
+      alt="Photo of Prashant Kote"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prashant Kote</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub Repository"
+          title="GitHub Repository"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</div>
+
+  <ul class="md-nav__list" data-md-scrollfix>
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts-and-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts and Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qgis-gep-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth-pro-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Pro Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autocad-civil3d-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoCAD Civil 3D Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excel-365-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel 365 Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OneDrive Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OneDrive Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-page-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Page Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-onedrive-fits-in-this-handbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where OneDrive Fits in This Handbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview of the Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basics-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basics to Get Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-a-project-folder-setup-and-team-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow A: Project Folder Setup and Team Share
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-b-co-author-excel-and-keep-changes-traceable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow B: Co-Author Excel and Keep Changes Traceable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-c-restore-previous-file-version-after-mistake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow C: Restore Previous File Version After Mistake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-d-resolve-sync-issue-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow D: Resolve Sync Issue Quickly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-tool-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Tool Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-qa-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical QA Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interoperability-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interoperability Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-execution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Execution Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../further-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Further Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../questions-discussion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions and Discussion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+ 
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-page-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Page Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-onedrive-fits-in-this-handbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where OneDrive Fits in This Handbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview of the Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basics-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basics to Get Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-a-project-folder-setup-and-team-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow A: Project Folder Setup and Team Share
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-b-co-author-excel-and-keep-changes-traceable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow B: Co-Author Excel and Keep Changes Traceable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-c-restore-previous-file-version-after-mistake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow C: Restore Previous File Version After Mistake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-d-resolve-sync-issue-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow D: Resolve Sync Issue Quickly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-tool-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Tool Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-qa-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical QA Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="onedrive-reference">OneDrive Reference</h1>
+<p>This page is a practical, minimal guide for OneDrive collaboration and file version tracking.</p>
+<p>This reference is intentionally simple. It focuses on sharing, co-authoring, version history, and sync reliability for day-to-day project execution.</p>
+<h2 id="what-this-page-covers">What This Page Covers</h2>
+<ul>
+<li>OneDrive interface overview for web and File Explorer use.</li>
+<li>Must-know basics to get started quickly.</li>
+<li>Must-know basic settings for stable collaboration.</li>
+<li>Practical workflows for sharing, co-authoring, restoring versions, and sync recovery.</li>
+</ul>
+<h2 id="where-onedrive-fits-in-this-handbook">Where OneDrive Fits in This Handbook</h2>
+<p>Best use cases:</p>
+<ul>
+<li>Shared working folders for Excel sheets, CAD exports, and GIS deliverables.</li>
+<li>Fast team collaboration with controlled permissions.</li>
+<li>File-level version history and restore after mistakes.</li>
+<li>Offline work with automatic sync on reconnect.</li>
+</ul>
+<p>Important scope note:</p>
+<ul>
+<li>OneDrive gives cloud sync plus file version history.</li>
+<li>It is not a branch-based distributed source control system like Git.</li>
+</ul>
+<h2 id="overview-of-the-interface">Overview of the Interface</h2>
+<p>In this workshop, the most useful interface areas are the OneDrive sync app, File Explorer integration, and web version history panel.</p>
+<p><img alt="OneDrive setup: choose local OneDrive folder (Microsoft Support)" src="../assets/images/onedrive-ms-setup-folder.png" /></p>
+<p><img alt="OneDrive Version History pane (Microsoft Support)" src="../assets/images/onedrive-ms-version-history-pane.png" /></p>
+<p><img alt="File Explorer: Version history option (Microsoft Support)" src="../assets/images/onedrive-ms-file-explorer-version-history.png" /></p>
+<ol>
+<li>OneDrive account and local folder setup: where synced project files will live on the computer.</li>
+<li>File Explorer OneDrive folder: primary daily workspace for synced files.</li>
+<li>Right-click context actions: share, view online, and version history.</li>
+<li>Web file list and command bar: best place to manage sharing and access details.</li>
+<li>Version History panel: restore earlier file states after accidental edits.</li>
+<li>Sync status indicators: quickly detect pending, paused, or error states.</li>
+</ol>
+<h2 id="must-know-basics-to-get-started">Must-Know Basics to Get Started</h2>
+<ol>
+<li>Sign in to OneDrive with the correct account (personal or work/school).</li>
+<li>Confirm the local OneDrive folder location during setup.</li>
+<li>Create a project folder with clear naming and date/version discipline.</li>
+<li>Keep raw inputs and reviewed outputs in separate subfolders.</li>
+<li>Share folders with minimum required permissions.</li>
+<li>Co-author only where needed and keep naming conventions stable.</li>
+<li>Use Version History instead of creating many manual file copies.</li>
+<li>Watch sync status icons before shutdown or file handoff.</li>
+<li>For external sharing, use specific links and verify access from a test account.</li>
+<li>Reopen critical shared files once after sync to confirm integrity.</li>
+</ol>
+<h2 id="must-know-basic-configuration">Must-Know Basic Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>Setting area</th>
+<th>Workshop default</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account selection</td>
+<td>Use one primary account per project folder (personal or work/school)</td>
+<td>Prevents cross-account confusion</td>
+</tr>
+<tr>
+<td>OneDrive folder location</td>
+<td>Keep default unless storage policy requires change</td>
+<td>Avoids broken path references</td>
+</tr>
+<tr>
+<td>Files On-Demand</td>
+<td>Enabled</td>
+<td>Saves disk space while keeping full cloud visibility</td>
+</tr>
+<tr>
+<td>Folder sync scope</td>
+<td>Sync only active project folders</td>
+<td>Improves sync speed and reduces conflict risk</td>
+</tr>
+<tr>
+<td>Link sharing mode</td>
+<td>Prefer Specific people for controlled sharing</td>
+<td>Reduces accidental public exposure</td>
+</tr>
+<tr>
+<td>Edit permission</td>
+<td>Disable edit unless collaboration is required</td>
+<td>Protects approved deliverables</td>
+</tr>
+<tr>
+<td>Sync startup</td>
+<td>Start OneDrive automatically with Windows</td>
+<td>Prevents unsynced local-only edits</td>
+</tr>
+<tr>
+<td>Version recovery habit</td>
+<td>Use Version History before overwrite/rollback</td>
+<td>Preserves audit trail and reduces data loss</td>
+</tr>
+</tbody>
+</table>
+<p>Quick check before team work:</p>
+<ul>
+<li>Correct account is signed in.</li>
+<li>Sync icon is healthy (not paused/error).</li>
+<li>Shared folder permissions are verified.</li>
+</ul>
+<h2 id="practical-workflows">Practical Workflows</h2>
+<h3 id="workflow-a-project-folder-setup-and-team-share">Workflow A: Project Folder Setup and Team Share</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[Sign in to OneDrive] --&gt; B[Create project folder structure]
+    B --&gt; C[Add raw and working subfolders]
+    C --&gt; D[Share with specific people]
+    D --&gt; E[Set permissions view or edit]
+    E --&gt; F[Team confirms access]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E process;
+    class F output;</code></pre>
+<ol>
+<li>Sign in and confirm account type (personal or work/school).</li>
+<li>Create a project root folder with standard subfolders.</li>
+<li>Upload or move current workshop files to the correct subfolders.</li>
+<li>Share using Specific people when possible.</li>
+<li>Give edit rights only where collaboration is required.</li>
+<li>Ask one collaborator to validate access.</li>
+</ol>
+<p>Output: controlled shared workspace ready for execution.</p>
+<h3 id="workflow-b-co-author-excel-and-keep-changes-traceable">Workflow B: Co-Author Excel and Keep Changes Traceable</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[Open shared Excel in OneDrive] --&gt; B[Co-author with named users]
+    B --&gt; C[Review latest changes]
+    C --&gt; D[Lock final values and save]
+    D --&gt; E[Capture version milestone]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;</code></pre>
+<ol>
+<li>Open the shared Excel file from OneDrive.</li>
+<li>Co-author for active updates, then pause edits for review.</li>
+<li>Resolve naming and data consistency before final save.</li>
+<li>Record milestone in file name or notes when needed.</li>
+</ol>
+<p>Output: collaboratively updated sheet with clear ownership trail.</p>
+<h3 id="workflow-c-restore-previous-file-version-after-mistake">Workflow C: Restore Previous File Version After Mistake</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[Identify incorrect file state] --&gt; B[Open Version History]
+    B --&gt; C[Inspect older versions]
+    C --&gt; D[Restore required version]
+    D --&gt; E[Validate content]
+    E --&gt; F[Notify team of rollback]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E process;
+    class F output;</code></pre>
+<ol>
+<li>Right-click file (web or File Explorer) and open Version History.</li>
+<li>Review timestamps and authors.</li>
+<li>Restore the correct prior version.</li>
+<li>Validate key values/content immediately.</li>
+<li>Notify collaborators that a restore was applied.</li>
+</ol>
+<p>Output: known-good version restored without manual reconstruction.</p>
+<h3 id="workflow-d-resolve-sync-issue-quickly">Workflow D: Resolve Sync Issue Quickly</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[See sync warning or pending icon] --&gt; B[Check account and internet]
+    B --&gt; C[Resume sync or restart OneDrive]
+    C --&gt; D[Fix filename or path issue if shown]
+    D --&gt; E[Confirm green sync status]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D process;
+    class E output;</code></pre>
+<ol>
+<li>Check tray icon and file status.</li>
+<li>Resume sync if paused.</li>
+<li>If needed, restart OneDrive or re-open file after closing active editors.</li>
+<li>Fix invalid filename/path cases and allow resync.</li>
+<li>Confirm healthy status before sharing final outputs.</li>
+</ol>
+<p>Output: sync restored and file state reliable across users.</p>
+<h2 id="must-know-tool-paths">Must-Know Tool Paths</h2>
+<ul>
+<li>OneDrive web: onedrive.live.com</li>
+<li>Share (web): select item &gt; Share &gt; Copy link or Specific people</li>
+<li>Manage access (web): select item &gt; Details pane &gt; Manage access</li>
+<li>Version history (web): right-click file &gt; Version history</li>
+<li>Version history (File Explorer): right-click synced file &gt; Version history</li>
+<li>Sync controls: taskbar cloud icon &gt; Help and Settings</li>
+</ul>
+<h2 id="critical-qa-checks">Critical QA Checks</h2>
+<ul>
+<li>Correct account is used for the target project folder.</li>
+<li>No sync warnings are active before handoff.</li>
+<li>Shared links have intended audience and permission level.</li>
+<li>External users can access only what was intended.</li>
+<li>Restored version is validated after rollback.</li>
+</ul>
+<h2 id="references-and-image-sources">References and Image Sources</h2>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/office/share-files-and-folders-in-microsoft-onedrive-9fcc2f7d-de0c-4cec-93b0-a82024800c07">Microsoft Support: Share files and folders in Microsoft OneDrive</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/sync-your-computer-s-files-and-folders-with-onedrive-615391c4-2bd3-4aae-a42a-858262e42a49">Microsoft Support: Sync your computer's files and folders with OneDrive</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/restore-a-previous-version-of-a-file-stored-in-onedrive-159cad6d-d76e-4981-88ef-de6e96c93893">Microsoft Support: Restore a previous version of a file stored in OneDrive</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/fix-onedrive-sync-problems-0899b115-05f7-45ec-95b2-e4cc8c4670b2">Microsoft Support: Fix OneDrive sync problems</a></li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="../excel-365-reference/">Excel 365 Reference</a></li>
+<li><a href="../interoperability-workflow/">Interoperability Workflow</a></li>
+<li><a href="../practical-execution-guide/">Practical Execution Guide</a></li>
+<li><a href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../excel-365-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Excel 365 Reference">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Excel 365 Reference
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../interoperability-workflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Interoperability Workflow">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Interoperability Workflow
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Prathamesh Barane
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://static.beservices.in/prathamesh/" target="_blank" rel="noopener" title="static.beservices.in" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/prathameshbarane" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
+        <script src="../javascripts/remark42-theme-sync.js"></script>
+      
+    
+  </body>
+</html>

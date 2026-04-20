@@ -1,0 +1,1886 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical reference for AutoCAD Civil 3D, Excel 365, QGIS, Google Earth Pro, and OneDrive workflows">
+      
+      
+        <meta name="author" content="Prathamesh Barane and Prashant Kote">
+      
+      
+      
+        <link rel="prev" href="../concepts-and-standards/">
+      
+      
+        <link rel="next" href="../google-earth-pro-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/Logo_Transparent.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>QGIS Reference - Geo-CAD Practical Reference</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qgis-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Geo-CAD Practical Reference" class="md-header__button md-logo" aria-label="Geo-CAD Practical Reference" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geo-CAD Practical Reference
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              QGIS Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                       
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Geo-CAD Practical Reference"
+      class="md-nav__button md-logo"
+      aria-label="Geo-CAD Practical Reference"
+      data-md-component="logo"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    Geo-CAD Practical Reference
+  </label>
+  
+  <div class="md-nav__source"><a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a></div>
+   <div class="author-stack" data-md-component="author-stack">
+  <div class="author-stack__title">Authors</div>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/Dar_Photo.jpg"
+      alt="Photo of Prathamesh Barane"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prathamesh Barane</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://static.beservices.in/prathamesh/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Website"
+          title="Website"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://www.linkedin.com/in/prathameshbarane"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/prashant.svg"
+      alt="Photo of Prashant Kote"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prashant Kote</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub Repository"
+          title="GitHub Repository"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</div>
+
+  <ul class="md-nav__list" data-md-scrollfix>
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts-and-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts and Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-page-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Page Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview of the Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basics-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basics to Get Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Must-Know Basics to Get Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-and-save-the-project-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start and save the project correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-layers-using-data-source-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add layers using Data Source Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-layer-order-for-readable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix layer order for readable maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigate-map-canvas-with-confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigate map canvas with confidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-native-tools-by-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Native Tools by Toolbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-impact-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Impact Plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-Impact Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-and-setup-one-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install and Setup (One Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-elevation-source-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical Elevation Source Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-a-basemap-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow A: Basemap Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-b-preliminary-dem-workflow-copernicus-30m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow B: Preliminary DEM Workflow (Copernicus 30m)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-c-convert-local-site-survey-to-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow C: Convert Local Site Survey to DEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-d-set-dem-zero-pixels-to-nodata-save-raster-layer-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow D: Set DEM Zero Pixels to NoData (Save Raster Layer As)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-e-contour-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow E: Contour Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-f-build-a-slope-map-from-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow F: Build a Slope Map from DEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-g-generate-elevation-and-slope-profile-along-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow G: Generate Elevation and Slope Profile Along Alignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-h-visualize-surface-with-3d-map-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow H: Visualize Surface with 3d Map View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-i-layout-and-export-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow I: Layout and Export Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-conversion-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Conversion Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-tool-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Tool Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-control-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Control Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth-pro-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Pro Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autocad-civil3d-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoCAD Civil 3D Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excel-365-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel 365 Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onedrive-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OneDrive Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interoperability-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interoperability Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-execution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Execution Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../further-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Further Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../questions-discussion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions and Discussion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+ 
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-page-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Page Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview of the Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basics-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basics to Get Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Must-Know Basics to Get Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-and-save-the-project-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start and save the project correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-layers-using-data-source-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add layers using Data Source Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-layer-order-for-readable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix layer order for readable maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigate-map-canvas-with-confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigate map canvas with confidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-native-tools-by-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Native Tools by Toolbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-impact-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Impact Plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-Impact Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-and-setup-one-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install and Setup (One Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-elevation-source-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical Elevation Source Rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-a-basemap-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow A: Basemap Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-b-preliminary-dem-workflow-copernicus-30m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow B: Preliminary DEM Workflow (Copernicus 30m)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-c-convert-local-site-survey-to-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow C: Convert Local Site Survey to DEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-d-set-dem-zero-pixels-to-nodata-save-raster-layer-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow D: Set DEM Zero Pixels to NoData (Save Raster Layer As)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-e-contour-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow E: Contour Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-f-build-a-slope-map-from-dem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow F: Build a Slope Map from DEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-g-generate-elevation-and-slope-profile-along-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow G: Generate Elevation and Slope Profile Along Alignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-h-visualize-surface-with-3d-map-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow H: Visualize Surface with 3d Map View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-i-layout-and-export-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow I: Layout and Export Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-conversion-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Conversion Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#must-know-basic-tool-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must-Know Basic Tool Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-control-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Control Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="qgis-reference">QGIS Reference</h1>
+<p>This page is a practical, minimal, high-impact guide to get productive in QGIS quickly for civil engineering workflows.</p>
+<p>Core GIS theory is covered in the <a href="../concepts-and-standards/">Core Concepts and Standards</a> page, so this page focuses on software use and execution.</p>
+<h2 id="what-this-page-covers">What This Page Covers</h2>
+<ul>
+<li>QGIS interface overview.</li>
+<li>Must-know basics to start using the software.</li>
+<li>Must-know project configuration settings.</li>
+<li>Practical workflows for basemap, DEM source selection, contour, slope map, and elevation/slope profile.</li>
+<li>Map export and data conversion workflows.</li>
+<li>High-impact plugins and where to use them.</li>
+<li>High-impact native tools organized by toolbar.</li>
+</ul>
+<h2 id="overview-of-the-interface">Overview of the Interface</h2>
+<p>From the QGIS Training Manual (Module 2.1), these are the six UI areas you should identify first:</p>
+<p><img alt="QGIS interface overview (Training Manual)" src="../assets/images/qgis-manual-interface-overview.png" /></p>
+<p>Why this matters in daily work:</p>
+<ol>
+<li>Layers panel and Browser panel: control draw order, visibility, and quick data discovery from folders/databases.</li>
+<li>Toolbars: reduce clicks for common actions like add layer, pan/zoom, and save/export.</li>
+<li>Map canvas: where you visually validate alignment, overlaps, and output quality.</li>
+<li>Status bar: quickly verify CRS, scale, coordinates, and map units before measurement.</li>
+<li>Side toolbar: fast entry point for layer loading and layer creation actions.</li>
+<li>Locator bar: fastest way to find tools, algorithms, layers, and settings using search.</li>
+</ol>
+<h2 id="must-know-basics-to-get-started">Must-Know Basics to Get Started</h2>
+<h3 id="start-and-save-the-project-correctly">Start and save the project correctly</h3>
+<ol>
+<li>Open QGIS and save immediately as a <code>.qgz</code> project.</li>
+<li>Keep project and data in a consistent folder structure.</li>
+<li>Save frequently while processing large rasters.</li>
+</ol>
+<h3 id="add-layers-using-data-source-manager">Add layers using Data Source Manager</h3>
+<ol>
+<li>Open Data Source Manager.</li>
+<li>Add vector or raster layers from known sources.</li>
+<li>Confirm the layer loads in both Layers panel and map canvas.</li>
+</ol>
+<p><img alt="Data Source Manager in QGIS (Training Manual)" src="../assets/images/qgis-manual-add-data-dialog.png" /></p>
+<h3 id="fix-layer-order-for-readable-maps">Fix layer order for readable maps</h3>
+<p>Move polygon context layers below linear and point engineering layers.</p>
+<p><img alt="Correct layer order example (Training Manual)" src="../assets/images/qgis-manual-correct-layer-order.png" /></p>
+<h3 id="navigate-map-canvas-with-confidence">Navigate map canvas with confidence</h3>
+<ul>
+<li>Use Pan, Zoom In, Zoom Out, Zoom Last/Next, and Zoom Full Extent.</li>
+<li>Set working scale directly from status bar when needed.</li>
+</ul>
+<p><img alt="Roads and buildings loaded view (Training Manual)" src="../assets/images/qgis-manual-roads-buildings-added.png" /></p>
+<p><img alt="Zoom workflow example (Training Manual)" src="../assets/images/qgis-manual-zoom-in.png" /></p>
+<p><img alt="Map scale presets (Training Manual)" src="../assets/images/qgis-manual-map-scale-options.png" /></p>
+<h2 id="must-know-basic-configuration">Must-Know Basic Configuration</h2>
+<p>Use these settings before starting analysis work:</p>
+<table>
+<thead>
+<tr>
+<th>Setting area</th>
+<th>What to set</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project CRS</td>
+<td>Set project CRS to working projected CRS (for this context: EPSG:32643)</td>
+<td>Ensures metric calculations are reliable</td>
+</tr>
+<tr>
+<td>Layer CRS check</td>
+<td>Verify each incoming layer CRS before analysis</td>
+<td>Prevents layer misalignment</td>
+</tr>
+<tr>
+<td>Save paths</td>
+<td>Use relative paths in project settings</td>
+<td>Makes project portable across systems</td>
+</tr>
+<tr>
+<td>Browser panel</td>
+<td>Keep Browser panel visible</td>
+<td>Speeds up adding and managing data</td>
+</tr>
+<tr>
+<td>Processing outputs</td>
+<td>Save outputs with clear names and units</td>
+<td>Avoids overwrite and interpretation errors</td>
+</tr>
+</tbody>
+</table>
+<p>Quick quality check before any measurement:</p>
+<ul>
+<li>Confirm CRS in status bar.</li>
+<li>Confirm map units are meters.</li>
+<li>Confirm DEM and vector layers overlap correctly.</li>
+</ul>
+<h2 id="must-know-native-tools-by-toolbar">Must-Know Native Tools by Toolbar</h2>
+<ul>
+<li>Project Toolbar: use New Project, Open, Save, and Save As to control versions and avoid accidental overwrite. Use New Print Layout to move from analysis to report-ready outputs.</li>
+<li>Map Navigation Toolbar: Pan, Zoom In/Out, Zoom Full Extent, and Zoom to Layer are the fastest tools for QA and visual checks during analysis.</li>
+<li>Selection Toolbar: Select Features by Area/Polygon and Clear Selection are essential before attribute filtering, editing, and exporting subsets.</li>
+<li>Attribute Toolbar: Open Attribute Table, Field Calculator, and Identify Features support quick validation, data cleaning, and derived field creation.</li>
+<li>Data Source Manager Toolbar: Open Data Source Manager gives structured access to vector, raster, database, and delimited text sources from one dialog.</li>
+<li>Digitizing Toolbar: Toggle Editing, Add Feature, Vertex Tool, and Save Layer Edits are core controls for geometry creation and correction.</li>
+<li>Snapping Toolbar: Enable Snapping and Snapping Options maintain topological quality by reducing gaps, overlaps, and near-miss vertices.</li>
+<li>Manage Layers Toolbar: Add Layer, Remove Layer, and Layer Styling shortcuts help maintain a clean project stack and consistent map presentation.</li>
+</ul>
+<h2 id="high-impact-plugins">High-Impact Plugins</h2>
+<h3 id="install-and-setup-one-time">Install and Setup (One Time)</h3>
+<ol>
+<li>Open Plugins &gt; Manage and Install Plugins.</li>
+<li>Install required plugins from the All tab.</li>
+<li>Enable plugin toolbars/panels from View &gt; Toolbars or View &gt; Panels if needed.</li>
+<li>Restart QGIS when prompted.</li>
+</ol>
+<p>Plugins used in this reference:</p>
+<ul>
+<li><strong>QuickWKT</strong> for coordinate checks.</li>
+<li><strong>OSM Place Search</strong> for quick AOI location and basemap validation.</li>
+<li>NextGIS <strong>QuickMapServices</strong> for quick basemap loading.</li>
+<li><strong>Advanced Map Downloader</strong> for AOI basemap download.</li>
+<li><strong>OpenTopography DEM Downloader</strong> for preliminary Copernicus DEM.</li>
+<li><strong>Profile Tool</strong> for elevation profiles.</li>
+<li><strong>Road Slope Calculator</strong> for route slope checks.</li>
+</ul>
+<p>Use plugins selectively. Built-in tools should be your default for reproducible workflows.</p>
+<h2 id="critical-elevation-source-rule">Critical Elevation Source Rule</h2>
+<p>Use this decision before contour, slope, and profile generation:</p>
+<ul>
+<li>Preliminary analysis without detailed site survey: use Copernicus 30m DEM.</li>
+<li>Detailed analysis with detailed site survey: convert local site survey to DEM and use it for derived products.</li>
+<li>Do not use Copernicus 30m DEM for detailed grading/alignment decisions when survey-derived DEM is available.</li>
+</ul>
+<h2 id="practical-workflows">Practical Workflows</h2>
+<pre class="mermaid"><code>flowchart TD
+    A[Basemap with QuickMapServices] --&gt; B[AOI Download with Advanced Map Downloader]
+    B --&gt; C[GeoTIFF Basemap]
+    C --&gt; D{Detailed survey available?}
+    D --&gt;|No| E[DEM Download from OpenTopography Copernicus 30m]
+    D --&gt;|Yes| F[Convert local survey to DEM]
+    E --&gt; G[Reproject DEM to EPSG 32643]
+    F --&gt; G
+    G --&gt; H[Set 0 Pixel to NoData]
+    H --&gt; I[Generate Contours]
+    I --&gt; J[Styled Contour Output]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,E,F,G,H,I process;
+    class D decision;
+    class J output;</code></pre>
+<h3 id="workflow-a-basemap-workflow">Workflow A: Basemap Workflow</h3>
+<p>Goal: prepare AOI-specific basemap raster for consistent project context.</p>
+<ol>
+<li>Load online basemap with NextGIS QuickMapServices.</li>
+<li>Open Advanced Map Downloader and set AOI extent.</li>
+<li>Choose number of pixels (for example, 5000x5000) and spatial resolution (for example, 0.1 m to 2 m) based on project needs.</li>
+<li>Download and save output as GeoTIFF.</li>
+<li>Reproject with Raster &gt; Projections &gt; Warp (Reproject) to EPSG:32643.</li>
+<li>Validate alignment against known control layers.</li>
+</ol>
+<p>Output: project basemap raster ready for overlay and map layouts.</p>
+<h3 id="workflow-b-preliminary-dem-workflow-copernicus-30m">Workflow B: Preliminary DEM Workflow (Copernicus 30m)</h3>
+<p>Goal: create preliminary analysis DEM when detailed site survey is not available.</p>
+<ol>
+<li>Open OpenTopography DEM Downloader and select Copernicus DEM source.</li>
+<li>Set AOI and download DEM.</li>
+<li>Save DEM with clear naming (example: <code>dem_copernicus30m_32643_v1.tif</code>).</li>
+<li>Reproject using Raster &gt; Projections &gt; Warp (Reproject) to EPSG:32643. Assign Nodata values for output bands as -9999.</li>
+<li>Check no-data regions and clipping needs before analysis.</li>
+</ol>
+<p>Output: projected preliminary DEM ready for initial contour, slope, and profile screening.</p>
+<h3 id="workflow-c-convert-local-site-survey-to-dem">Workflow C: Convert Local Site Survey to DEM</h3>
+<p>Goal: generate detailed terrain DEM from detailed survey points for design-grade derived products.</p>
+<ol>
+<li>Load cleaned survey point layer with <code>Easting</code>, <code>Northing</code>, and <code>Elevation</code> fields.</li>
+<li>Confirm project CRS is projected (preferably EPSG:32643) and points align with AOI.</li>
+<li>Run Processing Toolbox &gt; Interpolation &gt; TIN interpolation (or IDW when required by data pattern).</li>
+<li>Set interpolation field to <code>Elevation</code> and define AOI extent.</li>
+<li>Choose output resolution based on survey point spacing (for example 0.5 m to 2 m).</li>
+<li>Save output DEM with clear naming (example: <code>dem_survey_32643_v1.tif</code>).</li>
+<li>Validate DEM against known survey points and investigate spikes/pits before deriving products.</li>
+</ol>
+<p>Output: survey-derived DEM ready for detailed contour, slope, and profile analysis.</p>
+<h3 id="workflow-d-set-dem-zero-pixels-to-nodata-save-raster-layer-as">Workflow D: Set DEM Zero Pixels to NoData (Save Raster Layer As)</h3>
+<p>Note: This workflow is optional and only needed if the DEM source has 0-value artifacts that affect analysis. Always validate the need for this step by checking the DEM before and after.</p>
+<p>Goal: replace non-real elevation pixels (value 0) with NoData so terrain outputs are not distorted.</p>
+<ol>
+<li>Right-click DEM layer &gt; Export &gt; Save As....</li>
+<li>Set output file name and format (GeoTIFF).</li>
+<li>In the Save Raster Layer As dialog, open the No data values section.</li>
+<li>Click the + button to add a new NoData value.</li>
+<li>Enter 0 as the NoData value and click OK.</li>
+<li>Reload output DEM and verify that 0-valued pixels are treated as NoData.</li>
+<li>Use this cleaned DEM for contour, slope, and profile workflows.</li>
+</ol>
+<p>Output: cleaned DEM with 0-value artifacts removed from analysis.</p>
+<h3 id="workflow-e-contour-workflow">Workflow E: Contour Workflow</h3>
+<p>Goal: derive contour lines for terrain interpretation and communication.</p>
+<ol>
+<li>Open Processing Toolbox &gt; GDAL &gt; Raster extraction &gt; Contour.</li>
+<li>Select projected DEM as input (Copernicus 30m for preliminary, survey-derived for detailed).</li>
+<li>Set contour interval based on project scale (for example 1 m, 2 m, or 5 m).</li>
+<li>Save output as GeoPackage or Shapefile.</li>
+<li>Style major/minor contours and label elevation values.</li>
+<li>Record contour interval in layer name or map metadata.</li>
+</ol>
+<p>Output: contour layer suitable for preliminary review or detailed design, based on DEM source.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Projected DEM] --&gt; B[Run Slope in Processing Toolbox]
+    B --&gt; C{Output Unit?}
+    C --&gt;|Degrees| D[Slope Degrees Raster]
+    C --&gt;|Percent| E[Slope Percent Raster]
+    D --&gt; F[Classify and Style]
+    E --&gt; F
+    F --&gt; G[Validate with Terrain Logic]
+    G --&gt; H[Route Check with Road Slope Calculator]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,D,E,F,G process;
+    class C decision;
+    class H output;</code></pre>
+<h3 id="workflow-f-build-a-slope-map-from-dem">Workflow F: Build a Slope Map from DEM</h3>
+<p>Goal: identify steep zones for route feasibility and design risk checks.</p>
+<ol>
+<li>Load DEM raster and confirm it is in projected CRS (preferably EPSG:32643).</li>
+<li>Confirm DEM source matches analysis stage (Copernicus 30m for preliminary, survey-derived for detailed).</li>
+<li>Open Processing Toolbox &gt; GDAL &gt; Raster analysis &gt; Slope.</li>
+<li>Set output unit (degrees or percent) based on design requirement.</li>
+<li>Save output as GeoTIFF (example: <code>slope_percent_32643.tif</code>).</li>
+<li>Apply a clear graduated color ramp and classify critical ranges.</li>
+<li>Validate high-slope areas against known terrain or contour logic.</li>
+<li>For alignment-specific slope summary, run Road Slope Calculator.</li>
+</ol>
+<p>Output: a slope raster that supports feasibility, alignment screening, and risk communication.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[DEM + Alignment Layer] --&gt; B[QuickWKT Coordinate Check]
+    B --&gt; C[Profile Tool: Select DEM]
+    C --&gt; D[Set Alignment Path]
+    D --&gt; E[Review Elevation Graph]
+    E --&gt; F[Export Profile Chart and Samples]
+    F --&gt; G[Derive Slope Profile]
+    G --&gt; H[Cross-check with Road Slope Calculator]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,D,E,F,G process;
+    class H output;</code></pre>
+<h3 id="workflow-g-generate-elevation-and-slope-profile-along-alignment">Workflow G: Generate Elevation and Slope Profile Along Alignment</h3>
+<p>Goal: evaluate rise-fall behavior and gradient suitability along a line (road, drain, pipeline).</p>
+<ol>
+<li>Load DEM and alignment line layer.</li>
+<li>Confirm DEM source matches objective (preliminary screening vs detailed design).</li>
+<li>Use QuickWKT to verify key coordinates when source alignment quality is uncertain.</li>
+<li>Open Profile Tool and select DEM as profile source.</li>
+<li>Choose alignment line as profile path.</li>
+<li>Review elevation graph for abrupt transitions and critical points.</li>
+<li>Export profile chart and sampled values.</li>
+<li>Derive slope profile from sampled values (delta elevation over distance).</li>
+<li>Cross-check route gradients using Road Slope Calculator.</li>
+</ol>
+<p>Output: elevation profile plus slope profile summary for engineering review.</p>
+<h3 id="workflow-h-visualize-surface-with-3d-map-view">Workflow H: Visualize Surface with 3d Map View</h3>
+<p>Goal: use 3D view for visual validation of terrain features, design context, and stakeholder communication.</p>
+<ol>
+<li>Load DEM and confirm it is in projected CRS (preferably EPSG:32643).</li>
+<li>Open View &gt; New 3D Map View.</li>
+<li>In 3D Map View, set DEM layer as the terrain source.</li>
+<li>Adjust vertical exaggeration for better visualization of features.</li>
+<li>Use navigation tools to explore terrain from different angles.</li>
+<li>Take screenshots for communication or use 3D view in print layout.</li>
+</ol>
+<h3 id="workflow-i-layout-and-export-maps">Workflow I: Layout and Export Maps</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[Analysis Outputs Ready] --&gt; B[Apply Symbology and Labels]
+    B --&gt; C[Print Layout Composition]
+    C --&gt; D[Export PDF and PNG]
+    D --&gt; E[Need Data Exchange?]
+    E --&gt;|Yes| F[Vector: Save Features As]
+    E --&gt;|Yes| G[Raster: Warp or Translate]
+    E --&gt;|No| H[Archive Final Maps]
+    F --&gt; I[Validate CRS and Geometry]
+    G --&gt; I
+    I --&gt; J[Versioned Deliverables]
+
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:1.5px,color:#0d47a1;
+    classDef process fill:#fff8e1,stroke:#ef6c00,stroke-width:1.5px,color:#e65100;
+    classDef decision fill:#ffebee,stroke:#c62828,stroke-width:1.5px,color:#8e0000;
+    classDef output fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px,color:#1b5e20;
+
+    class A input;
+    class B,C,F,G,I process;
+    class E decision;
+    class D,H,J output;</code></pre>
+<p>Goal: create report-ready maps with clear symbology, legends, and metadata.</p>
+<ol>
+<li>Finalize layer symbology and labels for readability.</li>
+<li>Open Project &gt; New Print Layout and give it a name.</li>
+<li>Add a map frame and set the map to the desired extent.</li>
+<li>Insert title, legend, north arrow, scale bar, and coordinate grid as needed.</li>
+<li>Add metadata text: CRS, data date, source, contour interval (if relevant).</li>
+<li>Export as PDF for reports and PNG for quick sharing.</li>
+</ol>
+<h2 id="data-conversion-workflow">Data Conversion Workflow</h2>
+<ol>
+<li>Use Save Features As for vector conversion (GeoPackage, Shapefile, DXF, KML/KMZ).</li>
+<li>Use Raster &gt; Projections &gt; Warp (Reproject) for raster CRS conversion.</li>
+<li>Use GDAL Translate (Convert format) for raster format conversion where needed.</li>
+<li>Recheck CRS and geometry after conversion.</li>
+<li>Keep converted outputs in a dedicated folder with versioned naming.</li>
+</ol>
+<h2 id="must-know-basic-tool-paths">Must-Know Basic Tool Paths</h2>
+<ul>
+<li>Plugin Manager: Plugins &gt; Manage and Install Plugins.</li>
+<li>Data Source Manager: Layer &gt; Add Layer &gt; Add Layer.</li>
+<li>Warp (Reproject): Raster &gt; Projections &gt; Warp (Reproject).</li>
+<li>Interpolation (TIN/IDW): Processing Toolbox &gt; Interpolation.</li>
+<li>Save Raster Layer As: Right-click raster layer &gt; Export &gt; Save As....</li>
+<li>Contour: Processing Toolbox &gt; GDAL &gt; Raster extraction &gt; Contour.</li>
+<li>Slope: Processing Toolbox &gt; GDAL &gt; Raster analysis &gt; Slope.</li>
+<li>Print Layout: Project &gt; New Print Layout.</li>
+<li>Save Features As: Right-click layer &gt; Export &gt; Save Features As.</li>
+</ul>
+<h2 id="quality-control-checklist">Quality Control Checklist</h2>
+<ul>
+<li>Project CRS is verified before processing.</li>
+<li>Input/output file names include CRS and product purpose.</li>
+<li>DEM source is documented for each terrain-derived output (Copernicus 30m or survey-derived).</li>
+<li>Contour interval and slope unit are documented.</li>
+<li>Profile outputs are exported and archived with date/version.</li>
+<li>Exported maps include legend, scale, north arrow, and source metadata.</li>
+</ul>
+<h2 id="references-and-image-sources">References and Image Sources</h2>
+<ul>
+<li><a href="https://docs.qgis.org/3.44/en/docs/training_manual/basic_map/index.html">QGIS Training Manual - Module 2: Creating and Exploring a Basic Map</a></li>
+<li><a href="https://docs.qgis.org/3.44/en/docs/training_manual/basic_map/overview.html">Lesson 2.1: An Overview of the Interface</a></li>
+<li><a href="https://docs.qgis.org/3.44/en/docs/training_manual/basic_map/preparation.html">Lesson 2.2: Adding Your First Layers</a></li>
+<li><a href="https://docs.qgis.org/3.44/en/docs/training_manual/basic_map/mapviewnavigation.html">Lesson 2.3: Navigating the Map Canvas</a></li>
+</ul>
+<p>Screenshots on this page are sourced from the QGIS Training Manual (QGIS Project Documentation).</p>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="../concepts-and-standards/">Core Concepts and Standards</a></li>
+<li><a href="../google-earth-pro-reference/">Google Earth Pro Reference</a></li>
+<li><a href="../interoperability-workflow/">Interoperability Workflow</a></li>
+<li><a href="../practical-execution-guide/">Practical Execution Guide</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../concepts-and-standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Core Concepts and Standards">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Core Concepts and Standards
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../google-earth-pro-reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Google Earth Pro Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Google Earth Pro Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Prathamesh Barane
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://static.beservices.in/prathamesh/" target="_blank" rel="noopener" title="static.beservices.in" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/prathameshbarane" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
+        <script src="../javascripts/remark42-theme-sync.js"></script>
+      
+    
+  </body>
+</html>

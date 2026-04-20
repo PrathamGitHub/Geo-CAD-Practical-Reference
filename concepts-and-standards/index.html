@@ -1,0 +1,2101 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical reference for AutoCAD Civil 3D, Excel 365, QGIS, Google Earth Pro, and OneDrive workflows">
+      
+      
+        <meta name="author" content="Prathamesh Barane and Prashant Kote">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../qgis-gep-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/Logo_Transparent.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Core Concepts and Standards - Geo-CAD Practical Reference</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core-concepts-and-standards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Geo-CAD Practical Reference" class="md-header__button md-logo" aria-label="Geo-CAD Practical Reference" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geo-CAD Practical Reference
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Core Concepts and Standards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                       
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Geo-CAD Practical Reference"
+      class="md-nav__button md-logo"
+      aria-label="Geo-CAD Practical Reference"
+      data-md-component="logo"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 141.3v309.3l.5-.2A449 449 0 0 1 428.8 416H448V96h-19.2c-42.2 0-84.1 8.4-123.1 24.6-16.8 7-33.4 13.9-49.7 20.7m-25.1-79.8L256 72l25.1-10.5C327.9 42 378.1 32 428.8 32H464c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-35.2c-50.7 0-100.9 10-147.7 29.5l-12.8 5.3c-7.9 3.3-16.7 3.3-24.6 0l-12.8-5.3C184.1 490 133.9 480 83.2 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h35.2c50.7 0 100.9 10 147.7 29.5"/></svg>
+
+    </a>
+    Geo-CAD Practical Reference
+  </label>
+  
+  <div class="md-nav__source"><a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PrathamGitHub/Geo-CAD-Practical-Reference
+  </div>
+</a></div>
+   <div class="author-stack" data-md-component="author-stack">
+  <div class="author-stack__title">Authors</div>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/Dar_Photo.jpg"
+      alt="Photo of Prathamesh Barane"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prathamesh Barane</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://static.beservices.in/prathamesh/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Website"
+          title="Website"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://www.linkedin.com/in/prathameshbarane"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+        </a>
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="author-card">
+    <img
+      class="author-card__photo"
+      src="../assets/images/authors/prashant.svg"
+      alt="Photo of Prashant Kote"
+      loading="lazy"
+    />
+    <div class="author-card__meta">
+      <div class="author-card__name">Prashant Kote</div>
+      <div class="author-card__links">
+        <a
+          class="author-link author-link--icon"
+          href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub Repository"
+          title="GitHub Repository"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</div>
+
+  <ul class="md-nav__list" data-md-scrollfix>
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts and Standards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts and Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-story-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Simple Story First
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-why-it-matters-in-civil-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data: Why It Matters in Civil Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geospatial-data-what-it-is-and-why-it-is-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geospatial Data: What It Is and Why It Is Different
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Data: What It Is and Why It Is Different">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-is-geospatial-data-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Is Geospatial Data Different?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gis-the-bridge-between-data-and-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GIS: The Bridge Between Data and Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-include-in-this-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Does It Include in This Workflow?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-of-gis-in-civil-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role of GIS in Civil Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-models-and-their-basic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Models and Their Basic Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Models and Their Basic Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-resolution-of-aerial-imagery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Resolution of Aerial Imagery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-reference-system-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate Reference System (CRS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coordinate Reference System (CRS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-crs-used-in-this-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key CRS Used in This Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#longitude-latitude-altitude-vs-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Longitude-Latitude-Altitude vs X-Y-Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-formats-and-their-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Formats and Their Roles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Formats and Their Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-formats-in-daily-civil-gis-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Formats in Daily Civil GIS Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-vs-excel-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV vs Excel Workbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kml-vs-kmz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KML vs KMZ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwg-vs-dxf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DWG vs DXF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-products-and-derived-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Products and Derived Products
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Products and Derived Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#surface-modeling-for-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface Modeling for Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Surface Modeling for Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-surface-modeling-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why surface modeling is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-surface-modeling-is-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How surface modeling is done
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guidelines-for-better-surface-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guidelines for better surface representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elevation-source-decision-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elevation Source Decision Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-data-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Data Products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derived-products-generated-from-base-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived Products (Generated from Base Data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-standards-for-reliable-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Standards for Reliable Exchange
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Standards for Reliable Exchange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-crs-usage-in-civil-engineering-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended CRS usage in civil engineering workflows:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qgis-gep-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-earth-pro-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Pro Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autocad-civil3d-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoCAD Civil 3D Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excel-365-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excel 365 Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onedrive-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OneDrive Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interoperability-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interoperability Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-execution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Execution Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../further-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Further Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../questions-discussion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions and Discussion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+ 
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-story-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Simple Story First
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-why-it-matters-in-civil-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data: Why It Matters in Civil Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geospatial-data-what-it-is-and-why-it-is-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geospatial Data: What It Is and Why It Is Different
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Data: What It Is and Why It Is Different">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-is-geospatial-data-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Is Geospatial Data Different?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gis-the-bridge-between-data-and-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GIS: The Bridge Between Data and Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-include-in-this-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Does It Include in This Workflow?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-of-gis-in-civil-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role of GIS in Civil Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-models-and-their-basic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Models and Their Basic Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Models and Their Basic Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-resolution-of-aerial-imagery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Resolution of Aerial Imagery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-reference-system-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate Reference System (CRS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coordinate Reference System (CRS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-crs-used-in-this-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key CRS Used in This Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#longitude-latitude-altitude-vs-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Longitude-Latitude-Altitude vs X-Y-Z
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-formats-and-their-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Formats and Their Roles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Formats and Their Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-formats-in-daily-civil-gis-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Formats in Daily Civil GIS Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-vs-excel-workbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV vs Excel Workbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kml-vs-kmz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KML vs KMZ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwg-vs-dxf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DWG vs DXF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-products-and-derived-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Products and Derived Products
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Products and Derived Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#surface-modeling-for-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface Modeling for Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Surface Modeling for Engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-surface-modeling-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why surface modeling is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-surface-modeling-is-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How surface modeling is done
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guidelines-for-better-surface-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guidelines for better surface representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elevation-source-decision-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elevation Source Decision Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-data-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Data Products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derived-products-generated-from-base-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived Products (Generated from Base Data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-standards-for-reliable-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Standards for Reliable Exchange
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Standards for Reliable Exchange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-crs-usage-in-civil-engineering-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended CRS usage in civil engineering workflows:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-image-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Image Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="core-concepts-and-standards">Core Concepts and Standards</h1>
+<p>This page explains the core ideas in plain language and sets practical standards for day-to-day civil engineering work.</p>
+<h2 id="a-simple-story-first">A Simple Story First</h2>
+<p>Imagine a small team planning an approach road to a new site.</p>
+<ul>
+<li>The surveyor sends a spreadsheet with point coordinates and levels.</li>
+<li>The CAD drafter sends a drawing with centerline and plot boundaries.</li>
+<li>The project engineer must answer simple but critical questions:</li>
+<li>Where exactly is the road alignment on ground?</li>
+<li>How far is it from nearby structures?</li>
+<li>Which option is safer and cheaper?</li>
+</ul>
+<p>That is where data becomes geospatial data, and geospatial data becomes decisions.</p>
+<p><img alt="Data to decisions workflow" src="../assets/images/concepts-data-to-decisions.svg" /></p>
+<h2 id="data-why-it-matters-in-civil-engineering">Data: Why It Matters in Civil Engineering</h2>
+<p>In civil engineering, data is not just documentation. It directly drives design quality, cost accuracy, and execution speed.</p>
+<p>Common tasks that depend on good data:</p>
+<ul>
+<li>Site feasibility and constraints mapping.</li>
+<li>Alignment and grading decisions.</li>
+<li>Quantity and cost estimation.</li>
+<li>Clash and access checks before site execution.</li>
+<li>Progress tracking and as-built validation.</li>
+</ul>
+<p>When data quality is weak, teams spend time rechecking drawings, repeating measurements, and correcting site mistakes.</p>
+<h2 id="geospatial-data-what-it-is-and-why-it-is-different">Geospatial Data: What It Is and Why It Is Different</h2>
+<p>Geospatial data is any data tied to location on Earth.</p>
+<p>It usually answers one more question than normal data: where?</p>
+<h3 id="how-is-geospatial-data-different">How Is Geospatial Data Different?</h3>
+<table>
+<thead>
+<tr>
+<th>Normal data</th>
+<th>Geospatial data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has values only</td>
+<td>Has values plus location</td>
+</tr>
+<tr>
+<td>Example: chainage table in Excel</td>
+<td>Example: chainage table with coordinates and map position</td>
+</tr>
+<tr>
+<td>Hard to visualize spatial conflicts</td>
+<td>Easy to overlay and inspect conflicts on map</td>
+</tr>
+<tr>
+<td>Mostly used for reporting</td>
+<td>Used for both reporting and spatial decision-making</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gis-the-bridge-between-data-and-location">GIS: The Bridge Between Data and Location</h3>
+<p>GIS (Geographic Information System) is the software that helps us work with geospatial data. It allows us to:</p>
+<ul>
+<li>Import and visualize data on a map.</li>
+<li>Analyze spatial relationships and patterns.</li>
+<li>Export data in formats that can be shared and used in other tools.</li>
+</ul>
+<h3 id="what-does-it-include-in-this-workflow">What Does It Include in This Workflow?</h3>
+<ul>
+<li>Excel contributes attributes and coordinates (for example X, Y, Z, code, description).</li>
+<li>CAD contributes engineering geometry (lines, boundaries, layers, layout context).</li>
+<li>QGIS (An open-source GIS) combines both in one spatial workspace for validation, analysis, and outputs.</li>
+</ul>
+<p><img alt="Excel and CAD into QGIS" src="../assets/images/concepts-excel-cad-qgis-flow.svg" /></p>
+<h2 id="role-of-gis-in-civil-engineering">Role of GIS in Civil Engineering</h2>
+<p>GIS is the bridge between raw project files and real-world engineering decisions.</p>
+<p>GIS helps teams:</p>
+<ul>
+<li>See all project layers in one common location context.</li>
+<li>Verify if survey, CAD, and basemap data align correctly.</li>
+<li>Measure distance, area, slope, and proximity quickly.</li>
+<li>Compare alternatives before freezing design.</li>
+<li>Communicate decisions using clear maps and data-backed outputs.</li>
+</ul>
+<p>In short, GIS reduces guesswork and rework.</p>
+<h2 id="data-models-and-their-basic-types">Data Models and Their Basic Types</h2>
+<p><img alt="Basic geospatial data models" src="../assets/images/concepts-data-models.svg" /></p>
+<p>Geospatial data is mainly represented in two models: vector and raster.</p>
+<h3 id="vector-model">Vector Model</h3>
+<p>Vector stores geometry as coordinates. It is best for precise engineering features.</p>
+<ul>
+<li>Point: one location (example: survey station, borehole).</li>
+<li>Line: linear feature (example: road centerline, drain, pipeline).</li>
+<li>Polygon: closed area (example: plot boundary, building footprint, pond).</li>
+</ul>
+<h3 id="raster-model">Raster Model</h3>
+<p>Raster stores data in a grid of cells. It is best for continuous surfaces.</p>
+<ul>
+<li>Typical uses: satellite imagery, DEM, slope, heat maps.</li>
+<li>Precision depends on pixel size.</li>
+</ul>
+<h3 id="spatial-resolution-of-aerial-imagery">Spatial Resolution of Aerial Imagery</h3>
+<p>Spatial resolution is the ground size represented by one pixel in an image.</p>
+<ul>
+<li>Higher resolution means smaller pixel size (for example 0.10 m to 0.30 m per pixel) and more visible detail.</li>
+<li>Lower resolution means larger pixel size (for example 5 m to 30 m per pixel) and less visible detail.</li>
+<li>Practical implication: use higher-resolution aerial imagery for detailed mapping, feature extraction, and design support; use lower-resolution imagery for regional context and preliminary screening.</li>
+</ul>
+<p>Simple example:</p>
+<ul>
+<li>At 0.20 m resolution, one pixel represents 20 cm on ground.</li>
+<li>At 30 m resolution, one pixel represents 30 m on ground.</li>
+</ul>
+<p>Practical rule:</p>
+<ul>
+<li>Use vector for design geometry, assets, and reporting layers.</li>
+<li>Use raster for terrain, imagery, and surface-based analysis.</li>
+</ul>
+<h2 id="coordinate-reference-system-crs">Coordinate Reference System (CRS)</h2>
+<p><img alt="Coordinate Reference System" src="../assets/images/crs-naxa.png" /></p>
+<p>CRS is a rule set that tells software how coordinates relate to real-world locations.</p>
+<p>Without a correct CRS, even good survey and CAD data can appear in the wrong place.</p>
+<h3 id="key-crs-used-in-this-reference">Key CRS Used in This Reference</h3>
+<!-- prettier-ignore -->
+<ul>
+<li>Geographic CRS:<ul>
+<li>WGS 84 (EPSG:4326): latitude and longitude on the Earth in degrees.</li>
+</ul>
+</li>
+<li>Projected CRS:<ul>
+<li>WGS 84 / Pseudo-Mercator (EPSG:3857): standard projected system for web maps like Google Maps and OpenStreetMap.</li>
+<li>WGS 84 / UTM Zone 43N (EPSG:32643): projected CRS suited for metric engineering work in the target region.</li>
+<li>WGS 84 / Maharashtra (EPSG:7767): projected CRS specific to Maharashtra, India, for engineering work within that state.</li>
+</ul>
+</li>
+</ul>
+<h3 id="practical-rule">Practical Rule</h3>
+<ul>
+<li>Use EPSG:4326 for KML and broad data exchange.</li>
+<li>Use EPSG:3857 only for web background viewing.</li>
+<li>Use UTM (for example EPSG:32643) for distance, area, and slope analysis in engineering tasks.</li>
+</ul>
+<h3 id="longitude-latitude-altitude-vs-x-y-z">Longitude-Latitude-Altitude vs X-Y-Z</h3>
+<!-- prettier-ignore -->
+<ul>
+<li>Longitude and latitude are angular coordinates (in degrees) used in geographic CRS (for example EPSG:4326).<ul>
+<li>Longitude (X) measures east-west position, and latitude (Y) measures north-south position.</li>
+<li>Altitude (Z) is the elevation (ELEV) value, which can be in meters above sea level or another vertical datum.</li>
+</ul>
+</li>
+<li>X and Y are planar map coordinates (usually in meters) used in projected CRS (for example UTM / EPSG:32643).</li>
+<li>In engineering workflows, X and Y are also commonly denoted as Easting (X) and Northing (Y).</li>
+<li>Practical implication: use latitude/longitude for global exchange and web mapping, and use X/Y (Easting/Northing) for measurement and design work.</li>
+</ul>
+<h2 id="file-formats-and-their-roles">File Formats and Their Roles</h2>
+<h3 id="common-formats-in-daily-civil-gis-workflows">Common Formats in Daily Civil GIS Workflows</h3>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Data type</th>
+<th>Typical role in workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Excel/ CSV</td>
+<td>Tabular</td>
+<td>Survey points, schedules, coordinate tables</td>
+</tr>
+<tr>
+<td>DWG / DXF</td>
+<td>CAD geometry and text</td>
+<td>Drafting/design source and CAD-GIS exchange</td>
+</tr>
+<tr>
+<td>GeoTIFF</td>
+<td>Raster</td>
+<td>Basemap, DEM, orthophoto, terrain surfaces</td>
+</tr>
+<tr>
+<td>Shapefile</td>
+<td>Vector</td>
+<td>Legacy-compatible exchange of points/lines/polygons</td>
+</tr>
+<tr>
+<td>GeoPackage</td>
+<td>Vector and Raster</td>
+<td>Preferred single-file working format in GIS</td>
+</tr>
+<tr>
+<td>KML / KMZ</td>
+<td>Vector with styling</td>
+<td>Earth-browser sharing and quick review</td>
+</tr>
+</tbody>
+</table>
+<p>Recommendation:</p>
+<ul>
+<li>Use GeoPackage as the main editable GIS format when possible.</li>
+<li>Export Shapefile, KML, or DXF only when external compatibility requires it.</li>
+</ul>
+<h3 id="csv-vs-excel-workbook">CSV vs Excel Workbook</h3>
+<p>Both are useful, but they serve different purposes in civil workflows.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>CSV</th>
+<th>Excel Workbook (XLSX)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>Plain text table, one sheet</td>
+<td>Multi-sheet workbook with formatting and formulas</td>
+</tr>
+<tr>
+<td>Best use</td>
+<td>Data exchange between tools</td>
+<td>Data cleaning, QA checks, calculations, reporting</td>
+</tr>
+<tr>
+<td>Formulas</td>
+<td>Not stored</td>
+<td>Stored and recalculated</td>
+</tr>
+<tr>
+<td>Formatting</td>
+<td>Not stored</td>
+<td>Stored (headers, colors, filters, print setup)</td>
+</tr>
+<tr>
+<td>Interoperability</td>
+<td>Very high across GIS/CAD tools</td>
+<td>Good, but some tools read only specific sheets/ranges</td>
+</tr>
+<tr>
+<td>File size</td>
+<td>Usually smaller</td>
+<td>Usually larger</td>
+</tr>
+<tr>
+<td>Common risk</td>
+<td>Loss of data types and leading zeros</td>
+<td>Hidden formulas or mixed formatting errors</td>
+</tr>
+</tbody>
+</table>
+<p>Practical rule:</p>
+<ul>
+<li>Use Excel for cleaning, validation, and engineering checks.</li>
+<li>Publish final exchange tables as CSV when moving data to GIS/CAD tools.</li>
+<li>Keep field names stable between Excel and CSV exports.</li>
+</ul>
+<h3 id="kml-vs-kmz">KML vs KMZ</h3>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>What it is</th>
+<th>Best use</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KML</td>
+<td>Text-based Keyhole Markup Language</td>
+<td>Sharing map features and simple styling</td>
+<td>Readable, editable, can be larger</td>
+</tr>
+<tr>
+<td>KMZ</td>
+<td>Compressed KML package</td>
+<td>Sharing KML with icons/images in one file</td>
+<td>Smaller size, easier to transfer</td>
+</tr>
+</tbody>
+</table>
+<p>Rule of thumb:</p>
+<ul>
+<li>Use KML during editing or when you need readable text.</li>
+<li>Use KMZ for compact sharing and email transfer.</li>
+</ul>
+<h3 id="dwg-vs-dxf">DWG vs DXF</h3>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>What it is</th>
+<th>Best use</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DWG</td>
+<td>Native AutoCAD drawing format</td>
+<td>Active drafting and production drawings</td>
+<td>Richest CAD feature support</td>
+</tr>
+<tr>
+<td>DXF</td>
+<td>Drawing exchange format</td>
+<td>Interoperability with GIS and other tools</td>
+<td>Better for data exchange, more open</td>
+</tr>
+</tbody>
+</table>
+<p>Rule of thumb:</p>
+<ul>
+<li>Use DWG as design source in CAD workflows.</li>
+<li>Use DXF when exchanging geometry across platforms, including GIS.</li>
+</ul>
+<h2 id="data-products-and-derived-products">Data Products and Derived Products</h2>
+<p>In civil engineering mapping workflows, some outputs are base products, and some are derived from analysis.</p>
+<h3 id="surface-modeling-for-engineering">Surface Modeling for Engineering</h3>
+<p>Surface modeling is the process of creating a DEM that represents ground elevation realistically enough for engineering decisions.</p>
+<h4 id="why-surface-modeling-is-needed">Why surface modeling is needed</h4>
+<ul>
+<li>To derive reliable contours, slope maps, and profiles.</li>
+<li>To evaluate feasibility, drainage behavior, and alignment options.</li>
+<li>To reduce rework caused by poor terrain representation.</li>
+</ul>
+<h4 id="how-surface-modeling-is-done">How surface modeling is done</h4>
+<ul>
+<li>Remote sensing:</li>
+</ul>
+<div style="padding-left: 2em;">
+<p>Use raster elevation sources (for this handbook, Copernicus 30m DEM) for preliminary analysis. This is quick and easy but may not capture critical terrain features for detailed design. Use it for early-stage screening and feasibility checks. Satellite-based DEMs can have artifacts, so always check the DEM quality before relying on it for design decisions.</p>
+<p>Drone-based DEMs can be used for detailed analysis if available, but they require careful processing and validation. For this handbook, we will focus on using survey-derived DEMs for detailed analysis.</p>
+</div>
+<ul>
+<li>Site survey:</li>
+</ul>
+<div style="padding-left: 2em;">
+<p>Use detailed survey points (for example total station data) to interpolate a project DEM for detailed analysis. This is more work but gives a more accurate representation of the terrain, which is critical for final design decisions. Ensure that survey points cover all relevant terrain features, including breaks in slope, ridges, drains, and road edges.</p>
+</div>
+<h4 id="guidelines-for-better-surface-representation">Guidelines for better surface representation</h4>
+<p>For remote sensing DEM (preliminary analysis):</p>
+<ul>
+<li>Use for early-stage screening, not final design-grade decisions.</li>
+<li>Reproject to the project's projected CRS before terrain analysis.</li>
+<li>Check NoData and edge artifacts before deriving contours or slope.</li>
+<li>Use practical contour intervals that match raster resolution limits.</li>
+</ul>
+<p>For total station survey DEM (detailed analysis):</p>
+<ul>
+<li>Ensure survey point coverage includes breaks in slope, ridges, drains, and road edges.</li>
+<li>Maintain consistent coordinate system, units, and elevation datum across all points.</li>
+<li>Remove outliers and duplicate points before interpolation.</li>
+<li>Choose interpolation method and grid resolution according to point spacing and terrain complexity.</li>
+<li>Validate generated surface against known control points before producing detailed contour/slope/profile outputs.</li>
+</ul>
+<h3 id="elevation-source-decision-standard">Elevation Source Decision Standard</h3>
+<p>Apply this standard before generating contour, slope, or profile outputs:</p>
+<ul>
+<li>Preliminary analysis (detailed survey not available): use Copernicus 30m DEM.</li>
+<li>Detailed analysis (detailed survey available): generate DEM from detailed survey and use that DEM.</li>
+<li>For detailed design decisions, prefer survey-derived DEM over Copernicus 30m DEM.</li>
+</ul>
+<h3 id="base-data-products">Base Data Products</h3>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>What it gives you</th>
+<th>Common source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basemap</td>
+<td>Ground context and visual reference for planning</td>
+<td>Web tiles or orthophoto</td>
+</tr>
+<tr>
+<td>DEM</td>
+<td>Elevation surface where each cell stores height</td>
+<td>Copernicus 30m DEM for preliminary analysis, survey-derived DEM for detailed analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="derived-products-generated-from-base-data">Derived Products (Generated from Base Data)</h3>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Derived from</th>
+<th>Why it is used in civil work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contours</td>
+<td>DEM (Copernicus 30m for preliminary, survey-derived for detailed)</td>
+<td>Understand terrain form and grading intent</td>
+</tr>
+<tr>
+<td>Slope map</td>
+<td>DEM (Copernicus 30m for preliminary, survey-derived for detailed)</td>
+<td>Identify steep zones and feasibility/risk</td>
+</tr>
+<tr>
+<td>Elevation profile</td>
+<td>DEM + selected line (source based on analysis stage)</td>
+<td>Check rise/fall along road, drain, or pipeline alignment</td>
+</tr>
+<tr>
+<td>Slope profile</td>
+<td>Elevation profile</td>
+<td>Quantify gradient changes and design comfort/safety</td>
+</tr>
+</tbody>
+</table>
+<p>Simple interpretation flow:</p>
+<ul>
+<li>Basemap helps you see where features are.</li>
+<li>DEM helps you know how high or low the ground is. Select source by stage: Copernicus 30m for preliminary, survey-derived for detailed work.</li>
+<li>Contours and slope map help you understand terrain behavior.</li>
+<li>Elevation and slope profiles help you validate alignment decisions.</li>
+</ul>
+<h2 id="minimum-standards-for-reliable-exchange">Minimum Standards for Reliable Exchange</h2>
+<ul>
+<li>Always assign and verify CRS before analysis.</li>
+<li>Keep units explicit in field names (for example Elev_m, Length_m).</li>
+<li>Use clear, stable layer naming conventions.</li>
+<li>Keep one source-of-truth file for each dataset.</li>
+<li>Validate geometry and attributes before export.</li>
+</ul>
+<h3 id="recommended-crs-usage-in-civil-engineering-workflows">Recommended CRS usage in civil engineering workflows:</h3>
+<ul>
+<li>Always use a projected CRS (for example UTM 43N) for engineering analysis to ensure accurate distance and area measurements.</li>
+<li>Use geographic CRS (for example WGS 84) only for data exchange and when working with global datasets that require latitude and longitude.</li>
+<li>Be consistent with CRS across all project files to avoid misalignment and errors in analysis.</li>
+</ul>
+<h2 id="references-and-image-sources">References and Image Sources</h2>
+<ul>
+<li><a href="https://www.slideshare.net/slideshow/introduction-to-mapscoordinate-system-and-projection-system/42506034">Introduction to MAPS,Coordinate System and Projection System</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../qgis-gep-reference/" class="md-footer__link md-footer__link--next" aria-label="Next: QGIS Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                QGIS Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Prathamesh Barane
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://static.beservices.in/prathamesh/" target="_blank" rel="noopener" title="static.beservices.in" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/prathameshbarane" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PrathamGitHub/Geo-CAD-Practical-Reference" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
+        <script src="../javascripts/remark42-theme-sync.js"></script>
+      
+    
+  </body>
+</html>
