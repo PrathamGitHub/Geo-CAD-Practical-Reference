@@ -155,7 +155,7 @@ Without a correct CRS, even good survey and CAD data can appear in the wrong pla
 
 | Format     | Data type             | Typical role in workflow                            |
 | ---------- | --------------------- | --------------------------------------------------- |
-| CSV        | Tabular               | Survey points, schedules, coordinate tables         |
+| Excel/ CSV | Tabular               | Survey points, schedules, coordinate tables         |
 | GeoTIFF    | Raster                | Basemap, DEM, orthophoto, terrain surfaces          |
 | Shapefile  | Vector                | Legacy-compatible exchange of points/lines/polygons |
 | GeoPackage | Vector and Raster     | Preferred single-file working format in GIS         |
