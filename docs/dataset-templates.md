@@ -6,12 +6,13 @@ Use these templates to run the full workflow quickly and consistently.
 
 ## What Is Included
 
-| File                                                                     | Purpose                                                   |
-| ------------------------------------------------------------------------ | --------------------------------------------------------- |
-| [khandala_survey_utm43n.csv](assets/datasets/khandala_survey_utm43n.csv) | Survey point (UTM 43N) input for Excel and QGIS workflows |
-| [khandala_survey_local.csv](assets/datasets/khandala_survey_local.csv)   | Survey point (Local) input for Excel and QGIS workflows   |
-| [cad_layers_template.csv](assets/datasets/cad_layers_template.csv)       | Starter layer naming and discipline for CAD               |
-| [ts_points_sample.csv](assets/datasets/ts_points_sample.csv)             | Total station point sample for reference                  |
+| File                                                                         | Purpose                                                   |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [khandala_survey_utm43n.csv](assets/datasets/khandala_survey_utm43n.csv)     | Survey point (UTM 43N) input for Excel and QGIS workflows |
+| [khandala_survey_local.csv](assets/datasets/khandala_survey_local.csv)       | Survey point (Local) input for Excel and QGIS workflows   |
+| [pwd_capital_work_report.xlsx](assets/datasets/pwd_capital_work_report.xlsx) | Sample capital work report for reference                  |
+| [cad_layers_template.csv](assets/datasets/cad_layers_template.csv)           | Starter layer naming and discipline for CAD               |
+| [ts_points_sample.csv](assets/datasets/ts_points_sample.csv)                 | Total station point sample for reference                  |
 
 ## Workflow Specific Applications
 
